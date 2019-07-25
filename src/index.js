@@ -2,8 +2,20 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.css'
 
-export const Form = ({ onSubmit, children }) => {
-  return <form action={onSubmit}>{children}</form>
+export const Form = ({ onSubmit, children, buttons }) => {
+  return (
+    <form action={onSubmit}>
+      {children}
+      <div>
+        {buttons || (
+          <>
+            <button>Cancel</button>
+            <button>Submit</button>
+          </>
+        )}
+      </div>
+    </form>
+  )
 }
 
 export const Field = ({ children }) => {
@@ -18,9 +30,11 @@ export const Field = ({ children }) => {
 }
 
 Form.propTypes = {
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  buttons: PropTypes.oneOfType([PropTypes.instanceOf(null), PropTypes.func])
 }
 
 Field.propTypes = {
-  children: PropTypes.string.isRequired
+  children: PropTypes.string.isRequired,
+  buttons: null
 }

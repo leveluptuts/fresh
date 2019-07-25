@@ -7,21 +7,21 @@
 ## Install
 
 ```bash
-npm install --save fresh-forms
+nothing to install yet
 ```
 
 ## Usage
 
-```jsx
-import React, { Component } from 'react'
+Na, don't do this
 
-import MyComponent from 'fresh-forms'
+```jsx
+import React, { Component } from 'react';
+
+import MyComponent from 'fresh-forms';
 
 class Example extends Component {
-  render () {
-    return (
-      <MyComponent />
-    )
+  render() {
+    return <MyComponent />;
   }
 }
 ```
