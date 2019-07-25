@@ -4,7 +4,12 @@ export { default as Field } from './Field'
 
 export const Form = ({ onSubmit, children, buttons }) => {
   return (
-    <form action={onSubmit}>
+    <form
+      onSubmit={e => {
+        e.preventDefault()
+        onSubmit()
+      }}
+    >
       {children}
       <div>
         {buttons || (

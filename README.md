@@ -12,18 +12,14 @@ nothing to install yet
 
 ## Usage
 
-Na, don't do this
+The basic API, not working yet, so chillllllllll.
 
 ```jsx
-import React, { Component } from 'react';
-
-import MyComponent from 'fresh-forms';
-
-class Example extends Component {
-  render() {
-    return <MyComponent />;
-  }
-}
+<Form onSubmit={() => {}}>
+  <Field>Name</Field>
+  <Field type="number">Number</Field>
+  <Field type="select" options={options} />
+</Form>
 ```
 
 ## License
