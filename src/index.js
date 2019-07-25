@@ -1,22 +1,26 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
-
 import styles from './styles.css'
 
-export default class ExampleComponent extends Component {
-  static propTypes = {
-    text: PropTypes.string
-  }
+export const Form = ({ onSubmit, children }) => {
+  return <form action={onSubmit}>{children}</form>
+}
 
-  render() {
-    const {
-      text
-    } = this.props
+export const Field = ({ children }) => {
+  return (
+    <div className='field'>
+      <label htmlFor=''>
+        <span>{children}</span>
+        <input type='text' />
+      </label>
+    </div>
+  )
+}
 
-    return (
-      <div className={styles.test}>
-        Example Component: {text}
-      </div>
-    )
-  }
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+}
+
+Field.propTypes = {
+  children: PropTypes.string.isRequired
 }
