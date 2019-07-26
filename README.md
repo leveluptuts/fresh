@@ -1,6 +1,6 @@
-# fresh-forms
+# YO! That's fresh
 
-> They&#x27;re fresh, they&#x27;re dope, they&#x27;re bufu
+> That's fresh. That's dope.
 
 [![NPM](https://img.shields.io/npm/v/fresh-forms.svg)](https://www.npmjs.com/package/fresh-forms) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 

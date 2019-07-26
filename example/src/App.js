@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { Form, Field } from 'fresh-forms';
 
 const options = ['prerelease', 'active', 'retired', 'hidden'];
@@ -12,7 +11,9 @@ export default class App extends Component {
         <Form onSubmit={() => {}}>
           <Field>Name</Field>
           <Field type="number">Number</Field>
-          <Field type="select" options={options} />
+          <Field type="select" options={options}>
+            Type
+          </Field>
         </Form>
       </div>
     );

@@ -1,8 +1,23 @@
 /* add css styles here (optional) */
 
-.test {
-  display: inline-block;
-  margin: 2em auto;
-  border: 2px solid #000;
-  font-size: 2em;
+input,
+select {
+  background-color: transparent;
+  box-sizing: border-box;
+  box-shadow: none;
+  color: var(--sheetTextColor);
+  max-width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-image: initial;
+  border-color: inherit;
+  border-radius: 3px;
+  font: inherit;
+  margin: 0.5em 0px;
+  padding: 0.75em;
+  transition: border-color 0.2s ease 0s;
+}
+
+label > span {
+  display: block;
 }
