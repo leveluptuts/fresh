@@ -1,17 +1,35 @@
 import PropTypes from 'prop-types'
 import Select from './fields/Select'
+import Password from './fields/Password'
 
-const COMPLEX_FIELDS = { select: Select }
+const COMPLEX_FIELDS = { select: Select, password: Password }
 
-const Field = ({ children, type, error, options }) => {
+const Field = ({
+  required,
+  children,
+  type,
+  error,
+  options,
+  className,
+  readOnly
+}) => {
+  // const requiredString = required ? "required"
   return (
-    <div className='field'>
-      <label htmlFor=''>
-        <span>{children}</span>
+    <div className={`field-wrapper ${className}`}>
+      <label htmlFor={`fresh-${children}`}>
+        <span>
+          {children} {required && '*'}
+        </span>
         {Object.keys(COMPLEX_FIELDS).includes(type) ? (
-          COMPLEX_FIELDS[type]({ options })
+          COMPLEX_FIELDS[type]({ options, children, readOnly, className, type })
         ) : (
-          <input type={type} />
+          <input
+            readOnly={readOnly}
+            required={required}
+            className={className}
+            id={`fresh-${children}`}
+            type={type}
+          />
         )}
       </label>
       {error && <div className='error'>{error}</div>}
@@ -21,12 +39,18 @@ const Field = ({ children, type, error, options }) => {
 
 Field.propTypes = {
   children: PropTypes.string,
-  type: PropTypes.string
+  className: PropTypes.string,
+  type: PropTypes.string,
+  options: PropTypes.array,
+  required: PropTypes.bool
 }
 
 Field.defaultProps = {
   children: '',
-  type: 'text'
+  className: '',
+  type: 'text',
+  options: [],
+  required: false
 }
 
 export default Field

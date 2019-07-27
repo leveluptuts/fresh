@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 
-const Select = ({ options }) => {
+const Select = ({ options, children }) => {
   return (
-    <select>
+    <select id={`fresh-${children}`}>
       {options.map(option => (
         <option value={option} key={option}>
           {option}
@@ -13,7 +13,12 @@ const Select = ({ options }) => {
 }
 
 Select.propTypes = {
-  options: PropTypes.array.isRequired
+  options: PropTypes.array.isRequired,
+  children: PropTypes.string
+}
+
+Select.defaultProps = {
+  children: ''
 }
 
 export default Select

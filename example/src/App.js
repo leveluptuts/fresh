@@ -13,9 +13,11 @@ const App = () => {
     <div>
       <h1>YO That's Fresh</h1>
       <Form onSubmit={onSubmit}>
-        <Field>Name</Field>
+        <Field required>Name</Field>
+        <Field type="email">Email</Field>
+        <Field type="password">Password</Field>
         <Field type="number">Number</Field>
-        <Field type="select" options={options}>
+        <Field required type="select" options={options}>
           Type
         </Field>
       </Form>

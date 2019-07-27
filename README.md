@@ -46,11 +46,24 @@ yarn add @leveluptuts/fresh
 
 #### type - String
 
-Values:
-
 - text - default
 - number
 - select
+- required
+
+## FAQ
+
+### Can I customize this component in my own way?
+
+This library makes some calls to keep the API easy to use and maintain.
+
+## Prior Art and Inspirations
+
+I am huge fan of simple, easy APIs that take care of 90% of jobs easily.
+One form library I really enjoyed was https://kozea.github.io/formol/ .
+The API was simple in all of the ways that I love, but there were some aspects of the library that just didn't fit for us and our workflow.
+I wanted to make something that was more simple, but just as easy but with more configuration options.
+I'm also inspired by AutoForm for Meteor https://github.com/aldeed/meteor-autoform for future generation features.
 
 ## License
 
