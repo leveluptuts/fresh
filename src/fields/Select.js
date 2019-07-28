@@ -1,4 +1,5 @@
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Select = ({ options, children }) => {
   return (
@@ -9,16 +10,16 @@ const Select = ({ options, children }) => {
         </option>
       ))}
     </select>
-  )
-}
+  );
+};
 
 Select.propTypes = {
   options: PropTypes.array.isRequired,
   children: PropTypes.string
-}
+};
 
 Select.defaultProps = {
   children: ''
-}
+};
 
-export default Select
+export default Select;

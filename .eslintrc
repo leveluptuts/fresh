@@ -1,13 +1,18 @@
 {
   "parser": "babel-eslint",
-  "extends": ["standard", "standard-react"],
   "env": {
+    "browser": true,
     "es6": true
   },
-  "plugins": ["react"],
+  "settings": {
+    "ecmascript": 6,
+    "jsx": true
+  },
   "parserOptions": {
     "sourceType": "module"
   },
+  "extends": ["standard", "standard-react"],
+  "plugins": ["react"],
   "rules": {
     // don't force es6 functions to include space before paren
     "space-before-function-paren": 0,

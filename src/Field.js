@@ -1,8 +1,9 @@
-import PropTypes from 'prop-types'
-import Select from './fields/Select'
-import Password from './fields/Password'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import Select from './fields/Select';
+import Password from './fields/Password';
 
-const COMPLEX_FIELDS = { select: Select, password: Password }
+const COMPLEX_FIELDS = { select: Select, password: Password };
 
 const Field = ({
   required,
@@ -14,6 +15,8 @@ const Field = ({
   readOnly
 }) => {
   // const requiredString = required ? "required"
+
+  const [thing, setThing] = useState('');
   return (
     <div className={`field-wrapper ${className}`}>
       <label htmlFor={`fresh-${children}`}>
@@ -32,10 +35,10 @@ const Field = ({
           />
         )}
       </label>
-      {error && <div className='error'>{error}</div>}
+      {error && <div className="error">{error}</div>}
     </div>
-  )
-}
+  );
+};
 
 Field.propTypes = {
   children: PropTypes.string,
@@ -43,7 +46,7 @@ Field.propTypes = {
   type: PropTypes.string,
   options: PropTypes.array,
   required: PropTypes.bool
-}
+};
 
 Field.defaultProps = {
   children: '',
@@ -51,6 +54,6 @@ Field.defaultProps = {
   type: 'text',
   options: [],
   required: false
-}
+};
 
-export default Field
+export default Field;

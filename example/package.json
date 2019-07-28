@@ -1,21 +1,31 @@
 {
-  "name": "fresh-forms-example",
-  "homepage": "https://leveluptuts.github.io/fresh-forms",
-  "version": "0.0.0",
-  "license": "MIT",
+  "name": "example",
+  "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
-    "@leveluptuts/fresh": "^0.0.1",
-    "fresh-forms": "link:..",
-    "prop-types": "^15.6.2",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-scripts": "^1.1.4"
+    "@leveluptuts/fresh": "link:..",
+    "react": "link:../node_modules/react",
+    "react-dom": "link:../node_modules/react-dom",
+    "react-scripts": "3.0.1",
+    "styled-components": "^5.0.0-beta.8"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
