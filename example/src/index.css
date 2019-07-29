@@ -17,9 +17,11 @@ h1 {
   transform: scale(1) rotate(-11deg);
 }
 h3 {
-  color: white;
-  font-size: 2rem;
+  color: #bf6b8e;
+  font-family: 'Potra';
+  font-size: 4rem;
   text-align: center;
+  font-weight: 300;
 }
 
 code {

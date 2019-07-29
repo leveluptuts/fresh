@@ -65,7 +65,7 @@
     "style-loader": "^0.23.1",
     "styled-components": "^4.3.2",
     "zxcvbn": "^4.4.2",
-    "gatsby": "2.13.41",
+    "gatsby": "2.13.42",
     "gatsby-plugin-typescript": "2.1.2",
     "gatsby-plugin-eslint": "2.0.5",
     "gatsby-theme-docz": "^2.0.0-rc.1"

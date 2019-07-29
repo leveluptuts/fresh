@@ -1,19 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import zxcvbn from 'zxcvbn'
+import { FormContext } from '../state/State'
 
 const Password = ({ children, strength = true, ...rest }) => {
-  const [value, setValue] = useState('')
+  const { formState, update } = useContext(FormContext)
   return (
     <>
       <input
-        value={value}
+        value={formState[children]}
         id={`fresh-${children}`}
-        onChange={e => setValue(e.target.value)}
+        onChange={e => update({ value: e.target.value, id: children })}
         {...rest}
       />
-      {strength && <Strength strength={zxcvbn(value).score} />}
+      {strength && <Strength strength={zxcvbn(formState[children]).score} />}
     </>
   )
 }

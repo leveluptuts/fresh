@@ -96,56 +96,14 @@
   ],
   "props": [
     {
-      "key": "example/src/App.js",
+      "key": "src/Field.js",
       "value": [
         {
           "description": "",
-          "displayName": "App",
+          "displayName": "Field",
           "methods": [],
-          "actualName": "App"
-        }
-      ]
-    },
-    {
-      "key": "src/fields/Password.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Password",
-          "methods": [],
-          "actualName": "Password",
+          "actualName": "Field",
           "props": {
-            "strength": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "true",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/fields/Select.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Select",
-          "methods": [],
-          "actualName": "Select",
-          "props": {
-            "options": {
-              "type": {
-                "name": "array"
-              },
-              "required": true,
-              "description": ""
-            },
             "children": {
               "type": {
                 "name": "string"
@@ -156,26 +114,50 @@
                 "value": "''",
                 "computed": false
               }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/fields/Tags.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Tags",
-          "methods": [],
-          "actualName": "Tags",
-          "props": {
-            "defaultValue": {
+            },
+            "className": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "type": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "'text'",
+                "computed": false
+              }
+            },
+            "options": {
+              "type": {
+                "name": "array"
+              },
+              "required": false,
+              "description": "",
               "defaultValue": {
                 "value": "[]",
                 "computed": false
+              }
+            },
+            "required": {
+              "type": {
+                "name": "bool"
               },
-              "required": false
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "false",
+                "computed": false
+              }
             }
           }
         }
@@ -266,70 +248,13 @@
       ]
     },
     {
-      "key": "src/Field.js",
+      "key": "example/src/App.js",
       "value": [
         {
           "description": "",
-          "displayName": "Field",
+          "displayName": "App",
           "methods": [],
-          "actualName": "Field",
-          "props": {
-            "children": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "''",
-                "computed": false
-              }
-            },
-            "className": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "''",
-                "computed": false
-              }
-            },
-            "type": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "'text'",
-                "computed": false
-              }
-            },
-            "options": {
-              "type": {
-                "name": "array"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "[]",
-                "computed": false
-              }
-            },
-            "required": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "false",
-                "computed": false
-              }
-            }
-          }
+          "actualName": "App"
         }
       ]
     },
@@ -345,25 +270,45 @@
       ]
     },
     {
-      "key": "src/index.js",
+      "key": "src/fields/Password.js",
       "value": [
         {
           "description": "",
-          "displayName": "Form",
+          "displayName": "Password",
           "methods": [],
-          "actualName": "Form"
+          "actualName": "Password",
+          "props": {
+            "strength": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "true",
+                "computed": false
+              }
+            }
+          }
         }
       ]
     },
     {
-      "key": "dist/index.es.js",
+      "key": "src/fields/Select.js",
       "value": [
         {
           "description": "",
-          "displayName": "Field",
+          "displayName": "Select",
           "methods": [],
-          "actualName": "Field",
+          "actualName": "Select",
           "props": {
+            "options": {
+              "type": {
+                "name": "array"
+              },
+              "required": true,
+              "description": ""
+            },
             "children": {
               "type": {
                 "name": "string"
@@ -374,58 +319,28 @@
                 "value": "''",
                 "computed": false
               }
-            },
-            "className": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "''",
-                "computed": false
-              }
-            },
-            "type": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "'text'",
-                "computed": false
-              }
-            },
-            "options": {
-              "type": {
-                "name": "array"
-              },
-              "required": false,
-              "description": "",
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/fields/Tags.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Tags",
+          "methods": [],
+          "actualName": "Tags",
+          "props": {
+            "defaultValue": {
               "defaultValue": {
                 "value": "[]",
                 "computed": false
-              }
-            },
-            "required": {
-              "type": {
-                "name": "bool"
               },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "false",
-                "computed": false
-              }
+              "required": false
             }
           }
-        },
-        {
-          "description": "",
-          "displayName": "Form",
-          "methods": [],
-          "actualName": "Form"
         }
       ]
     }
