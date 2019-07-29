@@ -4,14 +4,6 @@
 
 ![Bboy Headspinhttps](https://media.giphy.com/media/mKMGLhoD8L4yc/giphy.gif)
 
-# construction.gif
-
-## Use at your own risk.
-
-# construction.gif
-
-> That's fresh. That's dope.
-
 [![NPM](https://img.shields.io/npm/v/@leveluptuts/fresh?color=82d8d8&logoColor=524763&style=for-the-badge)](https://www.npmjs.com/package/@leveluptuts/fresh)
 
 ## Install
@@ -44,18 +36,27 @@ yarn add @leveluptuts/fresh
 
 ### <Field />
 
-#### type - String
+#### Common API - The props that are common among all fields
 
-- text - default
-- number
-- select
-- required
+The common API is shared among all <Field /> elements. Type specific fields are found below.
+
+| Prop     | Type    | Default | Description                                                                                                 |
+| -------- | ------- | ------- | ----------------------------------------------------------------------------------------------------------- |
+| type     | string  | 'text'  | Can be any of the following types. text (default), email, number, select, password, tags. (See types below) |
+| required | boolean | false   | if a field is required                                                                                      |
+| label    | boolean | true    | if a field has a label                                                                                      |
+
+#### Type - Password
+
+| Prop     | Type    | Default | Description                                                |
+| -------- | ------- | ------- | ---------------------------------------------------------- |
+| strength | boolean | true    | Shows or hides the password strength meter below the field |
 
 ## FAQ
 
 ### Can I customize this component in my own way?
 
-This library makes some calls to keep the API easy to use and maintain.
+This library makes some calls to keep the API easy to use and maintain. Using it with another library that tries to bring it's own inputs in isn't really needed at this time.
 
 ## Prior Art and Inspirations
 

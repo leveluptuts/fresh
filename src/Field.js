@@ -11,6 +11,7 @@ const Field = ({
   required,
   children,
   type,
+  label,
   error,
   options,
   className,
@@ -20,8 +21,9 @@ const Field = ({
   return (
     <div className={`field-wrapper ${className}`}>
       <label htmlFor={`fresh-${children}`}>
+
         <span>
-          {children} {required && '*'}
+          {label && children} {required && '*'}
         </span>
         {Object.keys(COMPLEX_FIELDS).includes(type) ? (
           COMPLEX_FIELDS[type]({ options, children, className, type, ...rest })
@@ -47,7 +49,8 @@ Field.propTypes = {
   className: PropTypes.string,
   type: PropTypes.string,
   options: PropTypes.array,
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  label: PropTypes.bool
 }
 
 Field.defaultProps = {
@@ -55,7 +58,8 @@ Field.defaultProps = {
   className: '',
   type: 'text',
   options: [],
-  required: false
+  required: false,
+  label: true
 }
 
 export default Field
