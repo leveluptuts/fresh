@@ -5,11 +5,21 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #222;
+  background: #70ffba;
 }
 
 h1 {
   color: blue;
+  font-family: 'Indelible';
+  text-shadow: 2px 2px 0 #bf6b8e;
+  font-size: 6rem;
+  text-align: center;
+  transform: scale(1) rotate(-11deg);
+}
+h3 {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
 }
 
 code {

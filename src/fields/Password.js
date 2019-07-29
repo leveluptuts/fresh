@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import zxcvbn from 'zxcvbn'
 
-const Password = ({ children, strength, ...rest }) => {
+const Password = ({ children, strength = true, ...rest }) => {
   const [value, setValue] = useState('')
   return (
     <>
@@ -18,39 +18,35 @@ const Password = ({ children, strength, ...rest }) => {
   )
 }
 
+Password.propTypes = {
+  strength: PropTypes.bool
+}
+
 const Strength = styled.div`
   height: 4px;
-  background: #fff;
-  width: 25%;
+  background: #ccc;
+  width: calc(193px * 0.25);
   transition: 0.3s ease all;
   ${({ strength }) => {
     if (strength === 2) {
       return css`
-        width: 50%;
+        width: calc(193px * 0.50);
         background: red;
       `
     }
     if (strength === 3) {
       return css`
-        width: 75%;
+        width: calc(193px * 0.75);
         background: red;
       `
     }
     if (strength === 4) {
       return css`
-        width: 100%;
+        width: calc(193px * 1);
         background: green;
       `
     }
   }}
 `
-
-Password.propTypes = {
-  strength: PropTypes.bool
-}
-
-Password.defaultProps = {
-  strength: true
-}
 
 export default Password

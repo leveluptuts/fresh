@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Select from './fields/Select';
-import Password from './fields/Password';
+import React, { useContext } from 'react'
+import PropTypes from 'prop-types'
+import Select from './fields/Select'
+import Password from './fields/Password'
+import Tags from './fields/Tags'
+import { FormContext } from './state/State'
 
-const COMPLEX_FIELDS = { select: Select, password: Password };
+const COMPLEX_FIELDS = { select: Select, password: Password, tags: Tags }
 
 const Field = ({
   required,
@@ -12,11 +14,9 @@ const Field = ({
   error,
   options,
   className,
-  readOnly
+  ...rest
 }) => {
-  // const requiredString = required ? "required"
-
-  const [thing, setThing] = useState('');
+  const { formState, update } = useContext(FormContext)
   return (
     <div className={`field-wrapper ${className}`}>
       <label htmlFor={`fresh-${children}`}>
@@ -24,21 +24,23 @@ const Field = ({
           {children} {required && '*'}
         </span>
         {Object.keys(COMPLEX_FIELDS).includes(type) ? (
-          COMPLEX_FIELDS[type]({ options, children, readOnly, className, type })
+          COMPLEX_FIELDS[type]({ options, children, className, type, ...rest })
         ) : (
           <input
-            readOnly={readOnly}
             required={required}
             className={className}
             id={`fresh-${children}`}
             type={type}
+            value={formState[children]?.value || null}
+            onChange={e => update({ id: children, value: e.target.value })}
+            {...rest}
           />
         )}
       </label>
-      {error && <div className="error">{error}</div>}
+      {error && <div className='error'>{error}</div>}
     </div>
-  );
-};
+  )
+}
 
 Field.propTypes = {
   children: PropTypes.string,
@@ -46,7 +48,7 @@ Field.propTypes = {
   type: PropTypes.string,
   options: PropTypes.array,
   required: PropTypes.bool
-};
+}
 
 Field.defaultProps = {
   children: '',
@@ -54,6 +56,10 @@ Field.defaultProps = {
   type: 'text',
   options: [],
   required: false
-};
+}
 
-export default Field;
+export default Field
+// MEGA IDEA EFFORTLESS FORMS
+
+// A field should be able to be used just by exporting the context
+// This would allow for an api that looks like... <Field />Name {name} useContext

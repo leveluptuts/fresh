@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import './indelible.css'
 import './index.css'
 import App from './App'
 

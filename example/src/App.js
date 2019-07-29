@@ -12,12 +12,18 @@ const App = () => {
 
   return (
     <Main>
-      <h1>YO That's Fresh</h1>
+      <h1>
+        YO That's
+        <br />
+        Fresh
+      </h1>
+      <h3>Interplanetary Forms</h3>
       <FormWrapper>
         <Form onSubmit={onSubmit}>
           <Field>Name</Field>
           <Field type='email'>Email</Field>
           <Field type='password'>Password</Field>
+          <Field type='tags'>Tags</Field>
           <Field type='number'>Number</Field>
           <Field required type='select' options={options}>
             Type
@@ -33,9 +39,9 @@ const Main = styled.div`
 `
 const FormWrapper = styled.div`
   padding: 40px;
-  background: #eee;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
-  border-radius: 15px;
+  background: white;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 `
 
 export default App

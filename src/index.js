@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import camelCase from 'lodash/camelCase'
 import './styles.css'
+import { FormProvider, FormContext } from './state/State'
 export { default as Field } from './Field'
 
-export const Form = ({
+const Form = (props) => {
+  return (
+    <FormProvider>
+      <FormWrapper {...props} />
+    </FormProvider>
+  )
+}
+
+const FormWrapper = ({
   onSubmit,
   children,
   buttons,
@@ -12,26 +21,14 @@ export const Form = ({
   disabled,
   cancelButton
 }) => {
+  const { formState } = useContext(FormContext)
   return (
     <form
       className={className}
       disabled={disabled}
       onSubmit={e => {
         e.preventDefault()
-        const elementsArray = [...e.target.elements]
-        const fields = elementsArray
-          .filter(element => element.tagName !== 'BUTTON')
-          .map(element => {
-            const data = {
-              type: element.tagName,
-              value: element.value,
-              key: element.parentNode.textContent
-            }
-            data[camelCase(element.parentNode.textContent)] = element.value
-            return data
-          })
-
-        onSubmit({ data: fields })
+        onSubmit({ data: formState })
       }}
     >
       {children}
@@ -47,7 +44,7 @@ export const Form = ({
   )
 }
 
-Form.propTypes = {
+FormWrapper.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])
     .isRequired,
@@ -57,7 +54,7 @@ Form.propTypes = {
   cancelButton: PropTypes.bool
 }
 
-Form.defaultProps = {
+FormWrapper.defaultProps = {
   className: '',
   cancelButton: true,
   disabled: false
@@ -69,3 +66,4 @@ Form.defaultProps = {
 // Future api idea <Form mutation={GRAPHQL_MUTATION} /> one liner
 
 // Reset on submit option
+export { Form }

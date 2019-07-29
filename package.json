@@ -1,6 +1,6 @@
 {
   "name": "@leveluptuts/fresh",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "They're dope, they're fresh.",
   "author": "leveluptuts",
   "license": "MIT",
@@ -38,6 +38,7 @@
     "babel-plugin-react-require": "^3.1.1",
     "cross-env": "^5.1.4",
     "css-loader": "^3.1.0",
+    "docz": "^2.0.0-rc.1",
     "eslint": "^6.1.0",
     "eslint-config-standard": "^13.0.1",
     "eslint-config-standard-react": "^8.0.0",
@@ -60,6 +61,7 @@
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-url": "^2.2.2",
     "style-loader": "^0.23.1",
+    "styled-components": "^4.3.2",
     "zxcvbn": "^4.4.2"
   },
   "files": [
