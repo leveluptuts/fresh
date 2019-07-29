@@ -9,12 +9,12 @@ const Password = ({ children, strength = true, ...rest }) => {
   return (
     <>
       <input
-        value={formState[children]}
+        value={formState[children] || ''}
         id={`fresh-${children}`}
         onChange={e => update({ value: e.target.value, id: children })}
         {...rest}
       />
-      {strength && <Strength strength={zxcvbn(formState[children]).score} />}
+      {strength && <Strength strength={zxcvbn(formState[children] || '').score} />}
     </>
   )
 }
