@@ -34,6 +34,16 @@ yarn add @leveluptuts/fresh
 </Form>
 ```
 
+### <Form />
+
+The wrapper around your fields.
+
+| Prop     | Type    | Default | Description                                                                                                 |
+| -------- | ------- | ------- | ----------------------------------------------------------------------------------------------------------- |
+| type     | string  | 'text'  | Can be any of the following types. text (default), email, number, select, password, tags. (See types below) |
+| required | boolean | false   | if a field is required                                                                                      |
+| label    | boolean | true    | if a field has a label                                                                                      |
+
 ### <Field />
 
 #### Common API - The props that are common among all fields
@@ -46,11 +56,21 @@ The common API is shared among all <Field /> elements. Type specific fields are 
 | required | boolean | false   | if a field is required                                                                                      |
 | label    | boolean | true    | if a field has a label                                                                                      |
 
-#### Type - Password
+#### Type - password
 
 | Prop     | Type    | Default | Description                                                |
 | -------- | ------- | ------- | ---------------------------------------------------------- |
 | strength | boolean | true    | Shows or hides the password strength meter below the field |
+
+#### Type - select
+
+| Prop    | Type             | Default | Description                                                        |
+| ------- | ---------------- | ------- | ------------------------------------------------------------------ |
+| options | array of strings | []      | The text and values of a select list. \*Object support coming soon |
+
+### Errors
+
+Not complete / in use yet, just standard html 5 validation
 
 ## FAQ
 

@@ -27,6 +27,7 @@ const Strength = styled.div`
   height: 4px;
   background: #ccc;
   width: calc(193px * 0.25);
+  margin-bottom: 1rem;
   transition: 0.3s ease all;
   ${({ strength }) => {
     if (strength === 2) {

@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
-import camelCase from 'lodash/camelCase'
 import './styles.css'
 import { FormProvider, FormContext } from './state/State'
 export { default as Field } from './Field'
@@ -15,6 +14,7 @@ const Form = (props) => {
 
 const FormWrapper = ({
   onSubmit,
+  onChange,
   children,
   buttons,
   className,
@@ -29,6 +29,10 @@ const FormWrapper = ({
       onSubmit={e => {
         e.preventDefault()
         onSubmit({ data: formState })
+      }}
+      onChange={e => {
+        e.preventDefault()
+        onChange({ data: formState })
       }}
     >
       {children}
@@ -67,3 +71,6 @@ FormWrapper.defaultProps = {
 
 // Reset on submit option
 export { Form }
+
+// TODO
+// Markdown field

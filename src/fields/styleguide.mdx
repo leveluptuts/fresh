@@ -3,8 +3,22 @@ name: Home
 route: /
 ---
 
-# UI library
+import { Playground, Props } from 'docz';
+import { Form, Field } from './index.js';
 
-This project uses [Docz](https://www.docz.site/) for UI components development and styleguide generation.
+# Form
 
-If you never used Docz before, try [“Getting Started” guide](https://www.docz.site/docs/getting-started)
+<Props of={Form} />
+
+## Basic form
+
+<Playground>
+  <Form onSubmit={() => {}}>
+    <Field>Name</Field>
+    <Field type="email">Email</Field>
+    <Field type="password">Password</Field>
+    <Field required type="select" options={['hi']}>
+      Type
+    </Field>
+  </Form>
+</Playground>

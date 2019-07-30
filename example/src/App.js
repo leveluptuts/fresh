@@ -9,6 +9,9 @@ const App = () => {
   const onSubmit = ({ data }) => {
     console.log(data)
   }
+  const onChange = ({ data }) => {
+    console.log(data)
+  }
 
   return (
     <Main>
@@ -18,8 +21,9 @@ const App = () => {
         Fresh
       </h1>
       <h3>Interplanetary Forms</h3>
+
       <FormWrapper>
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit} onChange={onChange}>
           <Field>Name</Field>
           <Field type='email'>Email</Field>
           <Field type='password'>Password</Field>
@@ -28,6 +32,8 @@ const App = () => {
           <Field required type='select' options={options}>
             Type
           </Field>
+          <Field type='textarea'>Text Area</Field>
+          <Field type='markdown'>Markdown</Field>
         </Form>
       </FormWrapper>
     </Main>

@@ -11,7 +11,7 @@
         ]
       }
     ],
-    "version": "0.0.3",
+    "version": "0.0.4",
     "repository": "https://github.com/leveluptuts/fresh-forms",
     "native": false,
     "themeConfig": {},
@@ -86,9 +86,14 @@
         "menu": "",
         "headings": [
           {
-            "slug": "ui-library",
+            "slug": "form",
             "depth": 1,
-            "value": "UI library"
+            "value": "Form"
+          },
+          {
+            "slug": "basic-form",
+            "depth": 2,
+            "value": "Basic form"
           }
         ]
       }
@@ -156,6 +161,17 @@
               "description": "",
               "defaultValue": {
                 "value": "false",
+                "computed": false
+              }
+            },
+            "label": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "true",
                 "computed": false
               }
             }
@@ -259,17 +275,6 @@
       ]
     },
     {
-      "key": "src/state/State.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "FormProvider",
-          "methods": [],
-          "actualName": "FormProvider"
-        }
-      ]
-    },
-    {
       "key": "src/fields/Password.js",
       "value": [
         {
@@ -341,6 +346,17 @@
               "required": false
             }
           }
+        }
+      ]
+    },
+    {
+      "key": "src/state/State.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "FormProvider",
+          "methods": [],
+          "actualName": "FormProvider"
         }
       ]
     }

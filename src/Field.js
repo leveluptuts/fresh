@@ -3,9 +3,11 @@ import PropTypes from 'prop-types'
 import Select from './fields/Select'
 import Password from './fields/Password'
 import Tags from './fields/Tags'
+import TextArea from './fields/TextArea'
+import Markdown from './fields/Markdown'
 import { FormContext } from './state/State'
 
-const COMPLEX_FIELDS = { select: Select, password: Password, tags: Tags }
+const COMPLEX_FIELDS = { select: Select, password: Password, tags: Tags, markdown: Markdown, textarea: TextArea }
 
 const Field = ({
   required,
