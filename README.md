@@ -23,6 +23,8 @@ yarn add @leveluptuts/fresh
 ### A basic form
 
 ```jsx
+import { Form, Field } from '@leveluptuts/fresh';
+
 <Form
   onSubmit={({ data }) => {
     console.log(data);
@@ -31,12 +33,14 @@ yarn add @leveluptuts/fresh
   <Field>Name</Field>
   <Field type="number">Number</Field>
   <Field type="select" options={options} />
-</Form>
+</Form>;
 ```
 
 ### A slightly less basic form
 
 ```jsx
+import { Form, Field } from '@leveluptuts/fresh';
+
 <Form onSubmit={onSubmit} onChange={onChange}>
   <Field>Name</Field>
   <Field type="email">Email</Field>
@@ -48,7 +52,7 @@ yarn add @leveluptuts/fresh
   </Field>
   <Field type="textarea">Text Area</Field>
   <Field type="markdown">Markdown</Field>
-</Form>
+</Form>;
 ```
 
 ### <Form />
