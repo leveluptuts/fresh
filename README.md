@@ -55,7 +55,9 @@ import { Form, Field } from '@leveluptuts/fresh';
 </Form>;
 ```
 
-### <Form />
+## API
+
+### Form
 
 The wrapper around your fields.
 
@@ -65,7 +67,7 @@ The wrapper around your fields.
 | required | boolean | false   | if a field is required                                                                                      |
 | label    | boolean | true    | if a field has a label                                                                                      |
 
-### <Field />
+### Field
 
 #### Common API - The props that are common among all fields
 
@@ -77,13 +79,13 @@ The common API is shared among all <Field /> elements. Type specific fields are 
 | required | boolean | false   | if a field is required                                                                                      |
 | label    | boolean | true    | if a field has a label                                                                                      |
 
-#### Type - password
+#### type - password
 
 | Prop     | Type    | Default | Description                                                |
 | -------- | ------- | ------- | ---------------------------------------------------------- |
 | strength | boolean | true    | Shows or hides the password strength meter below the field |
 
-#### Type - select
+#### type - select
 
 | Prop    | Type             | Default | Description                                                        |
 | ------- | ---------------- | ------- | ------------------------------------------------------------------ |
