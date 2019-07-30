@@ -20,7 +20,7 @@ yarn add @leveluptuts/fresh
 
 ## Usage
 
-### The basic API
+### A basic form
 
 ```jsx
 <Form
@@ -31,6 +31,23 @@ yarn add @leveluptuts/fresh
   <Field>Name</Field>
   <Field type="number">Number</Field>
   <Field type="select" options={options} />
+</Form>
+```
+
+### A slightly less basic form
+
+```jsx
+<Form onSubmit={onSubmit} onChange={onChange}>
+  <Field>Name</Field>
+  <Field type="email">Email</Field>
+  <Field type="password">Password</Field>
+  <Field type="tags">Tags</Field>
+  <Field type="number">Number</Field>
+  <Field required type="select" options={options}>
+    Type
+  </Field>
+  <Field type="textarea">Text Area</Field>
+  <Field type="markdown">Markdown</Field>
 </Form>
 ```
 
