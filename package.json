@@ -27,7 +27,6 @@
     "react-dom": "^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
-    "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/plugin-proposal-optional-chaining": "^7.0.0",
     "@babel/preset-env": "7.5.5",
     "@babel/preset-react": "7.0.0",
@@ -38,7 +37,6 @@
     "babel-plugin-react-require": "^3.1.1",
     "cross-env": "^5.1.4",
     "css-loader": "^3.1.0",
-    "docz": "^2.0.0-rc.1",
     "eslint": "^6.1.0",
     "eslint-config-standard": "^13.0.1",
     "eslint-config-standard-react": "^8.0.0",
@@ -50,8 +48,6 @@
     "gh-pages": "^2.0.1",
     "lodash": "^4.17.15",
     "markdown-to-jsx": "^6.10.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
     "react-scripts": "^3.0.1",
     "react-tagsinput": "^3.19.0",
     "rollup": "^1.17.0",
