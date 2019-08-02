@@ -5,9 +5,10 @@ import Password from './fields/Password'
 import Tags from './fields/Tags'
 import TextArea from './fields/TextArea'
 import Markdown from './fields/Markdown'
+import Toggle from './fields/Toggle'
 import { FormContext } from './state/State'
 
-const COMPLEX_FIELDS = { select: Select, password: Password, tags: Tags, markdown: Markdown, textarea: TextArea }
+const COMPLEX_FIELDS = { select: Select, password: Password, tags: Tags, markdown: Markdown, textarea: TextArea, toggle: Toggle }
 
 const Field = ({
   required,

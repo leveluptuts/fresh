@@ -34,6 +34,7 @@ const App = () => {
           </Field>
           <Field type='textarea'>Text Area</Field>
           <Field type='markdown'>Markdown</Field>
+          <Field type='toggle'>Toggle</Field>
         </Form>
       </FormWrapper>
     </Main>

@@ -1,9 +1,9 @@
 input,
-select {
+select,
+textarea {
   background-color: transparent;
   box-sizing: border-box;
   box-shadow: none;
-  color: var(--sheetTextColor);
   max-width: 100%;
   border-width: 1px;
   border-style: solid;
@@ -14,6 +14,10 @@ select {
   margin: 0.5em 0px;
   padding: 0.75em;
   transition: border-color 0.2s ease 0s;
+}
+
+textarea {
+  min-height: 6rem;
 }
 
 label > span {

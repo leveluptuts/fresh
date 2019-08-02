@@ -6,13 +6,14 @@ import { FormContext } from '../state/State'
 export const TextArea = ({ defaultValue = [], children }) => {
   const { formState, update } = useContext(FormContext)
   return (
-    <div>
+    <div style={{ display: 'flex' }}>
       <textarea
+        style={{ width: '50%' }}
         value={formState[children] || ''}
         defaultValue={defaultValue}
         onChange={e => update({ id: children, value: e.target.value })}
       />
-      <Markdown children={formState[children] || ''} />
+      <Markdown style={{ width: '50%' }} children={formState[children] || ''} />
     </div>
   )
 }
