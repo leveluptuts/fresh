@@ -18,14 +18,14 @@ const FormWrapper = ({
   children,
   buttons,
   className,
-  disabled,
+  method,
   cancelButton
 }) => {
   const { formState } = useContext(FormContext)
   return (
     <form
       className={className}
-      disabled={disabled}
+      method={method}
       onSubmit={e => {
         e.preventDefault()
         onSubmit({ data: formState })
@@ -49,19 +49,20 @@ const FormWrapper = ({
 }
 
 FormWrapper.propTypes = {
+  onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])
     .isRequired,
   buttons: PropTypes.oneOfType([PropTypes.instanceOf(null), PropTypes.func]),
   className: PropTypes.string,
-  disabled: PropTypes.bool,
+  method: PropTypes.string,
   cancelButton: PropTypes.bool
 }
 
 FormWrapper.defaultProps = {
   className: '',
-  cancelButton: true,
-  disabled: false
+  method: 'post',
+  cancelButton: true
 }
 
 // TODO
