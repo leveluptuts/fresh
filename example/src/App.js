@@ -7,10 +7,7 @@ const options = ['prerelease', 'active', 'retired', 'hidden']
 const App = () => {
   // The on submit function is passed a data object with form data
   const onSubmit = ({ data }) => {
-    console.log(data)
-  }
-  const onChange = ({ data }) => {
-    console.log(data)
+    // console.log(data)
   }
 
   return (
@@ -23,7 +20,7 @@ const App = () => {
       <h3>Interplanetary Forms</h3>
 
       <FormWrapper>
-        <Form onSubmit={onSubmit} onChange={onChange}>
+        <Form onSubmit={onSubmit}>
           <Field>Name</Field>
           <Field type='email'>Email</Field>
           <Field type='password'>Password</Field>

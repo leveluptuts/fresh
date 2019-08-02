@@ -7,7 +7,6 @@ function reducer(state, action) {
     case 'update':
       const data = {}
       data[action.id] = action.value
-      console.log('data', state, data)
       return { ...state, ...data }
     default:
       throw new Error()

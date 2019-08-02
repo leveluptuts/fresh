@@ -45,7 +45,7 @@ import { Form, Field } from '@leveluptuts/fresh';
 ```jsx
 import { Form, Field } from '@leveluptuts/fresh';
 
-<Form onSubmit={onSubmit} onChange={onChange}>
+<Form onSubmit={onSubmit}>
   <Field>Name</Field>
   <Field type="email">Email</Field>
   <Field type="password">Password</Field>

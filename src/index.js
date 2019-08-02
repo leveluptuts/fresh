@@ -14,7 +14,6 @@ const Form = (props) => {
 
 const FormWrapper = ({
   onSubmit,
-  onChange,
   children,
   buttons,
   className,
@@ -29,10 +28,6 @@ const FormWrapper = ({
       onSubmit={e => {
         e.preventDefault()
         onSubmit({ data: formState })
-      }}
-      onChange={e => {
-        e.preventDefault()
-        onChange({ data: formState })
       }}
     >
       {children}
