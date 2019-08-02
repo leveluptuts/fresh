@@ -1,8 +1,25 @@
-## How to Contribute
+# How to Contribute
 
-TODO
 
-## Keeping your fork up to date
+## Start Up Instructions
+1. `git clone https://github.com/leveluptuts/fresh.git`
+
+1. `cd fresh`
+
+1. Run `yarn` command to install dependencies in the root
+
+1. Open a new tab in your terminal
+
+1. `cd example`
+
+1. Run `yarn` command to install dependencies in example
+
+1. Run `yarn start` in the root and example
+
+1. Browser with open to `http://localhost:3000/`
+
+
+## Keeping Your Fork Up To Date
 
 1. Clone your fork:
 
