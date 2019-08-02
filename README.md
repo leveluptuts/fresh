@@ -52,6 +52,7 @@ import { Form, Field } from '@leveluptuts/fresh';
   </Field>
   <Field type="textarea">Text Area</Field>
   <Field type="markdown">Markdown</Field>
+  <Field type="toggle">Markdown</Field>
 </Form>;
 ```
 

@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { FormContext } from '../state/State'
-import styled from 'styled-components'
 
 export const TextArea = ({ defaultValue = [], children }) => {
   const { formState, update } = useContext(FormContext)
