@@ -111,6 +111,10 @@ The API was simple in all of the ways that I love, but there were some aspects o
 I wanted to make something that was more simple, but just as easy but with more configuration options.
 I'm also inspired by AutoForm for Meteor https://github.com/aldeed/meteor-autoform for future generation features.
 
+## How to Contribute
+
+For information related to contributing to Fresh Forms, please check out [CONTRIBUTING.md](https://github.com/leveluptuts/fresh/blob/master/CONTRIBUTING.md).
+
 ## License
 
 MIT © [leveluptuts](https://github.com/leveluptuts)
