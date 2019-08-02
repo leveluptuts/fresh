@@ -103,6 +103,17 @@ Not complete / in use yet, just standard html 5 validation
 
 This library makes some calls to keep the API easy to use and maintain. Using it with another library that tries to bring it's own inputs in isn't really needed at this time.
 
+## Contributing
+
+`yarn`
+`yarn start`
+
+#### (in another tab) to run example
+
+`cd example`
+`yarn`
+`yarn start`
+
 ## Prior Art and Inspirations
 
 I am huge fan of simple, easy APIs that take care of 90% of jobs easily.
