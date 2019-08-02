@@ -10,14 +10,15 @@ const Form = ({
   children,
   buttons,
   className,
-  disabled,
-  cancelButton
+  cancelButton,
+  loading,
+  method
 }) => {
   return (
     <FormProvider>
       <form
         className={className}
-        disabled={disabled}
+        method={method}
         onSubmit={e => {
           e.preventDefault()
           const elementsArray = [...e.target.elements]
@@ -36,15 +37,17 @@ const Form = ({
           onSubmit({ data: fields })
         }}
       >
-        {children}
-        <div>
-          {buttons || (
-          <>
-            <button type='submit'>Submit</button>
-            {cancelButton && <button type='reset'>Cancel</button>}
-          </>
-          )}
-        </div>
+        <fieldset disabled={loading} aria-busy={loading}>
+          {children}
+          <div>
+            {buttons || (
+            <>
+              <button type='submit'>Submit</button>
+              {cancelButton && <button type='reset'>Cancel</button>}
+            </>
+            )}
+          </div>
+        </fieldset>
       </form>
     </FormProvider>
   )
@@ -56,14 +59,16 @@ Form.propTypes = {
     .isRequired,
   buttons: PropTypes.oneOfType([PropTypes.instanceOf(null), PropTypes.func]),
   className: PropTypes.string,
-  disabled: PropTypes.bool,
+  loading: PropTypes.bool,
+  method: PropTypes.string,
   cancelButton: PropTypes.bool
 }
 
 Form.defaultProps = {
   className: '',
   cancelButton: true,
-  disabled: false
+  loading: false,
+  method: 'post'
 }
 
 // TODO

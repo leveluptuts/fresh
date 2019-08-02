@@ -1,3 +1,11 @@
+form[disabled] {
+  opacity: 0.75;
+}
+
+fieldset {
+  all: unset;
+}
+
 input,
 select,
 textarea {

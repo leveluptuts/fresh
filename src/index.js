@@ -18,14 +18,15 @@ const FormWrapper = ({
   children,
   buttons,
   className,
-  disabled,
+  loading,
+  method,
   cancelButton
 }) => {
   const { formState } = useContext(FormContext)
   return (
     <form
       className={className}
-      disabled={disabled}
+      method={method}
       onSubmit={e => {
         e.preventDefault()
         onSubmit({ data: formState })
@@ -35,33 +36,38 @@ const FormWrapper = ({
         onChange({ data: formState })
       }}
     >
-      {children}
-      <div>
-        {buttons || (
+      <fieldset disabled={loading} aria-busy={loading}>
+        {children}
+        <div>
+          {buttons || (
           <>
             <button type='submit'>Submit</button>
             {cancelButton && <button type='reset'>Cancel</button>}
           </>
-        )}
-      </div>
+          )}
+        </div>
+      </fieldset>
     </form>
   )
 }
 
 FormWrapper.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])
     .isRequired,
   buttons: PropTypes.oneOfType([PropTypes.instanceOf(null), PropTypes.func]),
   className: PropTypes.string,
-  disabled: PropTypes.bool,
+  method: PropTypes.string,
+  loading: PropTypes.bool,
   cancelButton: PropTypes.bool
 }
 
 FormWrapper.defaultProps = {
   className: '',
   cancelButton: true,
-  disabled: false
+  method: 'post',
+  loading: false
 }
 
 // TODO
