@@ -1,11 +1,16 @@
-import React, { useContext } from 'react'
-import { FormContext } from '../state/State'
+import React from 'react'
 import PropTypes from 'prop-types'
+import useSpecialField from '../hooks/useSpecialField'
 
-const Select = ({ options, children, ...rest }) => {
-  const { formState, update } = useContext(FormContext)
+const Select = ({ options, children, fieldId, defaultValue = 0, key, ...rest }) => {
+  const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   return (
-    <select id={`fresh-${children}`} {...rest} onChange={(e) => update({ id: children, value: e.target.value })} value={formState[children]}>
+    <select
+      id={`fresh-${fieldId}`}
+      onChange={(e) => update({ id: fieldId, value: e.target.value })}
+      value={fieldState}
+      {...rest}
+    >
       {options.map(option => (
         <option value={option} key={option}>
           {option}

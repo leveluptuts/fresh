@@ -1,4 +1,5 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
+import kebabCase from 'lodash/kebabCase'
 import PropTypes from 'prop-types'
 import Select from './fields/Select'
 import Password from './fields/Password'
@@ -18,25 +19,34 @@ const Field = ({
   error,
   options,
   className,
+  defaultValue,
   ...rest
 }) => {
-  const { formState, update } = useContext(FormContext)
+  const { formState, update, registerField } = useContext(FormContext)
+  // console.log('formState', formState)
+  const fieldId = kebabCase(children)
+  console.log('fieldId', fieldId)
+
+  useEffect(() => {
+    registerField({ id: fieldId, value: defaultValue })
+  }, [])
+
   return (
-    <div className={`field-wrapper ${className}`}>
-      <label htmlFor={`fresh-${children}`}>
+    <div className={`field-wrapper ${fieldId}`}>
+      <label htmlFor={`fresh-${fieldId}`}>
 
         <span>
           {label && children} {required && '*'}
         </span>
         {Object.keys(COMPLEX_FIELDS).includes(type) ? (
-          COMPLEX_FIELDS[type]({ options, children, className, type, ...rest })
+          COMPLEX_FIELDS[type]({ options, children, className, fieldId, type, ...rest })
         ) : (
           <input
             required={required}
             className={className}
-            id={`fresh-${children}`}
+            id={`fresh-${fieldId}`}
             type={type}
-            value={formState[children]?.value || null}
+            value={formState[fieldId]?.value || ''}
             onChange={e => update({ id: children, value: e.target.value })}
             {...rest}
           />
@@ -51,6 +61,7 @@ Field.propTypes = {
   children: PropTypes.string,
   className: PropTypes.string,
   type: PropTypes.string,
+  defaultValue: PropTypes.string,
   options: PropTypes.array,
   required: PropTypes.bool,
   label: PropTypes.bool
@@ -62,7 +73,8 @@ Field.defaultProps = {
   type: 'text',
   options: [],
   required: false,
-  label: true
+  label: true,
+  defaultValue: null
 }
 
 export default Field

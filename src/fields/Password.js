@@ -1,20 +1,22 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import zxcvbn from 'zxcvbn'
-import { FormContext } from '../state/State'
+import useSpecialField from '../hooks/useSpecialField'
 
-const Password = ({ children, strength = true, ...rest }) => {
-  const { formState, update } = useContext(FormContext)
+// TODO change out formState for a new "fieldState" value that will come from the useSpecialfield hook
+
+const Password = ({ fieldId, strength = true, defaultValue = '', children, ...rest }) => {
+  const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   return (
     <>
       <input
-        value={formState[children] || ''}
-        id={`fresh-${children}`}
-        onChange={e => update({ value: e.target.value, id: children })}
+        value={fieldState || ''}
+        id={`fresh-${fieldId}`}
+        onChange={e => update({ value: e.target.value, id: fieldId })}
         {...rest}
       />
-      {strength && <Strength strength={zxcvbn(formState[children] || '').score} />}
+      {strength && <Strength strength={zxcvbn(fieldState || '').score} />}
     </>
   )
 }

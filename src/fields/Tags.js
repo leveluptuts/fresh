@@ -1,12 +1,13 @@
-import React, { useContext } from 'react'
-import { FormContext } from '../state/State'
+import React from 'react'
+import useSpecialField from '../hooks/useSpecialField'
 import TagsInput from 'react-tagsinput'
 import styled from 'styled-components'
 
-const Tags = ({ defaultValue = [], children }) => {
-  const { formState, update } = useContext(FormContext)
+const Tags = ({ defaultValue = [], fieldId }) => {
+  const { update, fieldState } = useSpecialField({ fieldId, defaultValue })
+
   return (
-    <StyledTags value={formState[children] || []} defaultValue={defaultValue} onChange={value => update({ id: children, value })} />
+    <StyledTags value={fieldState || []} defaultValue={defaultValue} onChange={value => update({ id: fieldId, value })} />
   )
 }
 

@@ -3,7 +3,7 @@ import Markdown from 'markdown-to-jsx'
 
 import { FormContext } from '../state/State'
 
-export const TextArea = ({ defaultValue = [], children }) => {
+export const TextArea = ({ defaultValue = [], children, key }) => {
   const { formState, update } = useContext(FormContext)
   return (
     <div style={{ display: 'flex' }}>

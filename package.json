@@ -1,6 +1,6 @@
 {
   "name": "@leveluptuts/fresh",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "They're dope, they're fresh.",
   "author": "leveluptuts",
   "license": "MIT",
@@ -62,5 +62,7 @@
   "files": [
     "dist"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
 }
