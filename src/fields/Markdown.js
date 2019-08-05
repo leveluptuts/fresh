@@ -1,19 +1,18 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Markdown from 'markdown-to-jsx'
+import useSpecialField from '../hooks/useSpecialField'
 
-import { FormContext } from '../state/State'
-
-export const TextArea = ({ defaultValue = [], children, key }) => {
-  const { formState, update } = useContext(FormContext)
+export const TextArea = ({ defaultValue = '', children, fieldId }) => {
+  const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   return (
     <div style={{ display: 'flex' }}>
       <textarea
         style={{ width: '50%' }}
-        value={formState[children] || ''}
+        value={fieldState || ''}
         defaultValue={defaultValue}
-        onChange={e => update({ id: children, value: e.target.value })}
+        onChange={e => update({ id: fieldId, value: e.target.value })}
       />
-      <Markdown style={{ width: '50%' }} children={formState[children] || ''} />
+      <Markdown style={{ width: '50%' }} children={fieldState || ''} />
     </div>
   )
 }

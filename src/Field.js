@@ -9,7 +9,14 @@ import Markdown from './fields/Markdown'
 import Toggle from './fields/Toggle'
 import { FormContext } from './state/State'
 
-const COMPLEX_FIELDS = { select: Select, password: Password, tags: Tags, markdown: Markdown, textarea: TextArea, toggle: Toggle }
+const COMPLEX_FIELDS = {
+  select: Select,
+  password: Password,
+  tags: Tags,
+  markdown: Markdown,
+  textarea: TextArea,
+  toggle: Toggle,
+}
 
 const Field = ({
   required,
@@ -23,9 +30,7 @@ const Field = ({
   ...rest
 }) => {
   const { formState, update, registerField } = useContext(FormContext)
-  // console.log('formState', formState)
   const fieldId = kebabCase(children)
-  console.log('fieldId', fieldId)
 
   useEffect(() => {
     registerField({ id: fieldId, value: defaultValue })
@@ -34,12 +39,18 @@ const Field = ({
   return (
     <div className={`field-wrapper ${fieldId}`}>
       <label htmlFor={`fresh-${fieldId}`}>
-
         <span>
           {label && children} {required && '*'}
         </span>
         {Object.keys(COMPLEX_FIELDS).includes(type) ? (
-          COMPLEX_FIELDS[type]({ options, children, className, fieldId, type, ...rest })
+          COMPLEX_FIELDS[type]({
+            options,
+            children,
+            className,
+            fieldId,
+            type,
+            ...rest,
+          })
         ) : (
           <input
             required={required}
@@ -47,12 +58,12 @@ const Field = ({
             id={`fresh-${fieldId}`}
             type={type}
             value={formState[fieldId]?.value || ''}
-            onChange={e => update({ id: children, value: e.target.value })}
+            onChange={e => update({ id: fieldId, value: e.target.value })}
             {...rest}
           />
         )}
       </label>
-      {error && <div className='error'>{error}</div>}
+      {error && <div className="error">{error}</div>}
     </div>
   )
 }
@@ -64,7 +75,7 @@ Field.propTypes = {
   defaultValue: PropTypes.string,
   options: PropTypes.array,
   required: PropTypes.bool,
-  label: PropTypes.bool
+  label: PropTypes.bool,
 }
 
 Field.defaultProps = {
@@ -74,7 +85,7 @@ Field.defaultProps = {
   options: [],
   required: false,
   label: true,
-  defaultValue: null
+  defaultValue: null,
 }
 
 export default Field

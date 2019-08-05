@@ -1,13 +1,13 @@
-import React, { useContext } from 'react'
-import { FormContext } from '../state/State'
+import React from 'react'
+import useSpecialField from '../hooks/useSpecialField'
 
-export const TextArea = ({ defaultValue = [], children }) => {
-  const { formState, update } = useContext(FormContext)
+export const TextArea = ({ defaultValue = '', fieldId, children }) => {
+  const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   return (
     <textarea
-      value={formState[children] || ''}
+      value={fieldState || ''}
       defaultValue={defaultValue}
-      onChange={e => update({ id: children, value: e.target.value })}
+      onChange={e => update({ id: fieldId, value: e.target.value })}
     />
   )
 }
