@@ -4,6 +4,21 @@ import { Form, Field } from '@leveluptuts/fresh'
 
 const options = ['prerelease', 'active', 'retired', 'hidden']
 
+const refOptions = [
+  {
+    id: 'adsfasdfa',
+    text: 'Level 1 React',
+  },
+  {
+    id: 'ajjjdsfasdfa',
+    text: 'Something else',
+  },
+  {
+    id: 'jjdsfasdfa',
+    text: 'Another one ',
+  },
+]
+
 const App = () => {
   // The on submit function is passed a data object with form data
   const onSubmit = ({ data }) => {
@@ -22,16 +37,19 @@ const App = () => {
       <FormWrapper>
         <Form onSubmit={onSubmit}>
           <Field>Name</Field>
-          <Field type='email'>Email</Field>
-          <Field type='password'>Password</Field>
-          <Field type='tags'>Tags</Field>
-          <Field type='number'>Number</Field>
-          <Field required type='select' options={options}>
+          <Field type="email">Email</Field>
+          <Field type="password">Password</Field>
+          <Field type="tags">Tags</Field>
+          <Field type="number">Number</Field>
+          <Field required type="select" options={options}>
             Type
           </Field>
-          <Field type='textarea'>Text Area</Field>
-          <Field type='markdown'>Markdown</Field>
-          <Field type='toggle'>Toggle</Field>
+          <Field type="textarea">Text Area</Field>
+          <Field type="markdown">Markdown</Field>
+          <Field type="toggle">Toggle</Field>
+          <Field type="reference" options={refOptions} displayProperty="text">
+            Reference
+          </Field>
         </Form>
       </FormWrapper>
     </Main>

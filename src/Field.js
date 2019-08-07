@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import kebabCase from 'lodash/kebabCase'
 import PropTypes from 'prop-types'
 import Select from './fields/Select'
+import Reference from './fields/Reference'
 import Password from './fields/Password'
 import Tags from './fields/Tags'
 import TextArea from './fields/TextArea'
@@ -16,6 +17,7 @@ const COMPLEX_FIELDS = {
   markdown: Markdown,
   textarea: TextArea,
   toggle: Toggle,
+  reference: Reference,
 }
 
 const Field = ({

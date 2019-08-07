@@ -7,7 +7,11 @@ const Tags = ({ defaultValue = [], fieldId }) => {
   const { update, fieldState } = useSpecialField({ fieldId, defaultValue })
 
   return (
-    <StyledTags value={fieldState || []} defaultValue={defaultValue} onChange={value => update({ id: fieldId, value })} />
+    <StyledTags
+      value={fieldState || []}
+      defaultValue={defaultValue}
+      onChange={value => update({ id: fieldId, value })}
+    />
   )
 }
 

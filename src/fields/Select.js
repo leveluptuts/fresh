@@ -7,7 +7,7 @@ const Select = ({ options, children, fieldId, defaultValue = 0, ...rest }) => {
   return (
     <select
       id={`fresh-${fieldId}`}
-      onChange={(e) => update({ id: fieldId, value: e.target.value })}
+      onChange={e => update({ id: fieldId, value: e.target.value })}
       value={fieldState}
       {...rest}
     >
@@ -23,11 +23,11 @@ const Select = ({ options, children, fieldId, defaultValue = 0, ...rest }) => {
 Select.propTypes = {
   options: PropTypes.array.isRequired,
   children: PropTypes.string,
-  fieldId: PropTypes.string.isRequired
+  fieldId: PropTypes.string.isRequired,
 }
 
 Select.defaultProps = {
-  children: ''
+  children: '',
 }
 
 export default Select

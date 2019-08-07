@@ -6,7 +6,13 @@ import useSpecialField from '../hooks/useSpecialField'
 
 // TODO change out formState for a new "fieldState" value that will come from the useSpecialfield hook
 
-const Password = ({ fieldId, strength = true, defaultValue = '', children, ...rest }) => {
+const Password = ({
+  fieldId,
+  strength = true,
+  defaultValue = '',
+  children,
+  ...rest
+}) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   return (
     <>
@@ -22,7 +28,7 @@ const Password = ({ fieldId, strength = true, defaultValue = '', children, ...re
 }
 
 Password.propTypes = {
-  strength: PropTypes.bool
+  strength: PropTypes.bool,
 }
 
 const Strength = styled.div`
@@ -34,7 +40,7 @@ const Strength = styled.div`
   ${({ strength }) => {
     if (strength === 2) {
       return css`
-        width: calc(193px * 0.50);
+        width: calc(193px * 0.5);
         background: red;
       `
     }
