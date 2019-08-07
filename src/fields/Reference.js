@@ -25,7 +25,9 @@ const Reference = ({
         {...rest}
       />
       {isFocused && (
-        <div style={{ position: 'absolute', background: 'white' }}>
+        <div
+          style={{ position: 'absolute', background: 'white', width: '100%' }}
+        >
           {options
             .filter(option =>
               option[displayProperty]
@@ -35,6 +37,7 @@ const Reference = ({
             .map(option => (
               <div
                 key={option._id}
+                style={{ padding: '0.75em' }}
                 onMouseDown={() => {
                   update({ id: fieldId, value: option })
                   setInputValue(option[displayProperty])
