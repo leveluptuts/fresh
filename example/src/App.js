@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Form, Field } from '@leveluptuts/fresh'
+import { Form, Field, Repeater } from '@leveluptuts/fresh'
 
 const options = ['prerelease', 'active', 'retired', 'hidden']
 
@@ -36,8 +36,11 @@ const App = () => {
 
       <FormWrapper>
         <Form onSubmit={onSubmit}>
-          <Field>Name</Field>
-          <Field type="email">Email</Field>
+          <Repeater>
+            Names
+            <Field>Name</Field>
+            <Field type="email">Email</Field>
+          </Repeater>
           <Field type="password">Password</Field>
           <Field type="tags">Tags</Field>
           <Field type="number">Number</Field>

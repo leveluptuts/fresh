@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import './styles.css'
 import { FormProvider, FormContext } from './state/State'
 export { default as Field } from './Field'
+export { default as Repeater } from './Repeater'
 
-const Form = (props) => {
+const Form = props => {
   return (
     <FormProvider>
       <FormWrapper {...props} />
@@ -18,7 +19,7 @@ const FormWrapper = ({
   buttons,
   className,
   disabled,
-  cancelButton
+  cancelButton,
 }) => {
   const { formState } = useContext(FormContext)
   return (
@@ -34,8 +35,8 @@ const FormWrapper = ({
       <div>
         {buttons || (
           <>
-            <button type='submit'>Submit</button>
-            {cancelButton && <button type='reset'>Cancel</button>}
+            <button type="submit">Submit</button>
+            {cancelButton && <button type="reset">Cancel</button>}
           </>
         )}
       </div>
@@ -50,13 +51,13 @@ FormWrapper.propTypes = {
   buttons: PropTypes.oneOfType([PropTypes.instanceOf(null), PropTypes.func]),
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  cancelButton: PropTypes.bool
+  cancelButton: PropTypes.bool,
 }
 
 FormWrapper.defaultProps = {
   className: '',
   cancelButton: true,
-  disabled: false
+  disabled: false,
 }
 
 // TODO
