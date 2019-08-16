@@ -29,6 +29,10 @@ const Field = ({
   options,
   className,
   defaultValue,
+  index,
+  isRepeater,
+  updateRepeater,
+  repeaterValue,
   ...rest
 }) => {
   const { formState, update, registerField } = useContext(FormContext)
@@ -37,12 +41,16 @@ const Field = ({
   useEffect(() => {
     registerField({ id: fieldId, value: defaultValue })
   }, [])
+  // console.log('repeaterValue', repeaterValue)
+  // const val = isRepeater ? repeaterValue : formState[fieldId]?.value
+  const val = formState[fieldId]
+  console.log('val', formState, fieldId)
 
   return (
     <div className={`field-wrapper ${fieldId}`}>
       <label htmlFor={`fresh-${fieldId}`}>
         <span>
-          {label && children} {required && '*'}
+          {label && children} {index && index} {required && '*'}
         </span>
         {Object.keys(COMPLEX_FIELDS).includes(type) ? (
           COMPLEX_FIELDS[type]({
@@ -59,8 +67,17 @@ const Field = ({
             className={className}
             id={`fresh-${fieldId}`}
             type={type}
-            value={formState[fieldId]?.value || ''}
-            onChange={e => update({ id: fieldId, value: e.target.value })}
+            // value={() => {
+            //   // if (isRepeater) return repeaterValue
+            //   return formState[fieldId] || ''
+            // }}
+            value={formState[fieldId]}
+            onChange={e => {
+              // if (isRepeater) {
+              //   updateRepeater({ fieldId, value: e.target.value })
+              // }
+              update({ id: fieldId, value: e.target.value })
+            }}
             {...rest}
           />
         )}

@@ -36,11 +36,8 @@ const App = () => {
 
       <FormWrapper>
         <Form onSubmit={onSubmit}>
-          <Repeater>
-            Names
-            <Field>Name</Field>
-            <Field type="email">Email</Field>
-          </Repeater>
+          <Field>Name</Field>
+          <Field type="email">Email</Field>
           <Field type="password">Password</Field>
           <Field type="tags">Tags</Field>
           <Field type="number">Number</Field>
