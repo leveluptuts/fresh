@@ -44,7 +44,6 @@ const Field = ({
   // console.log('repeaterValue', repeaterValue)
   // const val = isRepeater ? repeaterValue : formState[fieldId]?.value
   const val = formState[fieldId]
-  console.log('val', formState, fieldId)
 
   return (
     <div className={`field-wrapper ${fieldId}`}>
