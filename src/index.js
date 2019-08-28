@@ -1,26 +1,72 @@
-import React, { useEffect } from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
-import styles from './styles.css'
+import './styles.css'
+import { FormProvider, FormContext } from './state/State'
+export { default as Field } from './Field'
+export { default as Repeater } from './Repeater'
 
-export const Form = ({ onSubmit, children }) => {
-  return <form action={onSubmit}>{children}</form>
-}
-
-export const Field = ({ children }) => {
+const Form = props => {
   return (
-    <div className='field'>
-      <label htmlFor=''>
-        <span>{children}</span>
-        <input type='text' />
-      </label>
-    </div>
+    <FormProvider>
+      <FormWrapper {...props} />
+    </FormProvider>
   )
 }
 
-Form.propTypes = {
-  onSubmit: PropTypes.func.isRequired
+const FormWrapper = ({
+  onSubmit,
+  children,
+  buttons,
+  className,
+  disabled,
+  cancelButton,
+}) => {
+  const { formState } = useContext(FormContext)
+  return (
+    <form
+      className={className}
+      disabled={disabled}
+      onSubmit={e => {
+        e.preventDefault()
+        onSubmit({ data: formState })
+      }}
+    >
+      {children}
+      <div>
+        {buttons || (
+          <>
+            <button type="submit">Submit</button>
+            {cancelButton && <button type="reset">Cancel</button>}
+          </>
+        )}
+      </div>
+    </form>
+  )
 }
 
-Field.propTypes = {
-  children: PropTypes.string.isRequired
+FormWrapper.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])
+    .isRequired,
+  buttons: PropTypes.oneOfType([PropTypes.instanceOf(null), PropTypes.func]),
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  cancelButton: PropTypes.bool,
 }
+
+FormWrapper.defaultProps = {
+  className: '',
+  cancelButton: true,
+  disabled: false,
+}
+
+// TODO
+// AUto form prop that allows for automatic form building via graphql. Required feilds and all
+
+// Future api idea <Form mutation={GRAPHQL_MUTATION} /> one liner
+
+// Reset on submit option
+export { Form }
+
+// TODO
+// Markdown field

@@ -1,0 +1,24 @@
+---
+name: Home
+route: /
+---
+
+import { Playground, Props } from 'docz';
+import { Form, Field } from './index.js';
+
+# Form
+
+<Props of={Form} />
+
+## Basic form
+
+<Playground>
+  <Form onSubmit={() => {}}>
+    <Field>Name</Field>
+    <Field type="email">Email</Field>
+    <Field type="password">Password</Field>
+    <Field required type="select" options={['hi']}>
+      Type
+    </Field>
+  </Form>
+</Playground>

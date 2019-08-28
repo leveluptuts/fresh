@@ -1,15 +1,69 @@
-import React, { Component } from 'react';
+import React from 'react'
+import styled from 'styled-components'
+import { Form, Field, Repeater } from '@leveluptuts/fresh'
 
-import { Form, Field } from 'fresh-forms';
+const options = ['prerelease', 'active', 'retired', 'hidden']
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>
-        <Form>
-          <Field>Name</Field>
-        </Form>
-      </div>
-    );
+const refOptions = [
+  {
+    id: 'adsfasdfa',
+    text: 'Level 1 React',
+  },
+  {
+    id: 'ajjjdsfasdfa',
+    text: 'Something else',
+  },
+  {
+    id: 'jjdsfasdfa',
+    text: 'Another one ',
+  },
+]
+
+const App = () => {
+  // The on submit function is passed a data object with form data
+  const onSubmit = ({ data }) => {
+    console.log(data)
   }
+
+  return (
+    <Main>
+      <h1>
+        YO That's
+        <br />
+        Fresh
+      </h1>
+      <h3>Interplanetary Forms</h3>
+
+      <FormWrapper>
+        <Form onSubmit={onSubmit}>
+          <Field>Name</Field>
+          <Field type="email">Email</Field>
+          <Field type="password">Password</Field>
+          <Field type="tags">Tags</Field>
+          <Field type="number">Number</Field>
+          <Field required type="select" options={options}>
+            Type
+          </Field>
+          <Field type="textarea">Text Area</Field>
+          <Field type="markdown">Markdown</Field>
+          <Field type="toggle">Toggle</Field>
+          <Field type="reference" options={refOptions} displayProperty="text">
+            Reference
+          </Field>
+        </Form>
+      </FormWrapper>
+    </Main>
+  )
 }
+
+const Main = styled.div`
+  padding: 40px;
+`
+const FormWrapper = styled.div`
+  padding: 40px;
+  background: white;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+`
+
+export default App
