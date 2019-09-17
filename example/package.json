@@ -5,9 +5,9 @@
   "homepage": "./",
   "dependencies": {
     "@leveluptuts/fresh": "link:..",
+    "prop-types": "^15.5.4",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "prop-types": "^15.5.4",
     "react-scripts": "3.0.1",
     "styled-components": "^5.0.0-beta.8"
   },

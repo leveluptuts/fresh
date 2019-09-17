@@ -21,7 +21,7 @@ const refOptions = [
 
 const App = () => {
   // The on submit function is passed a data object with form data
-  const onSubmit = ({ data }) => {
+  const onSubmit = data => {
     console.log(data)
   }
 
