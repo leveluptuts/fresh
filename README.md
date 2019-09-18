@@ -27,25 +27,23 @@ yarn add @leveluptuts/fresh
 ### A basic form
 
 ```jsx
-import { Form, Field } from '@leveluptuts/fresh';
-
-<Form
-  onSubmit={({ data }) => {
-    console.log(data);
+import { Form, Field } from '@leveluptuts/fresh'
+;<Form
+  onSubmit={data => {
+    console.log(data)
   }}
 >
   <Field>Name</Field>
   <Field type="number">Number</Field>
   <Field type="select" options={options} />
-</Form>;
+</Form>
 ```
 
 ### A slightly less basic form
 
 ```jsx
-import { Form, Field } from '@leveluptuts/fresh';
-
-<Form onSubmit={onSubmit}>
+import { Form, Field } from '@leveluptuts/fresh'
+;<Form onSubmit={onSubmit}>
   <Field>Name</Field>
   <Field type="email">Email</Field>
   <Field type="password">Password</Field>
@@ -57,7 +55,7 @@ import { Form, Field } from '@leveluptuts/fresh';
   <Field type="textarea">Text Area</Field>
   <Field type="markdown">Markdown</Field>
   <Field type="toggle">Markdown</Field>
-</Form>;
+</Form>
 ```
 
 ## API
