@@ -11,7 +11,7 @@ const Form = ({
   buttons,
   className,
   disabled,
-  cancelButton
+  cancelButton,
 }) => {
   return (
     <FormProvider>
@@ -27,22 +27,22 @@ const Form = ({
               const data = {
                 type: element.tagName,
                 value: element.value,
-                key: element.parentNode.textContent
+                key: element.parentNode.textContent,
               }
               data[camelCase(element.parentNode.textContent)] = element.value
               return data
             })
 
-          onSubmit({ data: fields })
+          onSubmit(fields)
         }}
       >
         {children}
         <div>
           {buttons || (
-          <>
-            <button type='submit'>Submit</button>
-            {cancelButton && <button type='reset'>Cancel</button>}
-          </>
+            <>
+              <button type="submit">Submit</button>
+              {cancelButton && <button type="reset">Cancel</button>}
+            </>
           )}
         </div>
       </form>
@@ -57,13 +57,13 @@ Form.propTypes = {
   buttons: PropTypes.oneOfType([PropTypes.instanceOf(null), PropTypes.func]),
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  cancelButton: PropTypes.bool
+  cancelButton: PropTypes.bool,
 }
 
 Form.defaultProps = {
   className: '',
   cancelButton: true,
-  disabled: false
+  disabled: false,
 }
 
 // TODO

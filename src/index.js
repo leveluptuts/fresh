@@ -28,7 +28,7 @@ const FormWrapper = ({
       disabled={disabled}
       onSubmit={e => {
         e.preventDefault()
-        onSubmit({ data: formState })
+        onSubmit(formState)
       }}
     >
       {children}
