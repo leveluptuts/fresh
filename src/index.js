@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import './styles.css'
 import { FormProvider, FormContext } from './state/State'
+import CancelButton from './form/CancelButton'
 export { default as Field } from './Field'
 
 const Form = props => {
@@ -19,6 +20,9 @@ const FormWrapper = ({
   className,
   disabled,
   cancelButton,
+  cancelAction,
+  submitText,
+  cancelText,
 }) => {
   const { formState } = useContext(FormContext)
   return (
@@ -34,8 +38,15 @@ const FormWrapper = ({
       <div>
         {buttons || (
           <>
-            <button type="submit">Submit</button>
-            {cancelButton && <button type="reset">Cancel</button>}
+            <button id="fresh-submit" type="submit">
+              {submitText}
+            </button>
+            {cancelButton && (
+              <CancelButton
+                cancelAction={cancelAction}
+                cancelText={cancelText}
+              />
+            )}
           </>
         )}
       </div>
@@ -51,12 +62,18 @@ FormWrapper.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   cancelButton: PropTypes.bool,
+  cancelAction: PropTypes.func,
+  submitText: PropTypes.string,
+  cancelText: PropTypes.string,
 }
 
 FormWrapper.defaultProps = {
   className: '',
   cancelButton: true,
   disabled: false,
+  cancelAction: () => null,
+  submitText: 'Submit',
+  cancelText: 'Cancel',
 }
 
 // TODO

@@ -64,12 +64,15 @@ import { Form, Field } from '@leveluptuts/fresh'
 
 The wrapper around your fields.
 
-| Prop         | Type    | Default      | Description                                                                                                           |
-| ------------ | ------- | ------------ | --------------------------------------------------------------------------------------------------------------------- |
-| onSubmit     | func    | (data) => {} | Can be any of the following types. text (default), email, number, select, password, textarea, tags. (See types below) |  |
-| buttons      | boolean | true         | if submit and cancel are shown                                                                                        |
-| cancelButton | boolean | true         | if cancel is shown                                                                                                    |
-| disabled     | boolean | false        | if the form is disabled                                                                                               |
+| Prop         | Type    | Default        | Description                                                                                                           |
+| ------------ | ------- | -------------- | --------------------------------------------------------------------------------------------------------------------- |
+| onSubmit     | func    | (data) => data | Can be any of the following types. text (default), email, number, select, password, textarea, tags. (See types below) |  |
+| buttons      | boolean | true           | if submit and cancel are shown                                                                                        |
+| cancelButton | boolean | true           | if cancel is shown                                                                                                    |
+| disabled     | boolean | false          | if the form is disabled                                                                                               |
+| cancelAction | func    | () => null     | A function that will run on cancel button click                                                                       |  |
+| submitText   | string  | 'Submit'       | Custom text for submit button                                                                                         |
+| cancelText   | string  | 'Cancel'       | Custom text for cancel button                                                                                         |
 
 ### Field
 

@@ -9,12 +9,20 @@ function reducer(state, action) {
       data[action.id] = action.value
       return { ...state, ...data }
     case 'registerField':
-      const yo = {}
+      const yo = {
+        defaultValues: {
+          ...state.defaultValues,
+        },
+      }
       yo[action.id] = action.value || ''
+      yo.defaultValues[action.id] = action.value || ''
       return { ...state, ...yo }
     case 'resetForm':
-      console.log('state', state)
-      return { ...state }
+      const { defaultValues } = state
+      return {
+        defaultValues,
+        ...state.defaultValues,
+      }
     default:
       throw new Error()
   }
