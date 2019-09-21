@@ -43,6 +43,7 @@ import { Form, Field } from '@leveluptuts/fresh'
 
 ```jsx
 import { Form, Field } from '@leveluptuts/fresh'
+
 ;<Form onSubmit={onSubmit}>
   <Field>Name</Field>
   <Field type="email">Email</Field>
@@ -64,12 +65,12 @@ import { Form, Field } from '@leveluptuts/fresh'
 
 The wrapper around your fields.
 
-| Prop         | Type    | Default  | Description                                                                                                 |
-| ------------ | ------- | -------- | ----------------------------------------------------------------------------------------------------------- |
-| onSubmit     | func    | () => {} | Can be any of the following types. text (default), email, number, select, password, tags. (See types below) |  |
-| buttons      | boolean | true     | if submit and cancel are shown                                                                              |
-| cancelButton | boolean | true     | if cancel is shown                                                                                          |
-| disabled     | boolean | false    | if the form is disabled                                                                                     |
+| Prop         | Type    | Default      | Description                                                                                                           |
+| ------------ | ------- | ------------ | --------------------------------------------------------------------------------------------------------------------- |
+| onSubmit     | func    | (data) => {} | Can be any of the following types. text (default), email, number, select, password, textarea, tags. (See types below) |  |
+| buttons      | boolean | true         | if submit and cancel are shown                                                                                        |
+| cancelButton | boolean | true         | if cancel is shown                                                                                                    |
+| disabled     | boolean | false        | if the form is disabled                                                                                               |
 
 ### Field
 
@@ -77,11 +78,11 @@ The wrapper around your fields.
 
 The common API is shared among all <Field /> elements. Type specific fields are found below.
 
-| Prop     | Type    | Default | Description                                                                                                 |
-| -------- | ------- | ------- | ----------------------------------------------------------------------------------------------------------- |
-| type     | string  | 'text'  | Can be any of the following types. text (default), email, number, select, password, tags. (See types below) |
-| required | boolean | false   | if a field is required                                                                                      |
-| label    | boolean | true    | if a field has a label                                                                                      |
+| Prop     | Type    | Default | Description                                                                                                           |
+| -------- | ------- | ------- | --------------------------------------------------------------------------------------------------------------------- |
+| type     | string  | 'text'  | Can be any of the following types. text (default), email, number, select, password, textarea, tags. (See types below) |
+| required | boolean | false   | if a field is required                                                                                                |
+| label    | boolean | true    | if a field has a label                                                                                                |
 
 #### type - password
 
