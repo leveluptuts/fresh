@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import './styles.css'
 import { FormProvider, FormContext } from './state/State'
 export { default as Field } from './Field'
-export { default as Repeater } from './Repeater'
 
 const Form = props => {
   return (

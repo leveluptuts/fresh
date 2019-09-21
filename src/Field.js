@@ -29,10 +29,6 @@ const Field = ({
   options,
   className,
   defaultValue,
-  index,
-  isRepeater,
-  updateRepeater,
-  repeaterValue,
   ...rest
 }) => {
   const { formState, update, registerField } = useContext(FormContext)
@@ -41,15 +37,12 @@ const Field = ({
   useEffect(() => {
     registerField({ id: fieldId, value: defaultValue })
   }, [])
-  // console.log('repeaterValue', repeaterValue)
-  // const val = isRepeater ? repeaterValue : formState[fieldId]?.value
-  const val = formState[fieldId]
 
   return (
     <div className={`field-wrapper ${fieldId}`}>
       <label htmlFor={`fresh-${fieldId}`}>
         <span>
-          {label && children} {index && index} {required && '*'}
+          {label && children} {required && '*'}
         </span>
         {Object.keys(COMPLEX_FIELDS).includes(type) ? (
           COMPLEX_FIELDS[type]({
@@ -66,15 +59,8 @@ const Field = ({
             className={className}
             id={`fresh-${fieldId}`}
             type={type}
-            // value={() => {
-            //   // if (isRepeater) return repeaterValue
-            //   return formState[fieldId] || ''
-            // }}
             value={formState[fieldId]}
             onChange={e => {
-              // if (isRepeater) {
-              //   updateRepeater({ fieldId, value: e.target.value })
-              // }
               update({ id: fieldId, value: e.target.value })
             }}
             {...rest}
@@ -107,7 +93,3 @@ Field.defaultProps = {
 }
 
 export default Field
-// MEGA IDEA EFFORTLESS FORMS
-
-// A field should be able to be used just by exporting the context
-// This would allow for an api that looks like... <Field />Name {name} useContext
