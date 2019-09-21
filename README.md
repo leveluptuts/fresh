@@ -28,7 +28,6 @@ yarn add @leveluptuts/fresh
 
 ```jsx
 import { Form, Field } from '@leveluptuts/fresh'
-
 ;<Form
   onSubmit={data => {
     console.log(data)

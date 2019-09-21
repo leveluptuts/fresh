@@ -35,6 +35,25 @@ const App = () => {
       <h3>Interplanetary Forms</h3>
 
       <FormWrapper>
+        <h4>Code</h4>
+        <pre>{`
+        <Form onSubmit={onSubmit}>
+          <Field>Name</Field>
+          <Field type="email">Email</Field>
+          <Field type="password">Password</Field>
+          <Field type="tags">Tags</Field>
+          <Field type="number">Number</Field>
+          <Field required type="select" options={options}>
+            Type
+          </Field>
+          <Field type="textarea">Text Area</Field>
+          <Field type="markdown">Markdown</Field>
+          <Field type="toggle">Toggle</Field>
+          <Field type="reference" options={refOptions} displayProperty="text">
+            Reference
+          </Field>
+        </Form>
+        `}</pre>
         <Form onSubmit={onSubmit}>
           <Field>Name</Field>
           <Field type="email">Email</Field>
