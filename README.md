@@ -43,7 +43,6 @@ import { Form, Field } from '@leveluptuts/fresh'
 
 ```jsx
 import { Form, Field } from '@leveluptuts/fresh'
-
 ;<Form onSubmit={onSubmit}>
   <Field>Name</Field>
   <Field type="email">Email</Field>
@@ -83,6 +82,12 @@ The common API is shared among all <Field /> elements. Type specific fields are 
 | type     | string  | 'text'  | Can be any of the following types. text (default), email, number, select, password, textarea, tags. (See types below) |
 | required | boolean | false   | if a field is required                                                                                                |
 | label    | boolean | true    | if a field has a label                                                                                                |
+
+#### type - text & textarea
+
+| Prop        | Type   | Default | Description      |
+| ----------- | ------ | ------- | ---------------- |
+| placeholder | string | ''      | placeholder text |
 
 #### type - password
 

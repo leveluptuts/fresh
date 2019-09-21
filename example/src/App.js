@@ -38,7 +38,7 @@ const App = () => {
         <h4>Code</h4>
         <pre>{`
         <Form onSubmit={onSubmit}>
-          <Field>Name</Field>
+          <Field placeholder="Freddie Fresh">Name</Field>
           <Field type="email">Email</Field>
           <Field type="password">Password</Field>
           <Field type="tags">Tags</Field>
@@ -55,7 +55,7 @@ const App = () => {
         </Form>
         `}</pre>
         <Form onSubmit={onSubmit}>
-          <Field>Name</Field>
+          <Field placeholder="Freddie Fresh">Name</Field>
           <Field type="email">Email</Field>
           <Field type="password">Password</Field>
           <Field type="tags">Tags</Field>
