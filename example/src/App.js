@@ -38,7 +38,7 @@ const App = () => {
         <h4>Code</h4>
         <pre>{`
         <Form onSubmit={onSubmit}>
-          <Field>Name</Field>
+          <Field placeholder="Freddie Fresh">Name</Field>
           <Field type="email">Email</Field>
           <Field type="password">Password</Field>
           <Field type="tags">Tags</Field>
@@ -54,13 +54,8 @@ const App = () => {
           </Field>
         </Form>
         `}</pre>
-        <Form
-          onSubmit={onSubmit}
-          cancelAction={() => {
-            console.log('hihiii')
-          }}
-        >
-          <Field>Name</Field>
+        <Form onSubmit={onSubmit}>
+          <Field placeholder="Freddie Fresh">Name</Field>
           <Field type="email">Email</Field>
           <Field type="password">Password</Field>
           <Field type="tags">Tags</Field>

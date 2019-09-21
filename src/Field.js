@@ -26,6 +26,7 @@ const Field = ({
   type,
   label,
   error,
+  placeholder,
   options,
   className,
   defaultValue,
@@ -50,6 +51,7 @@ const Field = ({
             children,
             className,
             fieldId,
+            placeholder,
             type,
             ...rest,
           })
@@ -57,6 +59,7 @@ const Field = ({
           <input
             required={required}
             className={className}
+            placeholder={placeholder}
             id={`fresh-${fieldId}`}
             type={type}
             value={formState[fieldId]}
@@ -80,16 +83,18 @@ Field.propTypes = {
   options: PropTypes.array,
   required: PropTypes.bool,
   label: PropTypes.bool,
+  placeholder: PropTypes.string,
 }
 
 Field.defaultProps = {
   children: '',
   className: '',
-  type: 'text',
+  defaultValue: null,
   options: [],
   required: false,
   label: true,
-  defaultValue: null,
+  placeholder: '',
+  type: 'text',
 }
 
 export default Field

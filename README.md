@@ -86,6 +86,12 @@ The common API is shared among all <Field /> elements. Type specific fields are 
 | required | boolean | false   | if a field is required                                                                                                |
 | label    | boolean | true    | if a field has a label                                                                                                |
 
+#### type - text & textarea
+
+| Prop        | Type   | Default | Description      |
+| ----------- | ------ | ------- | ---------------- |
+| placeholder | string | ''      | placeholder text |
+
 #### type - password
 
 | Prop     | Type    | Default | Description                                                |
