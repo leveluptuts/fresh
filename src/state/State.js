@@ -12,6 +12,9 @@ function reducer(state, action) {
       const yo = {}
       yo[action.id] = action.value || ''
       return { ...state, ...yo }
+    case 'resetForm':
+      console.log('state', state)
+      return { ...state }
     default:
       throw new Error()
   }
@@ -22,7 +25,13 @@ export function FormProvider({ children }) {
 
   return (
     <FormContext.Provider
-      value={{ formState, update: ({ id, value }) => dispatch({ type: 'update', id, value }), registerField: ({ id, value }) => dispatch({ type: 'registerField', id, value }) }}
+      value={{
+        formState,
+        update: ({ id, value }) => dispatch({ type: 'update', id, value }),
+        registerField: ({ id, value }) =>
+          dispatch({ type: 'registerField', id, value }),
+        resetForm: () => dispatch({ type: 'resetForm' }),
+      }}
     >
       {children}
     </FormContext.Provider>

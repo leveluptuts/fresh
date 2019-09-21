@@ -9,7 +9,6 @@ const Tags = ({ defaultValue = [], fieldId }) => {
   return (
     <StyledTags
       value={fieldState || []}
-      defaultValue={defaultValue}
       onChange={value => update({ id: fieldId, value })}
     />
   )

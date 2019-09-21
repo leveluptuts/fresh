@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import camelCase from 'lodash/camelCase'
 import './styles.css'
 import { FormProvider } from './state/State'
+import CancelButton from './form/CancelButton'
 export { default as Field } from './Field'
 
 const Form = ({
@@ -41,7 +42,7 @@ const Form = ({
           {buttons || (
             <>
               <button type="submit">Submit</button>
-              {cancelButton && <button type="reset">Cancel</button>}
+              {cancelButton && <CancelButton />}
             </>
           )}
         </div>

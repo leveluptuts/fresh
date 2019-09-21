@@ -6,7 +6,6 @@ export const TextArea = ({ defaultValue = '', fieldId, children }) => {
   return (
     <textarea
       value={fieldState || ''}
-      defaultValue={defaultValue}
       onChange={e => update({ id: fieldId, value: e.target.value })}
     />
   )

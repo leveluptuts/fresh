@@ -66,6 +66,3 @@ FormWrapper.defaultProps = {
 
 // Reset on submit option
 export { Form }
-
-// TODO
-// Markdown field

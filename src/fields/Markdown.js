@@ -9,7 +9,6 @@ export const TextArea = ({ defaultValue = '', children, fieldId }) => {
       <textarea
         style={{ width: '50%' }}
         value={fieldState || ''}
-        defaultValue={defaultValue}
         onChange={e => update({ id: fieldId, value: e.target.value })}
       />
       <Markdown style={{ width: '50%' }} children={fieldState || ''} />
