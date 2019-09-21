@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Form, Field, Repeater } from '@leveluptuts/fresh'
+import { Form, Field } from '@leveluptuts/fresh'
 
 const options = ['prerelease', 'active', 'retired', 'hidden']
 

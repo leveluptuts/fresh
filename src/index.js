@@ -39,7 +39,6 @@ const FormWrapper = ({
         {buttons || (
           <>
             <button id="fresh-submit" type="submit">
-              {' '}
               {submitText}
             </button>
             {cancelButton && (
