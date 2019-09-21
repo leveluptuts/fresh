@@ -13,6 +13,8 @@ const Form = ({
   className,
   disabled,
   cancelButton,
+  submitText,
+  cancelText,
 }) => {
   return (
     <FormProvider>
@@ -41,8 +43,10 @@ const Form = ({
         <div>
           {buttons || (
             <>
-              <button type="submit">Submit</button>
-              {cancelButton && <CancelButton />}
+              <button id="fresh-submit" type="submit">
+                {submitText}
+              </button>
+              {cancelButton && <CancelButton cancelText={cancelText} />}
             </>
           )}
         </div>
@@ -59,10 +63,14 @@ Form.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   cancelButton: PropTypes.bool,
+  submitText: PropTypes.string,
+  cancelText: PropTypes.string,
 }
 
 Form.defaultProps = {
   className: '',
+  submitText: 'Submit',
+  cancelText: 'Cancel',
   cancelButton: true,
   disabled: false,
 }

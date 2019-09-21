@@ -43,7 +43,6 @@ import { Form, Field } from '@leveluptuts/fresh'
 
 ```jsx
 import { Form, Field } from '@leveluptuts/fresh'
-
 ;<Form onSubmit={onSubmit}>
   <Field>Name</Field>
   <Field type="email">Email</Field>
@@ -71,6 +70,8 @@ The wrapper around your fields.
 | buttons      | boolean | true         | if submit and cancel are shown                                                                                        |
 | cancelButton | boolean | true         | if cancel is shown                                                                                                    |
 | disabled     | boolean | false        | if the form is disabled                                                                                               |
+| submitText   | string  | 'Submit'     | Custom text for submit button                                                                                         |
+| cancelText   | string  | 'Cancel'     | Custom text for cancel button                                                                                         |
 
 ### Field
 
