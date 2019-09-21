@@ -21,6 +21,8 @@ const FormWrapper = ({
   disabled,
   cancelButton,
   cancelAction,
+  submitText,
+  cancelText,
 }) => {
   const { formState } = useContext(FormContext)
   return (
@@ -36,8 +38,15 @@ const FormWrapper = ({
       <div>
         {buttons || (
           <>
-            <button type="submit">Submit</button>
-            {cancelButton && <CancelButton cancelAction={cancelAction} />}
+            <button id="fresh-submit" type="submit">
+              {submitText}
+            </button>
+            {cancelButton && (
+              <CancelButton
+                cancelAction={cancelAction}
+                cancelText={cancelText}
+              />
+            )}
           </>
         )}
       </div>
@@ -54,6 +63,8 @@ FormWrapper.propTypes = {
   disabled: PropTypes.bool,
   cancelButton: PropTypes.bool,
   cancelAction: PropTypes.func,
+  submitText: PropTypes.string,
+  cancelText: PropTypes.string,
 }
 
 FormWrapper.defaultProps = {
@@ -61,6 +72,8 @@ FormWrapper.defaultProps = {
   cancelButton: true,
   disabled: false,
   cancelAction: () => null,
+  submitText: 'Submit',
+  cancelText: 'Cancel',
 }
 
 // TODO

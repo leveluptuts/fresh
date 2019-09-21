@@ -71,6 +71,8 @@ The wrapper around your fields.
 | cancelButton | boolean | true           | if cancel is shown                                                                                                    |
 | disabled     | boolean | false          | if the form is disabled                                                                                               |
 | cancelAction | func    | () => null     | A function that will run on cancel button click                                                                       |  |
+| submitText   | string  | 'Submit'       | Custom text for submit button                                                                                         |
+| cancelText   | string  | 'Cancel'       | Custom text for cancel button                                                                                         |
 
 ### Field
 
