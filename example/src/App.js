@@ -54,7 +54,12 @@ const App = () => {
           </Field>
         </Form>
         `}</pre>
-        <Form onSubmit={onSubmit}>
+        <Form
+          onSubmit={onSubmit}
+          cancelAction={() => {
+            console.log('hihiii')
+          }}
+        >
           <Field>Name</Field>
           <Field type="email">Email</Field>
           <Field type="password">Password</Field>
