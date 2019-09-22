@@ -16,6 +16,7 @@ export const TextArea = ({
         placeholder={placeholder}
         style={{ width: '50%' }}
         value={fieldState || ''}
+        className="fresh-input fresh-input-textarea"
         onChange={e => update({ id: fieldId, value: e.target.value })}
       />
       <Markdown style={{ width: '50%' }} children={fieldState || ''} />

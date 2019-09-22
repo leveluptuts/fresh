@@ -8,6 +8,7 @@ const Password = ({
   strength = true,
   defaultValue = '',
   children,
+  placeholder,
   ...rest
 }) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
@@ -35,6 +36,8 @@ const Password = ({
   return (
     <>
       <input
+        className="fresh-input fresh-input-password"
+        placeholder={placeholder}
         value={fieldState || ''}
         id={`fresh-${fieldId}`}
         onChange={e => update({ value: e.target.value, id: fieldId })}
@@ -57,6 +60,11 @@ const Password = ({
 
 Password.propTypes = {
   strength: PropTypes.bool,
+  placeholder: PropTypes.string,
+}
+
+Password.defaultProps = {
+  placeholder: '',
 }
 
 export default Password
