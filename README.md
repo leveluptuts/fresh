@@ -28,6 +28,7 @@ yarn add @leveluptuts/fresh
 
 ```jsx
 import { Form, Field } from '@leveluptuts/fresh'
+
 ;<Form
   onSubmit={data => {
     console.log(data)
@@ -71,6 +72,8 @@ The wrapper around your fields.
 | cancelButton | boolean | true           | if cancel is shown                                                                                                    |
 | disabled     | boolean | false          | if the form is disabled                                                                                               |
 | cancelAction | func    | () => null     | A function that will run on cancel button click                                                                       |  |
+| submitText   | string  | 'Submit'       | Custom text for submit button                                                                                         |
+| cancelText   | string  | 'Cancel'       | Custom text for cancel button                                                                                         |
 
 ### Field
 
@@ -83,6 +86,12 @@ The common API is shared among all <Field /> elements. Type specific fields are 
 | type     | string  | 'text'  | Can be any of the following types. text (default), email, number, select, password, textarea, tags. (See types below) |
 | required | boolean | false   | if a field is required                                                                                                |
 | label    | boolean | true    | if a field has a label                                                                                                |
+
+#### type - text & textarea
+
+| Prop        | Type   | Default | Description      |
+| ----------- | ------ | ------- | ---------------- |
+| placeholder | string | ''      | placeholder text |
 
 #### type - password
 

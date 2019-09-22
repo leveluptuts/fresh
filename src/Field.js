@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from 'react'
-import kebabCase from 'lodash/kebabCase'
 import PropTypes from 'prop-types'
 import Select from './fields/Select'
 import Reference from './fields/Reference'
@@ -9,6 +8,12 @@ import TextArea from './fields/TextArea'
 import Markdown from './fields/Markdown'
 import Toggle from './fields/Toggle'
 import { FormContext } from './state/State'
+
+const kebabCase = str =>
+  str
+    .replace(/([a-z])([A-Z])/g, '$1-$2')
+    .replace(/[\s_]+/g, '-')
+    .toLowerCase()
 
 const COMPLEX_FIELDS = {
   select: Select,
@@ -26,6 +31,7 @@ const Field = ({
   type,
   label,
   error,
+  placeholder,
   options,
   className,
   defaultValue,
@@ -50,6 +56,7 @@ const Field = ({
             children,
             className,
             fieldId,
+            placeholder,
             type,
             ...rest,
           })
@@ -57,6 +64,7 @@ const Field = ({
           <input
             required={required}
             className={className}
+            placeholder={placeholder}
             id={`fresh-${fieldId}`}
             type={type}
             value={formState[fieldId]}
@@ -80,16 +88,18 @@ Field.propTypes = {
   options: PropTypes.array,
   required: PropTypes.bool,
   label: PropTypes.bool,
+  placeholder: PropTypes.string,
 }
 
 Field.defaultProps = {
   children: '',
   className: '',
-  type: 'text',
+  defaultValue: null,
   options: [],
   required: false,
   label: true,
-  defaultValue: null,
+  placeholder: '',
+  type: 'text',
 }
 
 export default Field

@@ -1,6 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
-import { Form, Field, Repeater } from '@leveluptuts/fresh'
+import { Form, Field } from '@leveluptuts/fresh'
 
 const options = ['prerelease', 'active', 'retired', 'hidden']
 
@@ -26,19 +25,25 @@ const App = () => {
   }
 
   return (
-    <Main>
+    <div style={{ padding: '40px' }}>
       <h1>
         YO That's
         <br />
         Fresh
       </h1>
       <h3>Interplanetary Forms</h3>
-
-      <FormWrapper>
+      <div
+        style={{
+          padding: '40px',
+          background: 'white',
+          boxShadow: '4px 4px 15px rgba(0, 0, 0, 0.2)',
+          borderRadius: '10px',
+        }}
+      >
         <h4>Code</h4>
         <pre>{`
         <Form onSubmit={onSubmit}>
-          <Field>Name</Field>
+          <Field placeholder="Freddie Fresh">Name</Field>
           <Field type="email">Email</Field>
           <Field type="password">Password</Field>
           <Field type="tags">Tags</Field>
@@ -54,13 +59,8 @@ const App = () => {
           </Field>
         </Form>
         `}</pre>
-        <Form
-          onSubmit={onSubmit}
-          cancelAction={() => {
-            console.log('hihiii')
-          }}
-        >
-          <Field>Name</Field>
+        <Form onSubmit={onSubmit}>
+          <Field placeholder="Freddie Fresh">Name</Field>
           <Field type="email">Email</Field>
           <Field type="password">Password</Field>
           <Field type="tags">Tags</Field>
@@ -75,19 +75,9 @@ const App = () => {
             Reference
           </Field>
         </Form>
-      </FormWrapper>
-    </Main>
+      </div>
+    </div>
   )
 }
-
-const Main = styled.div`
-  padding: 40px;
-`
-const FormWrapper = styled.div`
-  padding: 40px;
-  background: white;
-  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-`
 
 export default App
