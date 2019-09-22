@@ -27,7 +27,7 @@ const FormWrapper = ({
   const { formState } = useContext(FormContext)
   return (
     <form
-      className={className}
+      className={`${className} fresh-form`}
       disabled={disabled}
       onSubmit={e => {
         e.preventDefault()

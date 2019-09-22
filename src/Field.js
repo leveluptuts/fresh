@@ -45,9 +45,9 @@ const Field = ({
   }, [])
 
   return (
-    <div className={`field-wrapper ${fieldId}`}>
+    <div className={`fresh-field-wrapper ${fieldId}`}>
       <label htmlFor={`fresh-${fieldId}`}>
-        <span>
+        <span className="fresh-label">
           {label && children} {required && '*'}
         </span>
         {Object.keys(COMPLEX_FIELDS).includes(type) ? (
@@ -63,7 +63,7 @@ const Field = ({
         ) : (
           <input
             required={required}
-            className={className}
+            className={`fresh-input fresh-input-${type} ${className}`}
             placeholder={placeholder}
             id={`fresh-${fieldId}`}
             type={type}
@@ -75,7 +75,7 @@ const Field = ({
           />
         )}
       </label>
-      {error && <div className="error">{error}</div>}
+      {error && <div className="fresh-error">{error}</div>}
     </div>
   )
 }

@@ -8,6 +8,7 @@ const Reference = ({
   fieldId,
   displayProperty,
   defaultValue = {},
+  placeholder,
   ...rest
 }) => {
   const { update } = useSpecialField({ fieldId, defaultValue })
@@ -21,11 +22,14 @@ const Reference = ({
         value={inputValue}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
+        placeholder={placeholder}
         type="text"
+        className="fresh-input fresh-input-text"
         {...rest}
       />
       {isFocused && (
         <div
+          className="fresh-focused"
           style={{ position: 'absolute', background: 'white', width: '100%' }}
         >
           {options
@@ -57,10 +61,12 @@ Reference.propTypes = {
   children: PropTypes.string,
   fieldId: PropTypes.string.isRequired,
   displayProperty: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
 }
 
 Reference.defaultProps = {
   children: '',
+  placeholder: '',
 }
 
 export default Reference

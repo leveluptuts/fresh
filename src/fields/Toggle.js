@@ -14,10 +14,15 @@ const Toggle = ({
 }) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   return (
-    <div className={style.switch}>
-      <input checked={fieldState} type="checkbox" />
+    <div className={`fresh-switch ${style.switch}`}>
+      <input
+        checked={fieldState}
+        type="checkbox"
+        id={`fresh-${fieldId}`}
+        className="fresh-input fresh-input-checkbox fresh-input-toggle"
+      />
       <span
-        className={style.slider}
+        className={`fresh-slider ${style.slider}`}
         onClick={e => update({ id: fieldId, value: !fieldState })}
       />
     </div>

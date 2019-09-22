@@ -13,6 +13,7 @@ export const TextArea = ({
       id={`fresh-${fieldId}`}
       placeholder={placeholder}
       value={fieldState || ''}
+      className="fresh-input fresh-input-textarea"
       onChange={e => update({ id: fieldId, value: e.target.value })}
     />
   )
