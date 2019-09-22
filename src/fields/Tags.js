@@ -9,6 +9,8 @@ const Tags = ({ defaultValue = [], fieldId }) => {
     <TagsInput
       value={fieldState || []}
       onChange={value => update({ id: fieldId, value })}
+      className="fresh-input fresh-input-tags"
+      id={`fresh-${fieldId}`}
       style={{
         marginTop: '1rem',
       }}
