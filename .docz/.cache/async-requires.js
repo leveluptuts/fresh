@@ -2,6 +2,8 @@
 const preferDefault = m => m && m.default || m
 
 exports.components = {
+  "component---example-readme-md": () => import("/Users/scotttolinski/Sites/fresh-forms/example/README.md" /* webpackChunkName: "component---example-readme-md" */),
+  "component---readme-md": () => import("/Users/scotttolinski/Sites/fresh-forms/README.md" /* webpackChunkName: "component---readme-md" */),
   "component---src-field-mdx": () => import("/Users/scotttolinski/Sites/fresh-forms/src/Field.mdx" /* webpackChunkName: "component---src-field-mdx" */),
   "component---src-form-mdx": () => import("/Users/scotttolinski/Sites/fresh-forms/src/Form.mdx" /* webpackChunkName: "component---src-form-mdx" */),
   "component---src-fields-styleguide-mdx": () => import("/Users/scotttolinski/Sites/fresh-forms/src/fields/styleguide.mdx" /* webpackChunkName: "component---src-fields-styleguide-mdx" */),

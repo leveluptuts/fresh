@@ -1,4 +1,4 @@
-const { merge } = require('lodash/fp')
+const { mergeWith } = require('lodash/fp')
 
 let custom
 try {
@@ -8,6 +8,8 @@ try {
 }
 
 const config = {
+  pathPrefix: '/',
+
   siteMetadata: {
     title: 'Fresh',
     description: "They're dope, they're fresh.",
@@ -16,6 +18,13 @@ const config = {
     {
       resolve: 'gatsby-theme-docz',
       options: {
+        themeConfig: {},
+        themesDir: 'src',
+        docgenConfig: {},
+        menu: ['Home', { name: 'Components', menu: ['Components'] }],
+        mdPlugins: [],
+        hastPlugins: [],
+        ignore: [],
         typescript: false,
         ts: false,
         propsParser: true,
@@ -31,7 +40,6 @@ const config = {
         source: './',
         src: './',
         files: '**/*.{md,markdown,mdx}',
-        ignore: [{}, {}, {}, {}, {}],
         public: '/public',
         dest: '.docz/dist',
         d: '.docz/dist',
@@ -45,11 +53,6 @@ const config = {
         port: 3001,
         p: 3000,
         separator: '-',
-        themeConfig: {},
-        docgenConfig: {},
-        menu: ['Home', { name: 'Components', menu: ['Components'] }],
-        mdPlugins: [],
-        hastPlugins: [],
         paths: {
           root: '/Users/scotttolinski/Sites/fresh-forms',
           templates:
@@ -83,5 +86,11 @@ const config = {
     },
   ],
 }
+
+const merge = mergeWith((objValue, srcValue) => {
+  if (Array.isArray(objValue)) {
+    return objValue.concat(srcValue)
+  }
+})
 
 module.exports = merge(config, custom)

@@ -12,7 +12,7 @@ var _default = (moduleName, err) => {
     return true;
   }
 
-  const regex = new RegExp(`Error: Cannot find module\\s.${moduleName.replace(/[-/\\^$*+?.()|[\]{}]/g, `\\$&`)}`);
+  const regex = new RegExp(`Error:\\s(\\S+\\s)?[Cc]annot find module\\s.${moduleName.replace(/[-/\\^$*+?.()|[\]{}]/g, `\\$&`)}`);
   const firstLine = err.toString().split(`\n`)[0];
   return regex.test(firstLine);
 };

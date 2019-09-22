@@ -5,8 +5,6 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports.default = exports.publicLoader = exports.setLoader = exports.ProdLoader = exports.BaseLoader = void 0;
 
-require("core-js/modules/es7.promise.finally");
-
 var _prefetch = _interopRequireDefault(require("./prefetch"));
 
 var _emitter = _interopRequireDefault(require("./emitter"));
@@ -29,7 +27,6 @@ const createPageDataUrl = path => {
 const doFetch = (url, method = `GET`) => new Promise((resolve, reject) => {
   const req = new XMLHttpRequest();
   req.open(method, url, true);
-  req.withCredentials = true;
 
   req.onreadystatechange = () => {
     if (req.readyState == 4) {
@@ -107,7 +104,7 @@ const loadPageDataJson = loadObj => {
 };
 
 const doesConnectionSupportPrefetch = () => {
-  if (`connection` in navigator) {
+  if (`connection` in navigator && typeof navigator.connection !== `undefined`) {
     if ((navigator.connection.effectiveType || ``).includes(`2g`)) {
       return false;
     }
@@ -251,8 +248,13 @@ class BaseLoader {
 
         return pageResources;
       });
-    }).finally(() => {
+    }) // prefer duplication with then + catch over .finally to prevent problems in ie11 + firefox
+    .then(response => {
       this.inFlightDb.delete(pagePath);
+      return response;
+    }).catch(err => {
+      this.inFlightDb.delete(pagePath);
+      throw err;
     });
     this.inFlightDb.set(pagePath, inFlight);
     return inFlight;
@@ -270,12 +272,7 @@ class BaseLoader {
   }
 
   shouldPrefetch(pagePath) {
-    // If a plugin has disabled core prefetching, stop now.
-    if (this.prefetchDisabled) {
-      return false;
-    } // Skip prefetching if we know user is on slow or constrained connection
-
-
+    // Skip prefetching if we know user is on slow or constrained connection
     if (!doesConnectionSupportPrefetch()) {
       return false;
     } // Check if the page exists.
@@ -300,6 +297,11 @@ class BaseLoader {
         pathname: pagePath
       });
       this.prefetchTriggered.add(pagePath);
+    } // If a plugin has disabled core prefetching, stop now.
+
+
+    if (this.prefetchDisabled) {
+      return false;
     }
 
     const realPath = (0, _findPath.cleanPath)(pagePath); // Todo make doPrefetch logic cacheable

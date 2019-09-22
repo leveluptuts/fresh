@@ -11,13 +11,222 @@
         ]
       }
     ],
-    "version": "0.0.4",
-    "repository": "https://github.com/leveluptuts/fresh-forms",
+    "repository": null,
     "native": false,
     "themeConfig": {},
     "separator": "-"
   },
   "entries": [
+    {
+      "key": "README.md",
+      "value": {
+        "id": "04c6e90faac2675aa89e2176d2eec7d8",
+        "filepath": "README.md",
+        "fullpath": "/Users/scotttolinski/Sites/fresh-forms/README.md",
+        "link": "",
+        "slug": "readme",
+        "route": "/readme",
+        "name": "Readme",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "leveluptutsfresh",
+            "depth": 1,
+            "value": "@leveluptuts/fresh"
+          },
+          {
+            "slug": "yo-thats-fresh-too-fresh",
+            "depth": 1,
+            "value": "YO! That's fresh (too fresh)"
+          },
+          {
+            "slug": "demo",
+            "depth": 2,
+            "value": "Demo"
+          },
+          {
+            "slug": "install",
+            "depth": 2,
+            "value": "Install"
+          },
+          {
+            "slug": "constructiongif",
+            "depth": 1,
+            "value": "construction.gif"
+          },
+          {
+            "slug": "use-at-your-own-risk-rapidly-changing--not-working",
+            "depth": 2,
+            "value": "Use at your own risk, rapidly changing / not working."
+          },
+          {
+            "slug": "constructiongif-1",
+            "depth": 1,
+            "value": "construction.gif"
+          },
+          {
+            "slug": "usage",
+            "depth": 2,
+            "value": "Usage"
+          },
+          {
+            "slug": "a-basic-form",
+            "depth": 3,
+            "value": "A basic form"
+          },
+          {
+            "slug": "a-slightly-less-basic-form",
+            "depth": 3,
+            "value": "A slightly less basic form"
+          },
+          {
+            "slug": "api",
+            "depth": 2,
+            "value": "API"
+          },
+          {
+            "slug": "form",
+            "depth": 3,
+            "value": "Form"
+          },
+          {
+            "slug": "field",
+            "depth": 3,
+            "value": "Field"
+          },
+          {
+            "slug": "common-api---the-props-that-are-common-among-all-fields",
+            "depth": 4,
+            "value": "Common API - The props that are common among all fields"
+          },
+          {
+            "slug": "type---text--textarea",
+            "depth": 4,
+            "value": "type - text & textarea"
+          },
+          {
+            "slug": "type---password",
+            "depth": 4,
+            "value": "type - password"
+          },
+          {
+            "slug": "type---select",
+            "depth": 4,
+            "value": "type - select"
+          },
+          {
+            "slug": "errors",
+            "depth": 3,
+            "value": "Errors"
+          },
+          {
+            "slug": "faq",
+            "depth": 2,
+            "value": "FAQ"
+          },
+          {
+            "slug": "can-i-customize-this-component-in-my-own-way",
+            "depth": 3,
+            "value": "Can I customize this component in my own way?"
+          },
+          {
+            "slug": "contributing",
+            "depth": 2,
+            "value": "Contributing"
+          },
+          {
+            "slug": "in-another-tab-to-run-example",
+            "depth": 4,
+            "value": "(in another tab) to run example"
+          },
+          {
+            "slug": "prior-art-and-inspirations",
+            "depth": 2,
+            "value": "Prior Art and Inspirations"
+          },
+          {
+            "slug": "license",
+            "depth": 2,
+            "value": "License"
+          }
+        ]
+      }
+    },
+    {
+      "key": "example/README.md",
+      "value": {
+        "id": "20bfc3ff6a860483887b93bf9cf0d135",
+        "filepath": "example/README.md",
+        "fullpath": "/Users/scotttolinski/Sites/fresh-forms/example/README.md",
+        "link": "",
+        "slug": "example-readme",
+        "route": "/example-readme",
+        "name": "Readme",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "available-scripts",
+            "depth": 2,
+            "value": "Available Scripts"
+          },
+          {
+            "slug": "npm-start",
+            "depth": 3,
+            "value": "npm start"
+          },
+          {
+            "slug": "npm-test",
+            "depth": 3,
+            "value": "npm test"
+          },
+          {
+            "slug": "npm-run-build",
+            "depth": 3,
+            "value": "npm run build"
+          },
+          {
+            "slug": "npm-run-eject",
+            "depth": 3,
+            "value": "npm run eject"
+          },
+          {
+            "slug": "learn-more",
+            "depth": 2,
+            "value": "Learn More"
+          },
+          {
+            "slug": "code-splitting",
+            "depth": 3,
+            "value": "Code Splitting"
+          },
+          {
+            "slug": "analyzing-the-bundle-size",
+            "depth": 3,
+            "value": "Analyzing the Bundle Size"
+          },
+          {
+            "slug": "making-a-progressive-web-app",
+            "depth": 3,
+            "value": "Making a Progressive Web App"
+          },
+          {
+            "slug": "advanced-configuration",
+            "depth": 3,
+            "value": "Advanced Configuration"
+          },
+          {
+            "slug": "deployment",
+            "depth": 3,
+            "value": "Deployment"
+          },
+          {
+            "slug": "npm-run-build-fails-to-minify",
+            "depth": 3,
+            "value": "npm run build  fails to minify"
+          }
+        ]
+      }
+    },
     {
       "key": "src/Field.mdx",
       "value": {
@@ -26,7 +235,7 @@
         "id": "45c29cb7b5dd06e5b9ae29e8a6239c99",
         "filepath": "src/Field.mdx",
         "fullpath": "/Users/scotttolinski/Sites/fresh-forms/src/Field.mdx",
-        "link": "https://github.com/leveluptuts/fresh-forms/edit/master/src/Field.mdx",
+        "link": "",
         "slug": "src-field",
         "route": "/src-field",
         "headings": [
@@ -56,7 +265,7 @@
         "id": "3ff4bea35ffb342813223cb3eefcfd94",
         "filepath": "src/Form.mdx",
         "fullpath": "/Users/scotttolinski/Sites/fresh-forms/src/Form.mdx",
-        "link": "https://github.com/leveluptuts/fresh-forms/edit/master/src/Form.mdx",
+        "link": "",
         "slug": "src-form",
         "route": "/src-form",
         "headings": [
@@ -81,7 +290,7 @@
         "id": "d7e065b874e1d4c80c6c8ceb5fd01964",
         "filepath": "src/fields/styleguide.mdx",
         "fullpath": "/Users/scotttolinski/Sites/fresh-forms/src/fields/styleguide.mdx",
-        "link": "https://github.com/leveluptuts/fresh-forms/edit/master/src/fields/styleguide.mdx",
+        "link": "",
         "slug": "src-fields-styleguide",
         "menu": "",
         "headings": [
@@ -142,6 +351,17 @@
                 "computed": false
               }
             },
+            "defaultValue": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
             "options": {
               "type": {
                 "name": "array"
@@ -174,59 +394,8 @@
                 "value": "true",
                 "computed": false
               }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/Form.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Form",
-          "methods": [],
-          "actualName": "Form",
-          "props": {
-            "onSubmit": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
             },
-            "children": {
-              "type": {
-                "name": "union",
-                "value": [
-                  {
-                    "name": "element"
-                  },
-                  {
-                    "name": "array"
-                  }
-                ]
-              },
-              "required": true,
-              "description": ""
-            },
-            "buttons": {
-              "type": {
-                "name": "union",
-                "value": [
-                  {
-                    "name": "instanceOf",
-                    "value": "null"
-                  },
-                  {
-                    "name": "func"
-                  }
-                ]
-              },
-              "required": false,
-              "description": ""
-            },
-            "className": {
+            "placeholder": {
               "type": {
                 "name": "string"
               },
@@ -234,28 +403,6 @@
               "description": "",
               "defaultValue": {
                 "value": "''",
-                "computed": false
-              }
-            },
-            "disabled": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "false",
-                "computed": false
-              }
-            },
-            "cancelButton": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "true",
                 "computed": false
               }
             }
@@ -271,6 +418,26 @@
           "displayName": "App",
           "methods": [],
           "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/fields/Markdown.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "TextArea",
+          "methods": [],
+          "actualName": "TextArea",
+          "props": {
+            "defaultValue": {
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              },
+              "required": false
+            }
+          }
         }
       ]
     },
@@ -293,6 +460,65 @@
                 "value": "true",
                 "computed": false
               }
+            },
+            "defaultValue": {
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              },
+              "required": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/fields/Reference.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Reference",
+          "methods": [],
+          "actualName": "Reference",
+          "props": {
+            "options": {
+              "type": {
+                "name": "array"
+              },
+              "required": true,
+              "description": ""
+            },
+            "children": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "fieldId": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "displayProperty": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "defaultValue": {
+              "defaultValue": {
+                "value": "{}",
+                "computed": false
+              },
+              "required": false
             }
           }
         }
@@ -324,6 +550,20 @@
                 "value": "''",
                 "computed": false
               }
+            },
+            "fieldId": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "defaultValue": {
+              "defaultValue": {
+                "value": "0",
+                "computed": false
+              },
+              "required": false
             }
           }
         }
@@ -344,6 +584,109 @@
                 "computed": false
               },
               "required": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/fields/TextArea.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "TextArea",
+          "methods": [],
+          "actualName": "TextArea",
+          "props": {
+            "defaultValue": {
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              },
+              "required": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/fields/Toggle.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Toggle",
+          "methods": [],
+          "actualName": "Toggle",
+          "props": {
+            "on": {
+              "type": {
+                "name": "bool"
+              },
+              "required": true,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "enabled": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": ""
+            },
+            "className": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "defaultValue": {
+              "defaultValue": {
+                "value": "false",
+                "computed": false
+              },
+              "required": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/form/CancelButton.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CancelButton",
+          "methods": [],
+          "actualName": "CancelButton",
+          "props": {
+            "cancelAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "cancelText": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "'Cancel'",
+                "computed": false
+              }
             }
           }
         }

@@ -26,7 +26,8 @@ var _matchPaths = _interopRequireDefault(require("./match-paths.json"));
 window.___emitter = _emitter.default;
 const loader = new _devLoader.default(_syncRequires.default, _matchPaths.default);
 (0, _loader.setLoader)(loader);
-loader.setApiRunner(_apiRunnerBrowser.apiRunner); // Let the site/plugins run code very early.
+loader.setApiRunner(_apiRunnerBrowser.apiRunner);
+window.___loader = _loader.publicLoader; // Let the site/plugins run code very early.
 
 (0, _apiRunnerBrowser.apiRunnerAsync)(`onClientEntry`).then(() => {
   // Hook up the client to socket.io on server
