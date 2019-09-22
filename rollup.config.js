@@ -4,8 +4,8 @@ import external from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
-import analyze from 'rollup-plugin-analyzer'
 import svgr from '@svgr/rollup'
+import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 
 import pkg from './package.json'
 
@@ -24,7 +24,7 @@ export default {
     },
   ],
   plugins: [
-    analyze(),
+    sizeSnapshot(),
     external(),
     postcss({
       modules: true,
