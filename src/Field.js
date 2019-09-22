@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from 'react'
-import kebabCase from 'lodash/kebabCase'
 import PropTypes from 'prop-types'
 import Select from './fields/Select'
 import Reference from './fields/Reference'
@@ -9,6 +8,12 @@ import TextArea from './fields/TextArea'
 import Markdown from './fields/Markdown'
 import Toggle from './fields/Toggle'
 import { FormContext } from './state/State'
+
+const kebabCase = str =>
+  str
+    .replace(/([a-z])([A-Z])/g, '$1-$2')
+    .replace(/[\s_]+/g, '-')
+    .toLowerCase()
 
 const COMPLEX_FIELDS = {
   select: Select,
