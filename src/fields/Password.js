@@ -50,7 +50,6 @@ const Password = ({
             transition: '0.3s ease all',
             ...strengthMeter,
           }}
-          strength={strength}
         />
       )}
     </>
