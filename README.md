@@ -27,9 +27,9 @@ yarn add @leveluptuts/fresh
 ### A basic form
 
 ```jsx
-import { Form, Field } from '@leveluptuts/fresh'
+import { Form, Field } from '@leveluptuts/fresh';
 
-;<Form
+<Form
   onSubmit={data => {
     console.log(data)
   }}
@@ -43,8 +43,9 @@ import { Form, Field } from '@leveluptuts/fresh'
 ### A slightly less basic form
 
 ```jsx
-import { Form, Field } from '@leveluptuts/fresh'
-;<Form onSubmit={onSubmit}>
+import { Form, Field } from '@leveluptuts/fresh';
+
+<Form onSubmit={onSubmit}>
   <Field>Name</Field>
   <Field type="email">Email</Field>
   <Field type="password">Password</Field>
