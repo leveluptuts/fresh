@@ -1,6 +1,19 @@
 import React, { useReducer, createContext } from 'react'
+import { any } from 'prop-types';
 
-export const FormContext = createContext()
+interface ContextArguments {
+  id: string,
+  value: string,
+}
+
+interface FieldStateInterface {
+  formState: object,
+  update(fieldData: ContextArguments): void,
+  registerField(fieldData: ContextArguments): void,
+  resetForm(): void,
+}
+
+export const FormContext = createContext<FieldStateInterface | null>(null)
 
 function reducer(state, action) {
   switch (action.type) {
@@ -31,16 +44,16 @@ function reducer(state, action) {
 export function FormProvider({ children }) {
   const [formState, dispatch] = useReducer(reducer, {})
 
+  const ContextProvider: FieldStateInterface = {
+    formState,
+    update: ({ id, value }) => dispatch({ type: 'update', id, value }),
+    registerField: ({ id, value }) =>
+      dispatch({ type: 'registerField', id, value }),
+    resetForm: () => dispatch({ type: 'resetForm' }),
+  }
+
   return (
-    <FormContext.Provider
-      value={{
-        formState,
-        update: ({ id, value }) => dispatch({ type: 'update', id, value }),
-        registerField: ({ id, value }) =>
-          dispatch({ type: 'registerField', id, value }),
-        resetForm: () => dispatch({ type: 'resetForm' }),
-      }}
-    >
+    <FormContext.Provider value={ContextProvider}>
       {children}
     </FormContext.Provider>
   )

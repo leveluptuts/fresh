@@ -1,4 +1,4 @@
-.switch {
+/* .switch {
   position: relative;
   display: inline-block;
   width: 60px;
@@ -46,4 +46,4 @@ input:focus + .slider {
 
 input:checked + .slider:before {
   transform: translateX(26px);
-}
+} */

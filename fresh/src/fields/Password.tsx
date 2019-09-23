@@ -73,28 +73,13 @@ const options = {
   minimumLength: 4,
 }
 
-function calculateScore(password, field) {
+function calculateScore(password) {
   var score = 0
 
   // password < options.minimumLength
   if (password.length < options.minimumLength) {
     return -1
   }
-
-  if (options.field) {
-    // password === field
-    if (password.toLowerCase() === field.toLowerCase()) {
-      return -2
-    }
-    // password contains field (and fieldPartialMatch is set to true)
-    if (options.fieldPartialMatch && field.length) {
-      var user = new RegExp(field.toLowerCase())
-      if (password.toLowerCase().match(user)) {
-        return -2
-      }
-    }
-  }
-
   // password length
   score += password.length * 4
 
@@ -104,7 +89,7 @@ function calculateScore(password, field) {
   }
 
   // password has at least 2 sybols
-  var symbols = '.*[!,@,#,$,%,^,&,*,?,_,~]'
+  var symbols: any = '.*[!,@,#,$,%,^,&,*,?,_,~]'
   symbols = new RegExp('(' + symbols + symbols + ')')
   if (password.match(symbols)) {
     score += 5

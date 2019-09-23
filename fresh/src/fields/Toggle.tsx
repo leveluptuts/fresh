@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import useSpecialField from '../hooks/useSpecialField'
-import style from './toggle.css'
+// import style from './toggle.css'
 
 const Toggle = ({
   on,
@@ -14,7 +14,7 @@ const Toggle = ({
 }) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   return (
-    <div className={`fresh-switch ${style.switch}`}>
+    <div className={`fresh-switch`}>
       <input
         checked={fieldState}
         type="checkbox"
@@ -22,7 +22,7 @@ const Toggle = ({
         className="fresh-input fresh-input-checkbox fresh-input-toggle"
       />
       <span
-        className={`fresh-slider ${style.slider}`}
+        className={`fresh-slider`}
         onClick={e => update({ id: fieldId, value: !fieldState })}
       />
     </div>
