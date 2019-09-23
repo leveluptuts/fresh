@@ -1,6 +1,6 @@
 {
   "config": {
-    "title": "Fresh",
+    "title": "Fresh (Yo thats fresh)",
     "description": "They're dope, they're fresh.",
     "menu": [
       "Home",
@@ -11,10 +11,159 @@
         ]
       }
     ],
-    "repository": null,
+    "repository": "https://github.com/LN-Zap",
     "native": false,
-    "themeConfig": {},
-    "separator": "-"
+    "themeConfig": {
+      "fonts": {
+        "sans": "Roboto, system-ui, sans-serif",
+        "heading": "Roboto, system-ui, sans-serif",
+        "monospace": "'Lucida Console', Monaco, monospace"
+      },
+      "letterSpacings": {
+        "normal": "normal",
+        "caps": "0.025em"
+      },
+      "shadows": {
+        "xs": "0 2px 3px 0 rgba(0, 0, 0, 0.3)",
+        "s": "0 2px 4px 0 rgba(0, 0, 0, 0.4)",
+        "m": "0 2px 24px 0 rgba(0, 0, 0, 0.5)",
+        "l": "0 20px 70px 0 rgba(0, 0, 0, 0.6)"
+      },
+      "fontSizes": {
+        "xxs": "8px",
+        "xs": "10px",
+        "s": "13px",
+        "m": "14px",
+        "l": "16px",
+        "xl": "40px",
+        "xxl": "56px",
+        "xxxl": "60px"
+      },
+      "lineHeights": {
+        "small": 1,
+        "normal": 1.4,
+        "heading": 1.2
+      },
+      "radii": {
+        "s": "5px",
+        "m": "8px",
+        "l": "14px",
+        "xl": "24px",
+        "xxl": "40px"
+      },
+      "space": [
+        0,
+        4,
+        8,
+        16,
+        32,
+        45,
+        72,
+        108
+      ],
+      "fontWeights": {
+        "heading": 700,
+        "light": 300,
+        "normal": 400,
+        "bold": 700
+      },
+      "styles": {
+        "root": {
+          "fontSize": "m",
+          "fontFamily": "sans",
+          "fontWeight": "light",
+          "lineHeight": "normal"
+        }
+      },
+      "colors": {
+        "primary": "#fd9800",
+        "accent": "#fd9800",
+        "text": "blue",
+        "muted": "#959595",
+        "link": "#fd9800",
+        "background": "#70ffba",
+        "border": null,
+        "sidebar": {
+          "bg": "transparent",
+          "navGroup": "#333",
+          "navLink": "#333",
+          "navLinkActive": "blue",
+          "tocLink": "#333",
+          "tocLinkActive": "blue"
+        },
+        "header": {
+          "bg": "#70ffba",
+          "text": "blue",
+          "border": "#70ffba",
+          "button": {
+            "bg": "#313340",
+            "color": "#ffffff",
+            "hover": "#fd9800"
+          }
+        },
+        "props": {},
+        "playground": {
+          "border": "none"
+        },
+        "blockquote": {
+          "bg": "#373947",
+          "border": "#313340",
+          "color": "#959595"
+        },
+        "modes": {
+          "dark": {
+            "primary": "#fd9800",
+            "accent": "#fd9800",
+            "text": "#050f19",
+            "muted": "#959595",
+            "link": "#fd9800",
+            "background": "#ffffff",
+            "border": null,
+            "sidebar": {
+              "bg": "transparent",
+              "navGroup": "#959595",
+              "navLink": "#050f19",
+              "navLinkActive": "#fd9800",
+              "tocLink": "#959595",
+              "tocLinkActive": "#fd9800"
+            },
+            "header": {
+              "bg": "#f3f3f3",
+              "text": "#050f19",
+              "border": "#e7e7e7",
+              "button": {
+                "bg": "#ebebeb",
+                "color": "#ffffff",
+                "hover": "#fd9800"
+              }
+            },
+            "props": {
+              "bg": "#ffffff",
+              "text": "#050f19",
+              "highlight": "#f2f2f2",
+              "defaultValue": "#959595",
+              "descriptionText": "#050f19",
+              "descriptionBg": "#ffffff"
+            },
+            "playground": {
+              "bg": "#050f19",
+              "border": "#050f19"
+            },
+            "blockquote": {
+              "bg": "#e7e7e7",
+              "border": "#959595",
+              "color": "#959595"
+            }
+          }
+        }
+      }
+    },
+    "separator": "-",
+    "public": "./public",
+    "website": "https://zaphq.io",
+    "ignore": [
+      "README.md"
+    ]
   },
   "entries": [
     {
@@ -153,81 +302,6 @@
       }
     },
     {
-      "key": "example/README.md",
-      "value": {
-        "id": "20bfc3ff6a860483887b93bf9cf0d135",
-        "filepath": "example/README.md",
-        "fullpath": "/Users/scotttolinski/Sites/fresh-forms/example/README.md",
-        "link": "",
-        "slug": "example-readme",
-        "route": "/example-readme",
-        "name": "Readme",
-        "menu": "",
-        "headings": [
-          {
-            "slug": "available-scripts",
-            "depth": 2,
-            "value": "Available Scripts"
-          },
-          {
-            "slug": "npm-start",
-            "depth": 3,
-            "value": "npm start"
-          },
-          {
-            "slug": "npm-test",
-            "depth": 3,
-            "value": "npm test"
-          },
-          {
-            "slug": "npm-run-build",
-            "depth": 3,
-            "value": "npm run build"
-          },
-          {
-            "slug": "npm-run-eject",
-            "depth": 3,
-            "value": "npm run eject"
-          },
-          {
-            "slug": "learn-more",
-            "depth": 2,
-            "value": "Learn More"
-          },
-          {
-            "slug": "code-splitting",
-            "depth": 3,
-            "value": "Code Splitting"
-          },
-          {
-            "slug": "analyzing-the-bundle-size",
-            "depth": 3,
-            "value": "Analyzing the Bundle Size"
-          },
-          {
-            "slug": "making-a-progressive-web-app",
-            "depth": 3,
-            "value": "Making a Progressive Web App"
-          },
-          {
-            "slug": "advanced-configuration",
-            "depth": 3,
-            "value": "Advanced Configuration"
-          },
-          {
-            "slug": "deployment",
-            "depth": 3,
-            "value": "Deployment"
-          },
-          {
-            "slug": "npm-run-build-fails-to-minify",
-            "depth": 3,
-            "value": "npm run build  fails to minify"
-          }
-        ]
-      }
-    },
-    {
       "key": "src/Field.mdx",
       "value": {
         "name": "<Field />",
@@ -240,9 +314,9 @@
         "route": "/src-field",
         "headings": [
           {
-            "slug": "button",
+            "slug": "field",
             "depth": 1,
-            "value": "Button"
+            "value": "Field"
           },
           {
             "slug": "basic-usage",
@@ -303,6 +377,11 @@
             "slug": "basic-form",
             "depth": 2,
             "value": "Basic form"
+          },
+          {
+            "slug": "slightly-more-advanced-form",
+            "depth": 2,
+            "value": "Slightly more advanced form"
           }
         ]
       }
@@ -411,17 +490,6 @@
       ]
     },
     {
-      "key": "example/src/App.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "App",
-          "methods": [],
-          "actualName": "App"
-        }
-      ]
-    },
-    {
       "key": "src/fields/Markdown.js",
       "value": [
         {
@@ -458,6 +526,17 @@
               "description": "",
               "defaultValue": {
                 "value": "true",
+                "computed": false
+              }
+            },
+            "placeholder": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "''",
                 "computed": false
               }
             },
@@ -512,6 +591,17 @@
               },
               "required": true,
               "description": ""
+            },
+            "placeholder": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
             },
             "defaultValue": {
               "defaultValue": {
@@ -610,6 +700,59 @@
       ]
     },
     {
+      "key": "src/state/State.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "FormProvider",
+          "methods": [],
+          "actualName": "FormProvider"
+        }
+      ]
+    },
+    {
+      "key": "src/form/CancelButton.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CancelButton",
+          "methods": [],
+          "actualName": "CancelButton",
+          "props": {
+            "cancelAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "cancelText": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "'Cancel'",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "example/src/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
+        }
+      ]
+    },
+    {
       "key": "src/fields/Toggle.js",
       "value": [
         {
@@ -662,44 +805,109 @@
       ]
     },
     {
-      "key": "src/form/CancelButton.js",
+      "key": "dist/index.es.js",
       "value": [
         {
           "description": "",
-          "displayName": "CancelButton",
+          "displayName": "Field",
           "methods": [],
-          "actualName": "CancelButton",
+          "actualName": "Field",
           "props": {
-            "cancelAction": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "cancelText": {
+            "children": {
               "type": {
                 "name": "string"
               },
               "required": false,
               "description": "",
               "defaultValue": {
-                "value": "'Cancel'",
+                "value": "''",
+                "computed": false
+              }
+            },
+            "className": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "type": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "'text'",
+                "computed": false
+              }
+            },
+            "defaultValue": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "options": {
+              "type": {
+                "name": "array"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "[]",
+                "computed": false
+              }
+            },
+            "required": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "false",
+                "computed": false
+              }
+            },
+            "label": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "true",
+                "computed": false
+              }
+            },
+            "placeholder": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "''",
                 "computed": false
               }
             }
           }
-        }
-      ]
-    },
-    {
-      "key": "src/state/State.js",
-      "value": [
+        },
         {
           "description": "",
-          "displayName": "FormProvider",
+          "displayName": "Form",
           "methods": [],
-          "actualName": "FormProvider"
+          "actualName": "Form"
         }
       ]
     }

@@ -1,0 +1,47 @@
+{
+  "name": "@leveluptuts/fresh",
+  "version": "0.0.17",
+  "description": "They're dope, they're fresh.",
+  "author": "leveluptuts",
+  "license": "MIT",
+  "repository": "leveluptuts/fresh",
+  "main": "dist/index.js",
+  "module": "dist/fresh.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --env=jsdom",
+    "lint": "tsdx lint"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@types/jest": "^24.0.18",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "husky": "^3.0.5",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-tagsinput": "^3.19.0",
+    "tsdx": "^0.9.2",
+    "tslib": "^1.10.0",
+    "typescript": "^3.6.3"
+  }
+}
