@@ -1,167 +1,139 @@
-# TSDX React User Guide
+# @leveluptuts/fresh
 
-Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
+# YO! That's fresh (too fresh)
 
-> This TSDX setup is meant for developing React components (not apps!) that can be published to NPM. If you’re looking to build an app, you should use `create-react-app`, `razzle`, `nextjs`, `gatsby`, or `react-static`.
+![Bboy Headspinhttps](https://media.giphy.com/media/mKMGLhoD8L4yc/giphy.gif)
 
-> If you’re new to TypeScript and React, checkout [this handy cheatsheet](https://github.com/sw-yx/react-typescript-cheatsheet/)
+[![NPM](https://img.shields.io/npm/v/@leveluptuts/fresh?color=82d8d8&logoColor=524763&style=for-the-badge)](https://www.npmjs.com/package/@leveluptuts/fresh)
 
-## Commands
+## Demo
 
-TSDX scaffolds your new library inside `/src`, and also sets up a [Parcel-based](https://parceljs.org) playground for it inside `/example`.
+https://fresh.leveluptutorials.com/
 
-The recommended workflow is to run TSDX in one terminal:
+## Install
 
-```
-npm start # or yarn start
-```
+# construction.gif
 
-This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
+## Use at your own risk, rapidly changing / not working.
 
-Then run the example inside another:
-
-```
-cd example
-npm i # or yarn to install dependencies
-npm start # or yarn start
-```
-
-The default example imports and live reloads whatever is in `/dist`, so if you are seeing an out of date component, make sure TSDX is running in watch mode like we recommend above. **No symlinking required**, [we use Parcel's aliasing](https://github.com/palmerhq/tsdx/pull/88/files).
-
-To do a one-off build, use `npm run build` or `yarn build`.
-
-To run tests, use `npm test` or `yarn test`.
-
-## Configuration
-
-Code quality is [set up for you](https://github.com/palmerhq/tsdx/pull/45/files) with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
-
-### Jest
-
-Jest tests are set up to run with `npm test` or `yarn test`. This runs the test watcher (Jest) in an interactive mode. By default, runs tests related to files changed since the last commit.
-
-#### Setup Files
-
-This is the folder structure we set up for you:
-
-```
-/example
-  index.html
-  index.tsx       # test your component here in a demo app
-  package.json
-  tsconfig.json
-/src
-  index.tsx       # EDIT THIS
-/test
-  blah.test.tsx   # EDIT THIS
-.gitignore
-package.json
-README.md         # EDIT THIS
-tsconfig.json
-```
-
-#### React Testing Library
-
-We do not set up `react-testing-library` for you yet, we welcome contributions and documentation on this.
-
-### Rollup
-
-TSDX uses [Rollup v1.x](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
-
-### TypeScript
-
-`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
-
-## Continuous Integration
-
-### Travis
-
-_to be completed_
-
-### Circle
-
-_to be completed_
-
-## Optimizations
-
-Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
-
-```js
-// ./types/index.d.ts
-declare var __DEV__: boolean;
-
-// inside your code...
-if (__DEV__) {
-  console.log('foo');
-}
-```
-
-You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
-
-## Module Formats
-
-CJS, ESModules, and UMD module formats are supported.
-
-The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
-
-## Using the Playground
-
-```
-cd example
-npm i # or yarn to install dependencies
-npm start # or yarn start
-```
-
-The default example imports and live reloads whatever is in `/dist`, so if you are seeing an out of date component, make sure TSDX is running in watch mode like we recommend above. **No symlinking required**!
-
-## Deploying the Playground
-
-The Playground is just a simple [Parcel](https://parceljs.org) app, you can deploy it anywhere you would normally deploy that. Here are some guidelines for **manually** deploying with the Netlify CLI (`npm i -g netlify-cli`):
+# construction.gif
 
 ```bash
-cd example # if not already in the example folder
-npm run build # builds to dist
-netlify deploy # deploy the dist folder
+yarn add @leveluptuts/fresh
 ```
 
-Alternatively, if you already have a git repo connected, you can set up continuous deployment with Netlify:
+## Usage
 
-```bash
-netlify init
-# build command: cd example && yarn && yarn build
-# directory to deploy: example/dist
-# pick yes for netlify.toml
+### A basic form
+
+```jsx
+import { Form, Field } from '@leveluptuts/fresh'
+;<Form
+  onSubmit={data => {
+    console.log(data)
+  }}
+>
+  <Field>Name</Field>
+  <Field type="number">Number</Field>
+  <Field type="select" options={options} />
+</Form>
 ```
 
-## Named Exports
+### A slightly less basic form
 
-Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
-
-## Including Styles
-
-There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
-
-For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
-
-## Publishing to NPM
-
-We recommend using https://github.com/sindresorhus/np.
-
-## Usage with Lerna
-
-When creating a new package with TSDX within a project set up with Lerna, you might encounter a `Cannot resolve dependency` error when trying to run the `example` project. To fix that you will need to make changes to the `package.json` file _inside the `example` directory_.
-
-The problem is that due to the nature of how dependencies are installed in Lerna projects, the aliases in the example project's `package.json` might not point to the right place, as those dependencies might have been installed in the root of your Lerna project.
-
-Change the `alias` to point to where those packages are actually installed. This depends on the directory structure of your Lerna project, so the actual path might be different from the diff below.
-
-```diff
-   "alias": {
--    "react": "../node_modules/react",
--    "react-dom": "../node_modules/react-dom"
-+    "react": "../../../node_modules/react",
-+    "react-dom": "../../../node_modules/react-dom"
-   },
+```jsx
+import { Form, Field } from '@leveluptuts/fresh'
+;<Form onSubmit={onSubmit}>
+  <Field>Name</Field>
+  <Field type="email">Email</Field>
+  <Field type="password">Password</Field>
+  <Field type="tags">Tags</Field>
+  <Field type="number">Number</Field>
+  <Field required type="select" options={options}>
+    Type
+  </Field>
+  <Field type="textarea">Text Area</Field>
+  <Field type="markdown">Markdown</Field>
+  <Field type="toggle">Markdown</Field>
+</Form>
 ```
 
-An alternative to fixing this problem would be to remove aliases altogether and define the dependencies referenced as aliases as dev dependencies instead. [However, that might cause other problems.](https://github.com/palmerhq/tsdx/issues/64)
+## API
+
+### Form
+
+The wrapper around your fields.
+
+| Prop         | Type    | Default        | Description                                                                                                           |
+| ------------ | ------- | -------------- | --------------------------------------------------------------------------------------------------------------------- |
+| onSubmit     | func    | (data) => data | Can be any of the following types. text (default), email, number, select, password, textarea, tags. (See types below) |  |
+| buttons      | boolean | true           | if submit and cancel are shown                                                                                        |
+| cancelButton | boolean | true           | if cancel is shown                                                                                                    |
+| disabled     | boolean | false          | if the form is disabled                                                                                               |
+| cancelAction | func    | () => null     | A function that will run on cancel button click                                                                       |  |
+| submitText   | string  | 'Submit'       | Custom text for submit button                                                                                         |
+| cancelText   | string  | 'Cancel'       | Custom text for cancel button                                                                                         |
+
+### Field
+
+#### Common API - The props that are common among all fields
+
+The common API is shared among all <Field /> elements. Type specific fields are found below.
+
+| Prop         | Type                | Default | Description                                                                                                                             |
+| ------------ | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | string              | 'text'  | Can be any of the following types: text (default), email, number, select, password, textarea, tags, markdown, toggle. (See types below) |
+| required     | boolean             | false   | if a field is required                                                                                                                  |
+| label        | boolean             | true    | if a field has a label                                                                                                                  |
+| defaultValue | string/number/array | null    | The initial value for each field                                                                                                        |
+
+#### type - text & textarea
+
+| Prop        | Type   | Default | Description      |
+| ----------- | ------ | ------- | ---------------- |
+| placeholder | string | ''      | placeholder text |
+
+#### type - password
+
+| Prop     | Type    | Default | Description                                                |
+| -------- | ------- | ------- | ---------------------------------------------------------- |
+| strength | boolean | true    | Shows or hides the password strength meter below the field |
+
+#### type - select
+
+| Prop    | Type             | Default | Description                                                        |
+| ------- | ---------------- | ------- | ------------------------------------------------------------------ |
+| options | array of strings | []      | The text and values of a select list. \*Object support coming soon |
+
+### Errors
+
+Not complete / in use yet, just standard html 5 validation
+
+## FAQ
+
+### Can I customize this component in my own way?
+
+This library makes some calls to keep the API easy to use and maintain. Using it with another library that tries to bring it's own inputs in isn't really needed at this time.
+
+## Contributing
+
+`yarn`
+`yarn start`
+
+#### (in another tab) to run example
+
+`cd example`
+`yarn`
+`yarn start`
+
+## Prior Art and Inspirations
+
+I am huge fan of simple, easy APIs that take care of 90% of jobs easily.
+One form library I really enjoyed was https://kozea.github.io/formol/ .
+The API was simple in all of the ways that I love, but there were some aspects of the library that just didn't fit for us and our workflow.
+I wanted to make something that was more simple, but just as easy but with more configuration options.
+I'm also inspired by AutoForm for Meteor https://github.com/aldeed/meteor-autoform for future generation features.
+
+## License
+
+MIT © [leveluptuts](https://github.com/leveluptuts)
