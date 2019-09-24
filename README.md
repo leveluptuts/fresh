@@ -58,21 +58,38 @@ import { Form, Field } from '@leveluptuts/fresh'
 </Form>
 ```
 
+### How about one with default values?
+
+```jsx
+import { Form, Field } from '@leveluptuts/fresh'
+
+const defaultValues = {
+  name: 'Brooklyn Boo',
+  email: 'scott@test.com',
+}
+
+<Form onSubmit={onSubmit} defaultValues={defaultValues}>
+  <Field placeholder="Freddie Fresh">Name</Field>
+  <Field type="email">Email</Field>
+</Form>
+```
+
 ## API
 
 ### Form
 
 The wrapper around your fields.
 
-| Prop         | Type    | Default        | Description                                                                                                           |
-| ------------ | ------- | -------------- | --------------------------------------------------------------------------------------------------------------------- |
-| onSubmit     | func    | (data) => data | Can be any of the following types. text (default), email, number, select, password, textarea, tags. (See types below) |  |
-| buttons      | boolean | true           | if submit and cancel are shown                                                                                        |
-| cancelButton | boolean | true           | if cancel is shown                                                                                                    |
-| disabled     | boolean | false          | if the form is disabled                                                                                               |
-| cancelAction | func    | () => null     | A function that will run on cancel button click                                                                       |  |
-| submitText   | string  | 'Submit'       | Custom text for submit button                                                                                         |
-| cancelText   | string  | 'Cancel'       | Custom text for cancel button                                                                                         |
+| Prop          | Type    | Default        | Description                                                                                                           |
+| ------------- | ------- | -------------- | --------------------------------------------------------------------------------------------------------------------- |
+| onSubmit      | func    | (data) => data | Can be any of the following types. text (default), email, number, select, password, textarea, tags. (See types below) |  |
+| buttons       | boolean | true           | if submit and cancel are shown                                                                                        |
+| cancelButton  | boolean | true           | if cancel is shown                                                                                                    |
+| disabled      | boolean | false          | if the form is disabled                                                                                               |
+| cancelAction  | func    | () => null     | A function that will run on cancel button click                                                                       |  |
+| submitText    | string  | 'Submit'       | Custom text for submit button                                                                                         |
+| cancelText    | string  | 'Cancel'       | Custom text for cancel button                                                                                         |
+| defaultValues | object  | {}             | An object with correlating default values                                                                             |
 
 ### Field
 
