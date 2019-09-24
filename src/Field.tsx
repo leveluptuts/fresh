@@ -25,17 +25,16 @@ const COMPLEX_FIELDS = {
 }
 
 interface FieldInterface {
-  required: boolean;
-  children: string;
-  type: string;
-  label: string;
-  error?: string;
-  placeholder: string;
-  options: string[] | object[];
-  className: string;
-  defaultValue: string;
+  required: boolean
+  children: string
+  type: string
+  label: string
+  error?: string
+  placeholder: string
+  options: string[] | object[]
+  className: string
+  defaultValue: string
 }
-
 
 const Field = ({
   required,
@@ -49,7 +48,6 @@ const Field = ({
   defaultValue,
   ...rest
 }: FieldInterface) => {
-  
   const { formState, update, registerField } = useContext(FormContext)
   const fieldId = kebabCase(children)
 

@@ -1,17 +1,25 @@
 import React, { useContext, ReactNode } from 'react'
 // @ts-ignore
-import { FormProvider, FormContext } from './state/State'
+import { FormProvider, FormContext, FieldStateInterface } from './state/State'
 import Global from './style'
 // @ts-ignore
 import CancelButton from './form/CancelButton'
 // @ts-ignore
 export { default as Field } from './Field'
 
-const Form = (props: any) => {
+interface defaultValuesInterface {
+  defaultValues?: object
+}
+
+interface FormProps {
+  defaultValues?: defaultValuesInterface
+}
+
+const Form = ({ defaultValues = {}, ...rest }: FormProps) => {
   return (
-    <FormProvider>
+    <FormProvider defaultValues={defaultValues}>
       <Global />
-      <FormWrapper {...props} />
+      <FormWrapper {...(rest as FormWrapperInterface)} />
     </FormProvider>
   )
 }
@@ -24,7 +32,8 @@ interface FormWrapperInterface {
   children: ReactNode | ReactNode[]
   className: string
   disabled: boolean
-  onSubmit(formState: any): void
+  defaultValues: defaultValuesInterface
+  onSubmit(formState: object): void
   submitText: string
 }
 
@@ -35,17 +44,19 @@ const FormWrapper = ({
   cancelText = 'Cancel',
   children,
   className,
-  disabled = false,
   onSubmit,
   submitText = 'Submit',
 }: FormWrapperInterface) => {
-  const { formState } = useContext(FormContext)
+  const { formState }: FieldStateInterface = useContext(FormContext)
+
   return (
     <form
       className={`${className} fresh-form`}
       onSubmit={e => {
         e.preventDefault()
-        onSubmit(formState)
+        const data: defaultValuesInterface = { ...formState }
+        delete data.defaultValues
+        onSubmit(data)
       }}
     >
       {children}
