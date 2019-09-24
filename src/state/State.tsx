@@ -1,12 +1,11 @@
-import React, { useReducer, createContext } from 'react'
-import { any } from 'prop-types';
+import React, { useReducer, createContext, ReactNode } from 'react'
 
-interface ContextArguments {
+export interface ContextArguments {
   id: string,
-  value: string,
+  value: string | boolean | number | object,
 }
 
-interface FieldStateInterface {
+export interface FieldStateInterface {
   formState: object,
   update(fieldData: ContextArguments): void,
   registerField(fieldData: ContextArguments): void,
@@ -41,7 +40,8 @@ function reducer(state, action) {
   }
 }
 
-export function FormProvider({ children }) {
+
+export function FormProvider({children}:{children:ReactNode}) {
   const [formState, dispatch] = useReducer(reducer, {})
 
   const ContextProvider: FieldStateInterface = {

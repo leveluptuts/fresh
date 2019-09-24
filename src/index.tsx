@@ -1,31 +1,44 @@
-import React, { useContext } from 'react'
-import PropTypes from 'prop-types'
-import './styles.css'
+import React, { useContext, ReactNode } from 'react'
 // @ts-ignore
 import { FormProvider, FormContext } from './state/State'
+import Global from './style'
 // @ts-ignore
 import CancelButton from './form/CancelButton'
 // @ts-ignore
 export { default as Field } from './Field'
 
-const Form = props => {
+const Form = (props: any) => {
   return (
     <FormProvider>
+      <Global />
       <FormWrapper {...props} />
     </FormProvider>
   )
 }
 
+interface FormWrapperInterface {
+  buttons: any
+  cancelAction(): void
+  cancelButton: boolean
+  cancelText: string
+  children: ReactNode | ReactNode[]
+  className: string
+  disabled: boolean
+  onSubmit(formState: any): void
+  submitText: string
+}
+
 const FormWrapper = ({
-  onSubmit,
-  children,
   buttons,
+  cancelAction = () => null,
+  cancelButton = true,
+  cancelText = 'Cancel',
+  children,
   className,
-  cancelButton,
-  cancelAction,
-  submitText,
-  cancelText,
-}) => {
+  disabled = false,
+  onSubmit,
+  submitText = 'Submit',
+}: FormWrapperInterface) => {
   const { formState } = useContext(FormContext)
   return (
     <form
@@ -53,28 +66,6 @@ const FormWrapper = ({
       </div>
     </form>
   )
-}
-
-FormWrapper.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])
-    .isRequired,
-  buttons: PropTypes.oneOfType([PropTypes.instanceOf(null), PropTypes.func]),
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  cancelButton: PropTypes.bool,
-  cancelAction: PropTypes.func,
-  submitText: PropTypes.string,
-  cancelText: PropTypes.string,
-}
-
-FormWrapper.defaultProps = {
-  className: '',
-  cancelButton: true,
-  disabled: false,
-  cancelAction: () => null,
-  submitText: 'Submit',
-  cancelText: 'Cancel',
 }
 
 // TODO

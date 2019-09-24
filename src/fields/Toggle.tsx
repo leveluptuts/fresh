@@ -23,7 +23,7 @@ const Toggle = ({
       />
       <span
         className={`fresh-slider`}
-        onClick={e => update({ id: fieldId, value: !fieldState })}
+        onClick={() => update({ id: fieldId, value: !fieldState })}
       />
     </div>
   )

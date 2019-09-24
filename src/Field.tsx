@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import Select from './fields/Select'
 import Reference from './fields/Reference'
 import Password from './fields/Password'
@@ -25,6 +24,19 @@ const COMPLEX_FIELDS = {
   reference: Reference,
 }
 
+interface FieldInterface {
+  required: boolean;
+  children: string;
+  type: string;
+  label: string;
+  error?: string;
+  placeholder: string;
+  options: string[] | object[];
+  className: string;
+  defaultValue: string;
+}
+
+
 const Field = ({
   required,
   children,
@@ -36,7 +48,8 @@ const Field = ({
   className,
   defaultValue,
   ...rest
-}) => {
+}: FieldInterface) => {
+  
   const { formState, update, registerField } = useContext(FormContext)
   const fieldId = kebabCase(children)
 
@@ -78,17 +91,6 @@ const Field = ({
       {error && <div className="fresh-error">{error}</div>}
     </div>
   )
-}
-
-Field.propTypes = {
-  children: PropTypes.string,
-  className: PropTypes.string,
-  type: PropTypes.string,
-  defaultValue: PropTypes.string,
-  options: PropTypes.array,
-  required: PropTypes.bool,
-  label: PropTypes.bool,
-  placeholder: PropTypes.string,
 }
 
 Field.defaultProps = {

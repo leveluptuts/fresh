@@ -2,6 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import useSpecialField from '../hooks/useSpecialField'
 
+interface PasswordInterface {
+  required: boolean;
+  strength: boolean;
+  type: string;
+  fieldId: string;
+  children: string;
+  label: string;
+  error?: string;
+  placeholder: string;
+  options: string[] | object[];
+  className: string;
+  defaultValue: string;
+}
+
 const Password = ({
   fieldId,
   strength = true,
@@ -9,7 +23,7 @@ const Password = ({
   children,
   placeholder,
   ...rest
-}) => {
+}: PasswordInterface) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   const strengthValue = calculateScore(fieldState || '')
   let strengthMeter = {
@@ -73,7 +87,7 @@ const options = {
   minimumLength: 4,
 }
 
-function calculateScore(password) {
+function calculateScore(password: string) {
   var score = 0
 
   // password < options.minimumLength
