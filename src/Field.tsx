@@ -62,10 +62,12 @@ const Field = ({
     registerField({ id: fieldId, value: defaultValue })
   }, [])
 
+  console.log(type)
+
   return (
     <div className={`fresh-field-wrapper ${fieldId}`}>
-      <label htmlFor={`fresh-${fieldId}`}>
-        <span className="fresh-label">
+      <label className="fresh-label" htmlFor={`fresh-${fieldId}`}>
+        <span className="fresh-title">
           {label && children} {required && '*'}
         </span>
         {Object.keys(COMPLEX_FIELDS).includes(type) ? (
@@ -81,7 +83,7 @@ const Field = ({
         ) : (
           <input
             required={required}
-            className={`${type !== 'tags' && 'fresh-input'} fresh-input-${type} ${className}`}
+            className={`fresh-input fresh-input-${type} ${className}`}
             placeholder={placeholder}
             id={`fresh-${fieldId}`}
             type={type}

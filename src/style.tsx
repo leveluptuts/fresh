@@ -1,6 +1,25 @@
 import { createGlobalStyle } from 'styled-components'
 
 const Global = createGlobalStyle`
+.fresh-markdown-wrapper {
+  .fresh-input-textarea,
+  .fresh-input-markdown {
+    width: 100%;
+  }
+  @media (min-width: 800px) {
+    display: flex;
+    .fresh-input-textarea {
+      width: 50%;  
+    }
+    
+    .fresh-input-markdown {
+      width: calc(50% - 0.5em);  
+      margin-left: 0.5em;
+    }
+  }
+}
+
+
 .fresh-switch {
   position: relative;
   display: inline-block;
@@ -53,7 +72,8 @@ input:checked + .fresh-slider:before {
 
 input,
 select,
-textarea {
+textarea,
+.fresh-input {
   background-color: transparent;
   box-sizing: border-box;
   box-shadow: none;
@@ -69,11 +89,17 @@ textarea {
   transition: border-color 0.2s ease 0s;
 }
 
-textarea {
+textarea,
+.fresh-input-textarea,
+.fresh-input-markdown {
   min-height: 6rem;
 }
 
-label > span {
+.fresh-input-markdown {
+  border-color: #eee; 
+}
+
+.fresh-title {
   display: block;
 }
 
