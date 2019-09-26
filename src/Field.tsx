@@ -81,7 +81,7 @@ const Field = ({
         ) : (
           <input
             required={required}
-            className={`fresh-input fresh-input-${type} ${className}`}
+            className={`${type !== 'tags' && 'fresh-input'} fresh-input-${type} ${className}`}
             placeholder={placeholder}
             id={`fresh-${fieldId}`}
             type={type}

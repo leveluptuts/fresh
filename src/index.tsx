@@ -63,7 +63,11 @@ const FormWrapper = ({
       <div>
         {buttons || (
           <>
-            <button id="fresh-submit" type="submit">
+            <button
+              id="fresh-submit"
+              className="fresh-button fresh-submit"
+              type="submit"
+            >
               {submitText}
             </button>
             {cancelButton && (

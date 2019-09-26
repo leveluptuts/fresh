@@ -19,7 +19,7 @@ const Toggle = ({
         checked={fieldState}
         type="checkbox"
         id={`fresh-${fieldId}`}
-        className="fresh-input fresh-input-checkbox fresh-input-toggle"
+        className="fresh-input-toggle"
       />
       <span
         className={`fresh-slider`}

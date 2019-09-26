@@ -8,6 +8,7 @@ const CancelButton = ({ cancelAction, cancelText }) => {
   return (
     <button
       id="fresh-cancel"
+      className="fresh-button fresh-cancel"
       onClick={() => {
         cancelAction()
         resetForm()
