@@ -28,7 +28,11 @@ function reducer(state, action) {
 
       // Adds blank value if default doesn't exist
       if (!temp[action.id]) {
-        temp[action.id] = action.value || ''
+        if(action.value  == null) {
+          temp[action.id] = ''
+        } else {
+          temp[action.id] = action.value
+        }
       }
       // Add field based default values if one doesn't exist
       if (!temp.defaultValues[action.id]) {
