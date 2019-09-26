@@ -10,16 +10,17 @@ export const TextArea = ({
 }) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   return (
-    <div style={{ display: 'flex' }}>
+    <div className="fresh-markdown-wrapper">
       <textarea
         id={`fresh-${fieldId}`}
         placeholder={placeholder}
-        style={{ width: '50%' }}
         value={fieldState || ''}
         className="fresh-input fresh-input-textarea"
         onChange={e => update({ id: fieldId, value: e.target.value })}
       />
-      <Markdown style={{ width: '50%' }} children={fieldState || ''} />
+      <div className="fresh-input fresh-input-markdown">
+        <Markdown children={fieldState || ''} />
+      </div>
     </div>
   )
 }
