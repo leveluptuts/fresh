@@ -69,8 +69,9 @@ const defaultValues = {
 }
 
 <Form onSubmit={onSubmit} defaultValues={defaultValues}>
-  <Field placeholder="Freddie Fresh">Name</Field>
+  <Field>Name</Field>
   <Field type="email">Email</Field>
+  <Field>Two Words</Field>
 </Form>
 ```
 

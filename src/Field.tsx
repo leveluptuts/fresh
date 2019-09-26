@@ -14,6 +14,13 @@ const kebabCase = str =>
     .replace(/[\s_]+/g, '-')
     .toLowerCase()
 
+const camelCase = str => {
+  return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
+    if (+match === 0) return ''
+    return index == 0 ? match.toLowerCase() : match.toUpperCase()
+  })
+}
+
 const COMPLEX_FIELDS = {
   select: Select,
   password: Password,
@@ -49,7 +56,7 @@ const Field = ({
   ...rest
 }: FieldInterface) => {
   const { formState, update, registerField } = useContext(FormContext)
-  const fieldId = kebabCase(children)
+  const fieldId = camelCase(children)
 
   useEffect(() => {
     registerField({ id: fieldId, value: defaultValue })
