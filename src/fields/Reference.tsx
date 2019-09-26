@@ -24,7 +24,7 @@ const Reference = ({
         onBlur={() => setIsFocused(false)}
         placeholder={placeholder}
         type="text"
-        className="fresh-input fresh-input-text"
+        className="fresh-input fresh-input-reference"
         {...rest}
       />
       {isFocused && (
