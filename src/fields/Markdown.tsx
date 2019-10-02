@@ -2,7 +2,8 @@ import React from 'react'
 import Markdown from 'markdown-to-jsx'
 import useSpecialField from '../hooks/useSpecialField'
 
-export const TextArea = ({
+export const MarkdownField = ({
+  required,
   defaultValue = '',
   children,
   fieldId,
@@ -15,6 +16,7 @@ export const TextArea = ({
         id={`fresh-${fieldId}`}
         placeholder={placeholder}
         value={fieldState || ''}
+        required={required}
         className="fresh-input fresh-input-textarea"
         onChange={e => update({ id: fieldId, value: e.target.value })}
       />
@@ -25,4 +27,4 @@ export const TextArea = ({
   )
 }
 
-export default TextArea
+export default MarkdownField

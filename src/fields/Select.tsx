@@ -2,7 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import useSpecialField from '../hooks/useSpecialField'
 
-const Select = ({ options, children, fieldId, defaultValue = 0, ...rest }) => {
+const Select = ({
+  required,
+  options,
+  children,
+  fieldId,
+  defaultValue,
+  ...rest
+}) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   return (
     <select
@@ -10,8 +17,14 @@ const Select = ({ options, children, fieldId, defaultValue = 0, ...rest }) => {
       className="fresh-input fresh-input-select"
       onChange={e => update({ id: fieldId, value: e.target.value })}
       value={fieldState}
+      required={required}
       {...rest}
     >
+      {!defaultValue && (
+        <option value="" selected disabled hidden>
+          Select an option
+        </option>
+      )}
       {options.map(option => (
         <option value={option} key={option} className="fresh-option">
           {option}
@@ -22,12 +35,14 @@ const Select = ({ options, children, fieldId, defaultValue = 0, ...rest }) => {
 }
 
 Select.propTypes = {
+  required: PropTypes.bool,
   options: PropTypes.array.isRequired,
   children: PropTypes.string,
   fieldId: PropTypes.string.isRequired,
 }
 
 Select.defaultProps = {
+  required: false,
   children: '',
 }
 

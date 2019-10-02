@@ -62,8 +62,6 @@ const Field = ({
     registerField({ id: fieldId, value: defaultValue })
   }, [])
 
-  console.log(type)
-
   return (
     <div className={`fresh-field-wrapper ${fieldId}`}>
       <label className="fresh-label" htmlFor={`fresh-${fieldId}`}>
@@ -72,6 +70,7 @@ const Field = ({
         </span>
         {Object.keys(COMPLEX_FIELDS).includes(type) ? (
           COMPLEX_FIELDS[type]({
+            required,
             options,
             children,
             className,

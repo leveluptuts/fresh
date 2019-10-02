@@ -59,9 +59,11 @@ const App = () => {
           <Field placeholder="Freddie Fresh">Name</Field>
           <Field type="email">Email</Field>
           <Field type="password">Password</Field>
-          <Field type="tags">Tags</Field>
+          <Field required type="tags">
+            Tags
+          </Field>
           <Field type="number">Number</Field>
-          <Field required type="select" options={options}>
+          <Field type="select" options={options}>
             Type
           </Field>
           <Field type="textarea">Text Area</Field>

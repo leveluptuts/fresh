@@ -101,7 +101,7 @@ The common API is shared among all <Field /> elements. Type specific fields are 
 | Prop         | Type                | Default | Description                                                                                                                             |
 | ------------ | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | type         | string              | 'text'  | Can be any of the following types: text (default), email, number, select, password, textarea, tags, markdown, toggle. (See types below) |
-| required     | boolean             | false   | if a field is required                                                                                                                  |
+| required     | boolean             | false   | if a field is required (Not available for Toggle or Tags)                                                                               |
 | label        | boolean             | true    | if a field has a label                                                                                                                  |
 | defaultValue | string/number/array | null    | The initial value for each field                                                                                                        |
 
