@@ -59,10 +59,8 @@ const Field = ({
   const fieldId = camelCase(children)
 
   useEffect(() => {
-    registerField({ id: fieldId, value: defaultValue })
+    registerField({ id: fieldId, value: defaultValue, inputType: type })
   }, [])
-
-  console.log(type)
 
   return (
     <div className={`fresh-field-wrapper ${fieldId}`}>
@@ -89,7 +87,7 @@ const Field = ({
             type={type}
             value={formState[fieldId]}
             onChange={e => {
-              update({ id: fieldId, value: e.target.value })
+              update({ id: fieldId, value: e.target.value, inputType: type })
             }}
             {...rest}
           />

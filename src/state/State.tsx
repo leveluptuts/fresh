@@ -3,6 +3,7 @@ import React, { useReducer, createContext, ReactNode } from 'react'
 export interface ContextArguments {
   id: string
   value: string | boolean | number | object
+  inputType: string
 }
 
 export interface FieldStateInterface {
@@ -28,15 +29,18 @@ function reducer(state, action) {
 
       // Adds blank value if default doesn't exist
       if (!temp[action.id]) {
-        if(action.value  == null) {
+        if (action.value == null && action.inputType != 'number') {
           temp[action.id] = ''
+        } else if (action.inputType == 'number' && isNaN(action.value)) {
+          temp[action.id] = null
         } else {
           temp[action.id] = action.value
         }
       }
       // Add field based default values if one doesn't exist
       if (!temp.defaultValues[action.id]) {
-        temp.defaultValues[action.id] = action.value || ''
+        temp.defaultValues[action.id] =
+          action.value || action.inputType == 'number' ? null : ''
       }
 
       return temp
@@ -68,8 +72,8 @@ export function FormProvider({
   const ContextProvider: FieldStateInterface = {
     formState,
     update: ({ id, value }) => dispatch({ type: 'update', id, value }),
-    registerField: ({ id, value }) =>
-      dispatch({ type: 'registerField', id, value }),
+    registerField: ({ id, value, inputType }) =>
+      dispatch({ type: 'registerField', id, value, inputType }),
     resetForm: () => dispatch({ type: 'resetForm' }),
   }
 
