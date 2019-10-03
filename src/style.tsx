@@ -1,25 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
 const Global = createGlobalStyle`
-.fresh-markdown-wrapper {
-  .fresh-input-textarea,
-  .fresh-input-markdown {
-    width: 100%;
-  }
-  @media (min-width: 800px) {
-    display: flex;
-    .fresh-input-textarea {
-      width: 50%;  
-    }
-    
-    .fresh-input-markdown {
-      width: calc(50% - 0.5em);  
-      margin-left: 0.5em;
-    }
-  }
-}
-
-
 .fresh-switch {
   position: relative;
   display: inline-block;
@@ -95,9 +76,40 @@ textarea,
   min-height: 6rem;
 }
 
-.fresh-input-markdown {
-  border-color: #eee; 
+.fresh-markdown-wrapper {
+  .fresh-input-markdown {
+    border-color: #eee; 
+  }
+  .fresh-input-textarea,
+  .fresh-input-markdown {
+    width: 100%;
+  }
+  @media (min-width: 800px) {
+    display: flex;
+    .fresh-input-textarea {
+      width: 50%;  
+    }
+    
+    .fresh-input-markdown {
+      width: calc(50% - 0.5em);  
+      margin-left: 0.5em;
+    }
+  }
 }
+
+.fresh-reference-wrapper .fresh-label {
+  position: relative;
+  .fresh-focused {
+    border: 1px solid #eee;
+    max-height: 200px;
+    overflow-y: scroll;
+    position: absolute;
+    background: white;
+    width: 100%;
+    margin-top: -0.5em;
+  }
+}
+
 
 .fresh-title {
   display: block;

@@ -15,43 +15,42 @@ const Reference = ({
   const [inputValue, setInputValue] = useState('')
   const [isFocused, setIsFocused] = useState(false)
   return (
-    <div style={{ position: 'relative' }}>
-      <input
-        id={`fresh-${fieldId}`}
-        onChange={e => setInputValue(e.target.value)}
-        value={inputValue}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
-        placeholder={placeholder}
-        type="text"
-        className="fresh-input fresh-input-reference"
-        {...rest}
-      />
-      {isFocused && (
-        <div
-          className="fresh-focused"
-          style={{ position: 'absolute', background: 'white', width: '100%' }}
-        >
-          {options
-            .filter(option =>
-              option[displayProperty]
-                .toLowerCase()
-                .includes(inputValue.toLowerCase())
-            )
-            .map(option => (
-              <div
-                key={option._id}
-                style={{ padding: '0.75em' }}
-                onMouseDown={() => {
-                  update({ id: fieldId, value: option })
-                  setInputValue(option[displayProperty])
-                }}
-              >
-                {option[displayProperty]}
-              </div>
-            ))}
-        </div>
-      )}
+    <div className="fresh-reference-wrapper">
+      <label htmlFor={`fresh-${fieldId}`} className="fresh-label">
+        <input
+          id={`fresh-${fieldId}`}
+          onChange={e => setInputValue(e.target.value)}
+          value={inputValue}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          placeholder={placeholder}
+          type="text"
+          className="fresh-input fresh-input-reference"
+          {...rest}
+        />
+        {isFocused && (
+          <div className="fresh-focused">
+            {options
+              .filter(option =>
+                option[displayProperty]
+                  .toLowerCase()
+                  .includes(inputValue.toLowerCase())
+              )
+              .map(option => (
+                <div
+                  key={option._id}
+                  style={{ padding: '0.75em' }}
+                  onMouseDown={() => {
+                    update({ id: fieldId, value: option })
+                    setInputValue(option[displayProperty])
+                  }}
+                >
+                  {option[displayProperty]}
+                </div>
+              ))}
+          </div>
+        )}
+      </label>
     </div>
   )
 }
