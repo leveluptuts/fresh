@@ -105,6 +105,7 @@ const Global = createGlobalStyle`
     background: white;
     width: 100%;
     margin-top: -0.5em;
+    border-top: 0;
   }
 
   .fresh-label {
