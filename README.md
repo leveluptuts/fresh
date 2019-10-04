@@ -104,6 +104,7 @@ The common API is shared among all <Field /> elements. Type specific fields are 
 | required     | boolean             | false   | if a field is required (Not available for Toggle or Tags)                                                                               |
 | label        | boolean             | true    | if a field has a label                                                                                                                  |
 | defaultValue | string/number/array | null    | The initial value for each field                                                                                                        |
+| tooltip      | string              | ''      | shows an info icon next to the label with a tooltip message on hover                                                                    |
 
 #### type - text & textarea
 

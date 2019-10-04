@@ -113,7 +113,42 @@ const Global = createGlobalStyle`
   }
 
   .fresh-title {
-    display: block;
+    display: flex; 
+    align-items: center;
+    .fresh-tooltip {
+      position: relative;
+      &:after {
+        position: absolute;
+        left: 150%;
+        min-width: 100px;
+        content: attr(data-tooltip);
+        opacity: 0;
+        transition: all .3s ease-in-out .35s;
+        visibility: hidden;
+        z-index: 2;
+        position: absolute;
+        background-color: #eee;
+        padding: 0.75em;
+        border-radius: 3px;
+        font-size: 0.8em;
+      }
+      &:hover:after {
+        opacity: 1;
+        left: 130%;
+        visibility: visible;
+      }
+      .fresh-tooltip-icon {
+        position: relative;
+        height: 0.8em;
+        width: 0.8em;
+        min-height: 0.8em;
+        min-width: 0.8em;
+      }
+    }
+  }
+
+  .fresh-input-tags {
+    margin-top: 1rem;
   }
 
   .react-tagsinput-tag {
@@ -121,6 +156,7 @@ const Global = createGlobalStyle`
     padding: 6px 10px;
     margin: 0 6px 0 0;
   }
+
   .react-tagsinput-input {
     margin-top: 1rem;
     display: block;

@@ -59,7 +59,14 @@ const App = () => {
           <Field placeholder="Freddie Fresh">Name</Field>
           <Field type="email">Email</Field>
           <Field type="password">Password</Field>
+<<<<<<< HEAD
           <Field required type="tags">
+=======
+          <Field
+            type="tags"
+            tooltip="Press 'return' after creating a tag to add"
+          >
+>>>>>>> c4ee91ff338e3ef6ac05261e3ba162e3f2b3e079
             Tags
           </Field>
           <Field type="number">Number</Field>
