@@ -1,24 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
 const Global = createGlobalStyle`
-  .fresh-markdown-wrapper {
-    .fresh-input-textarea,
-    .fresh-input-markdown {
-      width: 100%;
-    }
-    @media (min-width: 800px) {
-      display: flex;
-      .fresh-input-textarea {
-        width: 50%;  
-      }
-      
-      .fresh-input-markdown {
-        width: calc(50% - 0.5em);  
-        margin-left: 0.5em;
-      }
-    }
-  }
-
   .fresh-switch {
     position: relative;
     display: inline-block;
@@ -94,9 +76,45 @@ const Global = createGlobalStyle`
     min-height: 6rem;
   }
 
-  .fresh-input-markdown {
-    border-color: #eee; 
+  .fresh-markdown-wrapper {
+    .fresh-input-markdown {
+      border-color: #eee; 
+    }
+    .fresh-input-textarea,
+    .fresh-input-markdown {
+      width: 100%;
+    }
+    @media (min-width: 800px) {
+      display: flex;
+      .fresh-input-textarea {
+        width: 50%;  
+      }
+      
+      .fresh-input-markdown {
+        width: calc(50% - 0.5em);  
+        margin-left: 0.5em;
+      }
+    }
   }
+
+  .fresh-focused {
+    border: 1px solid #eee;
+    max-height: 200px;
+    overflow-y: scroll;
+    position: absolute;
+    background: white;
+    width: 100%;
+    margin-top: -0.5em;
+    border-top: 0;
+  }
+
+  .fresh-label {
+    position: relative;
+  }
+
+  /* .fresh-title {
+    display: block;
+  } */
 
   .fresh-title {
     display: flex; 
@@ -142,6 +160,7 @@ const Global = createGlobalStyle`
     padding: 6px 10px;
     margin: 0 6px 0 0;
   }
+  
   .react-tagsinput-input {
     margin-top: 1rem;
     display: block;

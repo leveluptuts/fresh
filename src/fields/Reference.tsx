@@ -15,7 +15,7 @@ const Reference = ({
   const [inputValue, setInputValue] = useState('')
   const [isFocused, setIsFocused] = useState(false)
   return (
-    <div style={{ position: 'relative' }}>
+    <>
       <input
         id={`fresh-${fieldId}`}
         onChange={e => setInputValue(e.target.value)}
@@ -28,10 +28,7 @@ const Reference = ({
         {...rest}
       />
       {isFocused && (
-        <div
-          className="fresh-focused"
-          style={{ position: 'absolute', background: 'white', width: '100%' }}
-        >
+        <div className="fresh-focused">
           {options
             .filter(option =>
               option[displayProperty]
@@ -52,7 +49,7 @@ const Reference = ({
             ))}
         </div>
       )}
-    </div>
+    </>
   )
 }
 
