@@ -112,10 +112,6 @@ const Global = createGlobalStyle`
     position: relative;
   }
 
-  /* .fresh-title {
-    display: block;
-  } */
-
   .fresh-title {
     display: flex; 
     align-items: center;
@@ -160,7 +156,7 @@ const Global = createGlobalStyle`
     padding: 6px 10px;
     margin: 0 6px 0 0;
   }
-  
+
   .react-tagsinput-input {
     margin-top: 1rem;
     display: block;
