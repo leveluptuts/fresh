@@ -7,6 +7,8 @@ import TextArea from './fields/TextArea'
 import Markdown from './fields/Markdown'
 import Toggle from './fields/Toggle'
 import { FormContext } from './state/State'
+import Toooltip from './form/Tooltip'
+import Tooltip from './form/Tooltip'
 
 const kebabCase = str =>
   str
@@ -41,6 +43,7 @@ interface FieldInterface {
   options: string[] | object[]
   className: string
   defaultValue: string
+  tooltip: string
 }
 
 const Field = ({
@@ -53,6 +56,7 @@ const Field = ({
   options,
   className,
   defaultValue,
+  tooltip,
   ...rest
 }: FieldInterface) => {
   const { formState, update, registerField } = useContext(FormContext)
@@ -62,13 +66,12 @@ const Field = ({
     registerField({ id: fieldId, value: defaultValue })
   }, [])
 
-  console.log(type)
-
   return (
     <div className={`fresh-field-wrapper ${fieldId}`}>
       <label className="fresh-label" htmlFor={`fresh-${fieldId}`}>
         <span className="fresh-title">
-          {label && children} {required && '*'}
+          {required && '*'} {label && children}&nbsp;
+          {tooltip && <Tooltip tooltip={tooltip} />}
         </span>
         {Object.keys(COMPLEX_FIELDS).includes(type) ? (
           COMPLEX_FIELDS[type]({
