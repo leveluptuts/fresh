@@ -7,7 +7,6 @@ import TextArea from './fields/TextArea'
 import Markdown from './fields/Markdown'
 import Toggle from './fields/Toggle'
 import { FormContext } from './state/State'
-import Toooltip from './form/Tooltip'
 import Tooltip from './form/Tooltip'
 
 const kebabCase = str =>
@@ -37,6 +36,7 @@ interface FieldInterface {
   required: boolean
   children: string
   type: string
+  name: string
   label: string
   error?: string
   placeholder: string
@@ -49,6 +49,7 @@ interface FieldInterface {
 const Field = ({
   required,
   children,
+  name,
   type,
   label,
   error,
@@ -60,8 +61,7 @@ const Field = ({
   ...rest
 }: FieldInterface) => {
   const { formState, update, registerField } = useContext(FormContext)
-  const fieldId = camelCase(children)
-
+  const fieldId = name || camelCase(children)
   useEffect(() => {
     registerField({ id: fieldId, value: defaultValue })
   }, [])
@@ -111,6 +111,7 @@ Field.defaultProps = {
   required: false,
   label: true,
   placeholder: '',
+  name: '',
   type: 'text',
 }
 
