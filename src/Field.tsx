@@ -46,6 +46,7 @@ interface FieldInterface {
   tooltip: string
   tooltipBackground: string
   tooltipColor: string
+  tooltipIconColor: string
 }
 
 const Field = ({
@@ -62,6 +63,7 @@ const Field = ({
   tooltip,
   tooltipBackground,
   tooltipColor,
+  tooltipIconColor,
   ...rest
 }: FieldInterface) => {
   const { formState, update, registerField } = useContext(FormContext)
@@ -80,6 +82,7 @@ const Field = ({
               tooltip={tooltip}
               tooltipBackground={tooltipBackground}
               tooltipColor={tooltipColor}
+              tooltipIconColor={tooltipIconColor}
             />
           )}
         </span>
@@ -126,6 +129,7 @@ Field.defaultProps = {
   tooltip: '',
   tooltipBackground: '#eee',
   tooltipColor: '#000',
+  tooltipIconColor: '#000',
 }
 
 export default Field
