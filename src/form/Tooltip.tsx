@@ -1,9 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Tooltip = ({ tooltip }) => {
+interface TooltipInterface {
+  tooltip: string
+  tooltipBackground: string
+  tooltipColor: string
+}
+
+const Tooltip = ({
+  tooltip,
+  tooltipBackground,
+  tooltipColor,
+}: TooltipInterface) => {
+  const tooltipStyle = {
+    '--fresh-tooltip-background': tooltipBackground,
+    '--fresh-tooltip-color': tooltipColor,
+  } as React.CSSProperties
   return (
-    <span className="fresh-tooltip" data-tooltip={tooltip}>
+    <span className="fresh-tooltip" data-tooltip={tooltip} style={tooltipStyle}>
       <svg
         className="fresh-tooltip-icon"
         width="16"
@@ -25,9 +39,13 @@ const Tooltip = ({ tooltip }) => {
 
 Tooltip.propTypes = {
   tooltip: PropTypes.string,
+  tooltipBackground: PropTypes.string,
+  tooltipColor: PropTypes.string,
 }
 
 Tooltip.defaultProps = {
   tooltip: '',
+  tooltipBackground: '#eee',
+  tooltipColor: '#000',
 }
 export default Tooltip

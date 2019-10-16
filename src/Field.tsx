@@ -44,6 +44,8 @@ interface FieldInterface {
   className: string
   defaultValue: string
   tooltip: string
+  tooltipBackground: string
+  tooltipColor: string
 }
 
 const Field = ({
@@ -58,6 +60,8 @@ const Field = ({
   className,
   defaultValue,
   tooltip,
+  tooltipBackground,
+  tooltipColor,
   ...rest
 }: FieldInterface) => {
   const { formState, update, registerField } = useContext(FormContext)
@@ -71,7 +75,13 @@ const Field = ({
       <label className="fresh-label" htmlFor={`fresh-${fieldId}`}>
         <span className="fresh-title">
           {required && '*'} {label && children}&nbsp;
-          {tooltip && <Tooltip tooltip={tooltip} />}
+          {tooltip && (
+            <Tooltip
+              tooltip={tooltip}
+              tooltipBackground={tooltipBackground}
+              tooltipColor={tooltipColor}
+            />
+          )}
         </span>
         {Object.keys(COMPLEX_FIELDS).includes(type) ? (
           COMPLEX_FIELDS[type]({
@@ -113,6 +123,9 @@ Field.defaultProps = {
   placeholder: '',
   name: '',
   type: 'text',
+  tooltip: '',
+  tooltipBackground: '#eee',
+  tooltipColor: '#000',
 }
 
 export default Field
