@@ -108,6 +108,7 @@ The common API is shared among all <Field /> elements. Type specific fields are 
 | tooltip           | string              | ''      | Shows an info icon next to the label with a tooltip message on hover                                                                      |
 | tooltipBackground | string              | '#eee'  | Background color for tooltip message.                                                                                                     |
 | tooltipColor      | string              | '#000'  | Font color for tooltip message.                                                                                                           |
+| tooltipIconColor  | string              | '#000'  | Font color for tooltip icon on the label.                                                                                                 |
 
 #### type - text & textarea
 
