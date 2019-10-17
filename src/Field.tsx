@@ -48,7 +48,6 @@ const Field = ({
   tooltipBackground,
   tooltipColor,
   tooltipIconColor,
-  ...rest
 }: FieldInterface) => {
   const { formState, update, registerField } = useContext(FormContext)
   const fieldId = name || camelCase(children)
@@ -95,7 +94,6 @@ const Field = ({
             onChange={e => {
               update({ id: fieldId, value: e.target.value })
             }}
-            {...rest}
           />
         )}
       </label>

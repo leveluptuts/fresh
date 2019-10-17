@@ -3,17 +3,17 @@ import PropTypes from 'prop-types'
 import useSpecialField from '../hooks/useSpecialField'
 
 interface PasswordInterface {
-  required: boolean;
-  strength: boolean;
-  type: string;
-  fieldId: string;
-  children: string;
-  label: string;
-  error?: string;
-  placeholder: string;
-  options: string[] | object[];
-  className: string;
-  defaultValue: string;
+  required: boolean
+  strength: boolean
+  type: string
+  fieldId: string
+  children: string
+  label: string
+  error?: string
+  placeholder: string
+  options: string[] | object[]
+  className: string
+  defaultValue: string
 }
 
 const Password = ({
@@ -54,7 +54,6 @@ const Password = ({
         value={fieldState || ''}
         id={`fresh-${fieldId}`}
         onChange={e => update({ value: e.target.value, id: fieldId })}
-        {...rest}
       />
       {strength && (
         <div

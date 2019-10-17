@@ -10,7 +10,6 @@ const Select = ({ options, children, fieldId, defaultValue = 0, ...rest }) => {
       className="fresh-input fresh-input-select"
       onChange={e => update({ id: fieldId, value: e.target.value })}
       value={fieldState}
-      {...rest}
     >
       {options.map(option => (
         <option value={option} key={option} className="fresh-option">

@@ -25,7 +25,6 @@ const Reference = ({
         placeholder={placeholder}
         type="text"
         className="fresh-input fresh-input-reference"
-        {...rest}
       />
       {isFocused && (
         <div className="fresh-focused">
