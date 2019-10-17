@@ -1,6 +1,11 @@
 import { createGlobalStyle } from 'styled-components'
 
 const Global = createGlobalStyle`
+  :root {
+    --fresh-tooltip-color: #000;
+    --fresh-tooltip-background: #eee;
+  }
+
   .fresh-switch {
     position: relative;
     display: inline-block;
@@ -117,6 +122,7 @@ const Global = createGlobalStyle`
     align-items: center;
     .fresh-tooltip {
       position: relative;
+      color: var(--fresh-tooltip-color);
       &:after {
         position: absolute;
         left: 150%;
@@ -127,7 +133,7 @@ const Global = createGlobalStyle`
         visibility: hidden;
         z-index: 2;
         position: absolute;
-        background-color: #eee;
+        background-color: var(--fresh-tooltip-background);
         padding: 0.75em;
         border-radius: 3px;
         font-size: 0.8em;
