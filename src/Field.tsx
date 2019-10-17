@@ -7,7 +7,6 @@ import TextArea from './fields/TextArea'
 import Markdown from './fields/Markdown'
 import Toggle from './fields/Toggle'
 import { FormContext } from './state/State'
-import Toooltip from './form/Tooltip'
 import Tooltip from './form/Tooltip'
 
 const kebabCase = str =>
@@ -37,6 +36,7 @@ interface FieldInterface {
   required: boolean
   children: string
   type: string
+  name: string
   label: string
   error?: string
   placeholder: string
@@ -44,11 +44,15 @@ interface FieldInterface {
   className: string
   defaultValue: string
   tooltip: string
+  tooltipBackground: string
+  tooltipColor: string
+  tooltipIconColor: string
 }
 
 const Field = ({
   required,
   children,
+  name,
   type,
   label,
   error,
@@ -57,11 +61,13 @@ const Field = ({
   className,
   defaultValue,
   tooltip,
+  tooltipBackground,
+  tooltipColor,
+  tooltipIconColor,
   ...rest
 }: FieldInterface) => {
   const { formState, update, registerField } = useContext(FormContext)
-  const fieldId = camelCase(children)
-
+  const fieldId = name || camelCase(children)
   useEffect(() => {
     registerField({ id: fieldId, value: defaultValue })
   }, [])
@@ -71,7 +77,14 @@ const Field = ({
       <label className="fresh-label" htmlFor={`fresh-${fieldId}`}>
         <span className="fresh-title">
           {required && '*'} {label && children}&nbsp;
-          {tooltip && <Tooltip tooltip={tooltip} />}
+          {tooltip && (
+            <Tooltip
+              tooltip={tooltip}
+              tooltipBackground={tooltipBackground}
+              tooltipColor={tooltipColor}
+              tooltipIconColor={tooltipIconColor}
+            />
+          )}
         </span>
         {Object.keys(COMPLEX_FIELDS).includes(type) ? (
           COMPLEX_FIELDS[type]({
@@ -111,7 +124,12 @@ Field.defaultProps = {
   required: false,
   label: true,
   placeholder: '',
+  name: '',
   type: 'text',
+  tooltip: '',
+  tooltipBackground: '#eee',
+  tooltipColor: '#000',
+  tooltipIconColor: '#000',
 }
 
 export default Field
