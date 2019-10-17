@@ -1,10 +1,7 @@
 import React, { useContext, ReactNode } from 'react'
-// @ts-ignore
 import { FormProvider, FormContext, FieldStateInterface } from './state/State'
 import Global from './style'
-// @ts-ignore
 import CancelButton from './form/CancelButton'
-// @ts-ignore
 export { default as Field } from './Field'
 
 interface defaultValuesInterface {

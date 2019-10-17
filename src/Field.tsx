@@ -52,8 +52,12 @@ const Field = ({
 }: FieldInterface) => {
   const { formState, update, registerField } = useContext(FormContext)
   const fieldId = name || camelCase(children)
+
   useEffect(() => {
-    registerField({ id: fieldId, value: defaultValue })
+    registerField({
+      id: fieldId,
+      value: defaultValue,
+    })
   }, [])
 
   return (

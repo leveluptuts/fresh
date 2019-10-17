@@ -3,6 +3,7 @@ import Reference from './Reference'
 import Password from './Password'
 import Tags from './Tags'
 import TextArea from './TextArea'
+import NumberField from './Number'
 import Markdown from './Markdown'
 import Toggle from './Toggle'
 
@@ -14,6 +15,7 @@ const COMPLEX_FIELDS: object = {
   textarea: TextArea,
   toggle: Toggle,
   reference: Reference,
+  number: NumberField,
 }
 
 export { COMPLEX_FIELDS }
