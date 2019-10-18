@@ -19,31 +19,31 @@ const camelCase = str => {
 interface FieldInterface {
   required: boolean
   children: string
-  type: string
-  name: string
+  type?: string
+  name?: string
   label: string
   error?: string
   placeholder: string
   options: string[] | object[]
-  className: string
-  defaultValue: string
-  tooltip: string
-  tooltipBackground: string
-  tooltipColor: string
-  tooltipIconColor: string
+  className?: string
+  defaultValue?: string
+  tooltip?: string
+  tooltipBackground?: string
+  tooltipColor?: string
+  tooltipIconColor?: string
 }
 
 const Field = ({
   required,
   children,
-  name,
-  type,
+  name = '',
+  type = 'text',
   label,
   error,
   placeholder,
   options,
-  className,
-  defaultValue,
+  className = '',
+  defaultValue = '',
   tooltip,
   tooltipBackground,
   tooltipColor,
@@ -102,15 +102,11 @@ const Field = ({
 }
 
 Field.defaultProps = {
-  children: '',
-  className: '',
   defaultValue: null,
   options: [],
   required: false,
   label: true,
   placeholder: '',
-  name: '',
-  type: 'text',
   tooltip: '',
   tooltipBackground: '#eee',
   tooltipColor: '#000',

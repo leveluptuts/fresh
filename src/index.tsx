@@ -22,19 +22,16 @@ const Form = ({ defaultValues = {}, ...rest }: FormProps) => {
 }
 
 interface FormWrapperInterface {
-  buttons: any
   cancelAction(): void
-  cancelButton: boolean
-  cancelText: string
+  cancelButton?: boolean
+  cancelText?: string
   children: ReactNode | ReactNode[]
-  className: string
-  disabled: boolean
+  className?: string
   onSubmit(formState: object): void
-  submitText: string
+  submitText?: string
 }
 
 const FormWrapper = ({
-  buttons,
   cancelAction = () => null,
   cancelButton = true,
   cancelText = 'Cancel',
@@ -57,22 +54,15 @@ const FormWrapper = ({
     >
       {children}
       <div>
-        {buttons || (
-          <>
-            <button
-              id="fresh-submit"
-              className="fresh-button fresh-submit"
-              type="submit"
-            >
-              {submitText}
-            </button>
-            {cancelButton && (
-              <CancelButton
-                cancelAction={cancelAction}
-                cancelText={cancelText}
-              />
-            )}
-          </>
+        <button
+          id="fresh-submit"
+          className="fresh-button fresh-submit"
+          type="submit"
+        >
+          {submitText}
+        </button>
+        {cancelButton && (
+          <CancelButton cancelAction={cancelAction} cancelText={cancelText} />
         )}
       </div>
     </form>
@@ -80,7 +70,7 @@ const FormWrapper = ({
 }
 
 // TODO
-// AUto form prop that allows for automatic form building via graphql. Required feilds and all
+// AUto form prop that allows for automatic form building via graphql. Required fields and all
 
 // Future api idea <Form mutation={GRAPHQL_MUTATION} /> one liner
 
