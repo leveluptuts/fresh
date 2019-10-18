@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import useSpecialField from '../hooks/useSpecialField'
 
 const Reference = ({
@@ -49,19 +48,6 @@ const Reference = ({
       )}
     </>
   )
-}
-
-Reference.propTypes = {
-  options: PropTypes.array.isRequired,
-  children: PropTypes.string,
-  fieldId: PropTypes.string.isRequired,
-  displayProperty: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
-}
-
-Reference.defaultProps = {
-  children: '',
-  placeholder: '',
 }
 
 export default Reference

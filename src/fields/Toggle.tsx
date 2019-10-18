@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import useSpecialField from '../hooks/useSpecialField'
+import PropTypes from 'prop-types'
 
 const Toggle = ({
-  className,
+  className = '',
   toggleColor,
   toggleOnColor,
   fieldId,
@@ -15,12 +15,13 @@ const Toggle = ({
     '--fresh-toggle-color': toggleColor,
   } as React.CSSProperties
   return (
-    <div className={`fresh-switch ${className}`}>
+    <div className={`${className} fresh-switch`}>
       <input
-        checked={fieldState}
+        checked={fieldState || ''}
         type="checkbox"
         id={`fresh-${fieldId}`}
         className="fresh-input-toggle"
+        onChange={() => {}}
       />
       <span
         style={toggleStyle}
@@ -34,13 +35,11 @@ const Toggle = ({
 Toggle.propTypes = {
   toggleColor: PropTypes.string,
   toggleOnColor: PropTypes.string,
-  className: PropTypes.string,
 }
 
 Toggle.defaultProps = {
   toggleColor: '#ccc',
   toggleOnColor: '#2196f3',
-  className: '',
 }
 
 export default Toggle

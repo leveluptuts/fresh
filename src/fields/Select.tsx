@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import useSpecialField from '../hooks/useSpecialField'
 
 const Select = ({ options, className, fieldId, defaultValue = 0 }) => {
@@ -18,16 +17,6 @@ const Select = ({ options, className, fieldId, defaultValue = 0 }) => {
       ))}
     </select>
   )
-}
-
-Select.propTypes = {
-  options: PropTypes.array.isRequired,
-  fieldId: PropTypes.string.isRequired,
-  className: PropTypes.string,
-}
-
-Select.defaultProps = {
-  className: '',
 }
 
 export default Select

@@ -1,13 +1,7 @@
 import React, { useContext, useEffect } from 'react'
-import Select from './fields/Select'
-import Reference from './fields/Reference'
-import Password from './fields/Password'
-import Tags from './fields/Tags'
-import TextArea from './fields/TextArea'
-import Markdown from './fields/Markdown'
-import Toggle from './fields/Toggle'
 import { FormContext } from './state/State'
 import Tooltip from './form/Tooltip'
+import { COMPLEX_FIELDS } from './fields/constants'
 
 const kebabCase = str =>
   str
@@ -20,16 +14,6 @@ const camelCase = str => {
     if (+match === 0) return ''
     return index == 0 ? match.toLowerCase() : match.toUpperCase()
   })
-}
-
-const COMPLEX_FIELDS = {
-  select: Select,
-  password: Password,
-  tags: Tags,
-  markdown: Markdown,
-  textarea: TextArea,
-  toggle: Toggle,
-  reference: Reference,
 }
 
 interface FieldInterface {
@@ -73,8 +57,12 @@ const Field = ({
 }: FieldInterface) => {
   const { formState, update, registerField } = useContext(FormContext)
   const fieldId = name || camelCase(children)
+
   useEffect(() => {
-    registerField({ id: fieldId, value: defaultValue })
+    registerField({
+      id: fieldId,
+      value: defaultValue,
+    })
   }, [])
 
   return (
