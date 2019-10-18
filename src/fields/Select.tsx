@@ -1,8 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import useSpecialField from '../hooks/useSpecialField'
 
-const Select = ({ options, children, fieldId, defaultValue = 0, ...rest }) => {
+const Select = ({ options, fieldId, defaultValue = 0 }) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   return (
     <select
@@ -18,16 +17,6 @@ const Select = ({ options, children, fieldId, defaultValue = 0, ...rest }) => {
       ))}
     </select>
   )
-}
-
-Select.propTypes = {
-  options: PropTypes.array.isRequired,
-  children: PropTypes.string,
-  fieldId: PropTypes.string.isRequired,
-}
-
-Select.defaultProps = {
-  children: '',
 }
 
 export default Select

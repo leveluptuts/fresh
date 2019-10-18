@@ -78,7 +78,7 @@ const App = () => {
         </Form>
 
         <h3>Default Values</h3>
-        <Form onSubmit={onSubmit} defaultValues={defaultValues}>
+        <Form onSubmit={onSubmit}>
           <Field placeholder="Freddie Fresh">Name</Field>
           <Field type="email">Email</Field>
           <Field>Two Words</Field>

@@ -81,7 +81,6 @@ const Field = ({
             fieldId,
             placeholder,
             type,
-            ...rest,
           })
         ) : (
           <input

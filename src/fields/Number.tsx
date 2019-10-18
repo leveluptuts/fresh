@@ -18,7 +18,6 @@ interface PasswordInterface {
 const NumberField = ({
   fieldId,
   defaultValue = null,
-  children,
   placeholder,
   required,
   className,
@@ -35,7 +34,7 @@ const NumberField = ({
         placeholder={placeholder}
         id={`fresh-${fieldId}`}
         type="number"
-        value={fieldState || defaultValue}
+        value={fieldState || ''}
         onChange={e => {
           const value = e.target.value ? parseInt(e.target.value) : null
           update({ id: fieldId, value })

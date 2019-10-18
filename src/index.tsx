@@ -29,7 +29,6 @@ interface FormWrapperInterface {
   children: ReactNode | ReactNode[]
   className: string
   disabled: boolean
-  defaultValues: defaultValuesInterface
   onSubmit(formState: object): void
   submitText: string
 }
@@ -40,7 +39,7 @@ const FormWrapper = ({
   cancelButton = true,
   cancelText = 'Cancel',
   children,
-  className,
+  className = '',
   onSubmit,
   submitText = 'Submit',
 }: FormWrapperInterface) => {
