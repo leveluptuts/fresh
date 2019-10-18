@@ -2,12 +2,7 @@ import React from 'react'
 import Markdown from 'markdown-to-jsx'
 import useSpecialField from '../hooks/useSpecialField'
 
-export const TextArea = ({
-  defaultValue = '',
-  children,
-  fieldId,
-  placeholder,
-}) => {
+export const TextArea = ({ defaultValue = '', fieldId, placeholder }) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   return (
     <div className="fresh-markdown-wrapper">

@@ -4,8 +4,8 @@ import useSpecialField from '../hooks/useSpecialField'
 export const TextArea = ({
   defaultValue = '',
   fieldId,
-  children,
   placeholder,
+  className,
 }) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   return (
@@ -13,7 +13,7 @@ export const TextArea = ({
       id={`fresh-${fieldId}`}
       placeholder={placeholder}
       value={fieldState || ''}
-      className="fresh-input fresh-input-textarea"
+      className={`fresh-input fresh-input-textarea ${className}`}
       onChange={e => update({ id: fieldId, value: e.target.value })}
     />
   )

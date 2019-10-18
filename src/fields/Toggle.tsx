@@ -1,20 +1,21 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import useSpecialField from '../hooks/useSpecialField'
-// import style from './toggle.css'
 
 const Toggle = ({
-  on,
-  onClick,
-  enabled,
   className,
-  children,
+  toggleColor,
+  toggleOnColor,
   fieldId,
   defaultValue = false,
 }) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
+  const toggleStyle = {
+    '--fresh-toggle-on-color': toggleOnColor,
+    '--fresh-toggle-color': toggleColor,
+  } as React.CSSProperties
   return (
-    <div className={`fresh-switch`}>
+    <div className={`fresh-switch ${className}`}>
       <input
         checked={fieldState}
         type="checkbox"
@@ -22,7 +23,8 @@ const Toggle = ({
         className="fresh-input-toggle"
       />
       <span
-        className={`fresh-slider`}
+        style={toggleStyle}
+        className={`fresh-slider ${fieldState && `on`}`}
         onClick={() => update({ id: fieldId, value: !fieldState })}
       />
     </div>
@@ -30,13 +32,14 @@ const Toggle = ({
 }
 
 Toggle.propTypes = {
-  on: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired,
-  enabled: PropTypes.bool,
+  toggleColor: PropTypes.string,
+  toggleOnColor: PropTypes.string,
   className: PropTypes.string,
 }
 
 Toggle.defaultProps = {
+  toggleColor: '#ccc',
+  toggleOnColor: '#2196f3',
   className: '',
 }
 

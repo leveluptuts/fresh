@@ -4,12 +4,11 @@ import useSpecialField from '../hooks/useSpecialField'
 
 const Reference = ({
   options,
-  children,
   fieldId,
   displayProperty,
   defaultValue = {},
   placeholder,
-  ...rest
+  className,
 }) => {
   const { update } = useSpecialField({ fieldId, defaultValue })
   const [inputValue, setInputValue] = useState('')
@@ -24,8 +23,7 @@ const Reference = ({
         onBlur={() => setIsFocused(false)}
         placeholder={placeholder}
         type="text"
-        className="fresh-input fresh-input-reference"
-        {...rest}
+        className={`fresh-input fresh-input-reference ${className}`}
       />
       {isFocused && (
         <div className="fresh-focused">

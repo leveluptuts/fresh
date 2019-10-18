@@ -42,11 +42,14 @@ interface FieldInterface {
   placeholder: string
   options: string[] | object[]
   className: string
+  displayProperty: string
   defaultValue: string
   tooltip: string
   tooltipBackground: string
   tooltipColor: string
   tooltipIconColor: string
+  toggleColor: string
+  toggleOnColor: string
 }
 
 const Field = ({
@@ -64,7 +67,9 @@ const Field = ({
   tooltipBackground,
   tooltipColor,
   tooltipIconColor,
-  ...rest
+  toggleColor,
+  toggleOnColor,
+  displayProperty,
 }: FieldInterface) => {
   const { formState, update, registerField } = useContext(FormContext)
   const fieldId = name || camelCase(children)
@@ -94,7 +99,9 @@ const Field = ({
             fieldId,
             placeholder,
             type,
-            ...rest,
+            toggleColor,
+            toggleOnColor,
+            displayProperty,
           })
         ) : (
           <input
@@ -107,7 +114,6 @@ const Field = ({
             onChange={e => {
               update({ id: fieldId, value: e.target.value })
             }}
-            {...rest}
           />
         )}
       </label>
@@ -130,6 +136,8 @@ Field.defaultProps = {
   tooltipBackground: '#eee',
   tooltipColor: '#000',
   tooltipIconColor: '#000',
+  toggleColor: '#ccc',
+  toggleOnColor: '#2196f3',
 }
 
 export default Field
