@@ -1,7 +1,12 @@
 import React from 'react'
+import { FieldInterface } from './types'
 import useSpecialField from '../hooks/useSpecialField'
 
-const Toggle = ({ fieldId, defaultValue = false, className = '' }) => {
+const Toggle = ({
+  fieldId,
+  defaultValue = false,
+  className = '',
+}: FieldInterface) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   return (
     <div className={`${className} fresh-switch`}>

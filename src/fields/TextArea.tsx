@@ -1,12 +1,12 @@
 import React from 'react'
 import useSpecialField from '../hooks/useSpecialField'
+import { FieldInterface } from './types'
 
 export const TextArea = ({
   defaultValue = '',
   fieldId,
-  children,
   placeholder,
-}) => {
+}: FieldInterface) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   return (
     <textarea

@@ -1,7 +1,15 @@
-import React, { useContext, useEffect } from 'react'
-import { FormContext } from './state/State'
+import React from 'react'
+import { FieldInterface } from './fields/types'
 import Tooltip from './form/Tooltip'
-import { COMPLEX_FIELDS } from './fields/constants'
+import Select from './fields/Select'
+import Reference from './fields/Reference'
+import Password from './fields/Password'
+import Tags from './fields/Tags'
+import TextArea from './fields/TextArea'
+import NumberField from './fields/Number'
+import Markdown from './fields/Markdown'
+import Text from './fields/Text'
+import Toggle from './fields/Toggle'
 
 const kebabCase = str =>
   str
@@ -16,48 +24,39 @@ const camelCase = str => {
   })
 }
 
-interface FieldInterface {
-  required: boolean
-  children: string
-  type?: string
-  name?: string
-  label: string
-  error?: string
-  placeholder: string
-  options: string[] | object[]
-  className?: string
-  defaultValue?: string
-  tooltip?: string
-  tooltipBackground?: string
-  tooltipColor?: string
-  tooltipIconColor?: string
-}
-
 const Field = ({
-  required,
+  required = false,
   children,
   name = '',
   type = 'text',
-  label,
+  label = true,
   error,
-  placeholder,
+  placeholder = '',
   options,
+  strength,
   className = '',
   defaultValue = '',
+  displayProperty = '',
   tooltip,
   tooltipBackground,
   tooltipColor,
   tooltipIconColor,
 }: FieldInterface) => {
-  const { formState, update, registerField } = useContext(FormContext)
   const fieldId = name || camelCase(children)
 
-  useEffect(() => {
-    registerField({
-      id: fieldId,
-      value: defaultValue,
-    })
-  }, [])
+  const standardProps = {
+    children,
+    required,
+    name,
+    type,
+    label,
+    error,
+    placeholder,
+    options,
+    className,
+    defaultValue,
+    displayProperty,
+  }
 
   return (
     <div className={`fresh-field-wrapper ${fieldId}`}>
@@ -73,28 +72,34 @@ const Field = ({
             />
           )}
         </span>
-        {Object.keys(COMPLEX_FIELDS).includes(type) ? (
-          COMPLEX_FIELDS[type]({
-            options,
-            children,
-            className,
-            fieldId,
-            placeholder,
-            type,
-          })
-        ) : (
-          <input
-            required={required}
-            className={`fresh-input fresh-input-${type} ${className}`}
-            placeholder={placeholder}
-            id={`fresh-${fieldId}`}
-            type={type}
-            value={formState[fieldId]}
-            onChange={e => {
-              update({ id: fieldId, value: e.target.value })
-            }}
-          />
-        )}
+        {(() => {
+          switch (type) {
+            case 'select':
+              return <Select fieldId={fieldId} {...standardProps} />
+            case 'reference':
+              return <Reference fieldId={fieldId} {...standardProps} />
+            case 'password':
+              return (
+                <Password
+                  strength={strength}
+                  fieldId={fieldId}
+                  {...standardProps}
+                />
+              )
+            case 'tags':
+              return <Tags fieldId={fieldId} {...standardProps} />
+            case 'textArea':
+              return <TextArea fieldId={fieldId} {...standardProps} />
+            case 'number':
+              return <NumberField fieldId={fieldId} {...standardProps} />
+            case 'markdown':
+              return <Markdown fieldId={fieldId} {...standardProps} />
+            case 'toggle':
+              return <Toggle fieldId={fieldId} {...standardProps} />
+            default:
+              return <Text fieldId={fieldId} {...standardProps} />
+          }
+        })()}
       </label>
       {error && <div className="fresh-error">{error}</div>}
     </div>
@@ -104,9 +109,6 @@ const Field = ({
 Field.defaultProps = {
   defaultValue: null,
   options: [],
-  required: false,
-  label: true,
-  placeholder: '',
   tooltip: '',
   tooltipBackground: '#eee',
   tooltipColor: '#000',
