@@ -3,12 +3,12 @@ import useSpecialField from '../hooks/useSpecialField'
 import { FieldInterface } from './types'
 
 const Text = ({
+  className,
+  defaultValue,
+  fieldId,
+  placeholder,
   required,
   type,
-  className,
-  placeholder,
-  fieldId,
-  defaultValue,
 }: FieldInterface) => {
   const { fieldState, update } = useSpecialField({
     fieldId,

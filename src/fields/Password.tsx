@@ -4,11 +4,13 @@ import useSpecialField from '../hooks/useSpecialField'
 import { FieldInterface } from './types'
 
 const Password = ({
-  fieldId,
-  strength = true,
+  className,
   defaultValue = '',
-  children,
+  fieldId,
   placeholder,
+  required,
+  strength = true,
+  type,
 }: FieldInterface) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   const strengthValue = calculateScore(fieldState || '')
@@ -35,8 +37,10 @@ const Password = ({
   return (
     <>
       <input
-        className="fresh-input fresh-input-password"
+        className={`fresh-input fresh-input-password ${className}`}
         placeholder={placeholder}
+        type={type}
+        required={required}
         value={fieldState || ''}
         id={`fresh-${fieldId}`}
         onChange={e => update({ value: e.target.value, id: fieldId })}
