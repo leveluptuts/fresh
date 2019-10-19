@@ -17,8 +17,5 @@ export interface FieldInterface {
   defaultValue?: string | boolean | number | [] | RefValue | {}
   tooltip?: string
   strength?: boolean
-  tooltipBackground?: string
-  tooltipColor?: string
-  tooltipIconColor?: string
   displayProperty?: string
 }
