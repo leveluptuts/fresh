@@ -88,7 +88,7 @@ const Field = ({
               )
             case 'tags':
               return <Tags fieldId={fieldId} {...standardProps} />
-            case 'textArea':
+            case 'textarea':
               return <TextArea fieldId={fieldId} {...standardProps} />
             case 'number':
               return <NumberField fieldId={fieldId} {...standardProps} />
