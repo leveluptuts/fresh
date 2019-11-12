@@ -11,11 +11,11 @@ const Toggle = ({
   return (
     <div className={`${className} fresh-switch`}>
       <input
-        checked={fieldState || ''}
+        checked={fieldState || false}
         type="checkbox"
         id={`fresh-${fieldId}`}
         className="fresh-input-toggle"
-        onChange={() => {}}
+        onChange={() => { }}
       />
       <span
         className={`fresh-slider`}

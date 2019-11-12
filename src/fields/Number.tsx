@@ -21,7 +21,7 @@ const NumberField = ({
         placeholder={placeholder}
         id={`fresh-${fieldId}`}
         type="number"
-        value={fieldState || ''}
+        value={fieldState === undefined ? null : fieldState}
         onChange={e => {
           const value = e.target.value ? parseInt(e.target.value) : null
           update({ id: fieldId, value })
