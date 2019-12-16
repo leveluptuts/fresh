@@ -30,6 +30,7 @@ export const TextArea: React.FC<Props> = ({
   defaultValue = '',
   fieldId,
   placeholder,
+  className,
 }) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   return (
@@ -37,7 +38,7 @@ export const TextArea: React.FC<Props> = ({
       id={`fresh-${fieldId}`}
       placeholder={placeholder}
       value={fieldState || ''}
-      className="fresh-input fresh-input-textarea"
+      className={`fresh-input fresh-input-textarea ${className}`}
       onChange={e => update({ id: fieldId, value: e.target.value })}
     />
   )

@@ -8,6 +8,7 @@ const Reference = ({
   displayProperty,
   defaultValue = {},
   placeholder = '',
+  className = '',
 }: FieldInterface) => {
   const { update } = useSpecialField({ fieldId, defaultValue })
   const [inputValue, setInputValue] = useState('')
@@ -22,7 +23,7 @@ const Reference = ({
         onBlur={() => setIsFocused(false)}
         placeholder={placeholder}
         type="text"
-        className="fresh-input fresh-input-reference"
+        className={`fresh-input fresh-input-reference ${className}`}
       />
       {isFocused && (
         <div className="fresh-focused">

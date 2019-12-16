@@ -97,17 +97,19 @@ The wrapper around your fields.
 
 The common API is shared among all <Field /> elements. Type specific fields are found below.
 
-| Prop              | Type                | Default | Description                                                                                                                               |
-| ----------------- | ------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| type              | string              | 'text'  | Can be any of the following types: text (default), email, number, select, password, textarea, tags, markdown, toggle. (See types below)   |
-| name              | string              | ''      | The name of the field data to be returned. If no name prop is given, the Field element's text will be converted to camelCase and be used. |
-| required          | boolean             | false   | If a field is required                                                                                                                    |
-| label             | boolean             | true    | If a field has a label                                                                                                                    |
-| defaultValue      | string/number/array | null    | The initial value for each field                                                                                                          |
-| tooltip           | string              | ''      | Shows an info icon next to the label with a tooltip message on hover                                                                      |
-| tooltipBackground | string              | '#eee'  | Background color for tooltip message.                                                                                                     |
-| tooltipColor      | string              | '#000'  | Font color for tooltip message.                                                                                                           |
-| tooltipIconColor  | string              | '#000'  | Font color for tooltip icon on the label.                                                                                                 |
+| Prop         | Type                | Default | Description                                                                                                                               |
+| ------------ | ------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | string              | 'text'  | Can be any of the following types: text (default), email, number, select, password, textarea, tags, markdown, toggle. (See types below)   |
+| name         | string              | ''      | The name of the field data to be returned. If no name prop is given, the Field element's text will be converted to camelCase and be used. |
+| required     | boolean             | false   | If a field is required                                                                                                                    |
+| label        | boolean             | true    | If a field has a label                                                                                                                    |
+| defaultValue | string/number/array | null    | The initial value for each field                                                                                                          |
+| className    | string              | ''      | Custom className can be added to a field.                                                                                                 |
+
+| tooltip | string | '' | Shows an info icon next to the label with a tooltip message on hover |
+| tooltipBackground | string | '#eee' | Background color for tooltip message. |
+| tooltipColor | string | '#000' | Font color for tooltip message. |
+| tooltipIconColor | string | '#000' | Font color for tooltip icon on the label. |
 
 #### type - text & textarea
 
@@ -120,6 +122,13 @@ The common API is shared among all <Field /> elements. Type specific fields are 
 | Prop     | Type    | Default | Description                                                |
 | -------- | ------- | ------- | ---------------------------------------------------------- |
 | strength | boolean | true    | Shows or hides the password strength meter below the field |
+
+#### type - toggle
+
+| Prop          | Type   | Default   | Description                                  |
+| ------------- | ------ | --------- | -------------------------------------------- |
+| toggleColor   | string | '#ccc'    | Default color for the toggle slider          |
+| toggleOnColor | string | '#2196f3' | Color for the toggle slider when switched on |
 
 #### type - select
 

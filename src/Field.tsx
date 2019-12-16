@@ -113,6 +113,8 @@ Field.defaultProps = {
   tooltipBackground: '#eee',
   tooltipColor: '#000',
   tooltipIconColor: '#000',
+  toggleColor: '#ccc',
+  toggleOnColor: '#2196f3',
 }
 
 export default Field

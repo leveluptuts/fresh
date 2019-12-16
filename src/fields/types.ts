@@ -22,3 +22,14 @@ export interface FieldInterface {
   tooltipIconColor?: string
   displayProperty?: string
 }
+
+interface PasswordInterface {
+  required: boolean
+  strength: boolean
+  fieldId: string
+  label: string
+  error?: string
+  placeholder: string
+  className: string
+  defaultValue: string
+}
