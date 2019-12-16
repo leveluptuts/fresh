@@ -1,19 +1,6 @@
 import React from 'react'
 import useSpecialField from '../hooks/useSpecialField'
-
-interface PasswordInterface {
-  required: boolean
-  strength: boolean
-  type: string
-  fieldId: string
-  children: string
-  label: string
-  error?: string
-  placeholder: string
-  options: string[] | object[]
-  className: string
-  defaultValue: string | null
-}
+import { FieldInterface } from './types'
 
 const NumberField = ({
   fieldId,
@@ -21,7 +8,7 @@ const NumberField = ({
   placeholder,
   required,
   className,
-}: PasswordInterface) => {
+}: FieldInterface) => {
   const { fieldState, update } = useSpecialField({
     fieldId,
     defaultValue,
@@ -34,7 +21,7 @@ const NumberField = ({
         placeholder={placeholder}
         id={`fresh-${fieldId}`}
         type="number"
-        value={fieldState || ''}
+        value={fieldState === undefined ? null : fieldState}
         onChange={e => {
           const value = e.target.value ? parseInt(e.target.value) : null
           update({ id: fieldId, value })

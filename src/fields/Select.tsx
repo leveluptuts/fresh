@@ -1,7 +1,13 @@
 import React from 'react'
 import useSpecialField from '../hooks/useSpecialField'
+import { FieldInterface } from './types'
 
-const Select = ({ options, className, fieldId, defaultValue = 0 }) => {
+const Select = ({
+  options,
+  fieldId,
+  defaultValue = 0,
+  className = '',
+}: FieldInterface) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   return (
     <select

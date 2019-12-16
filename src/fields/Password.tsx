@@ -1,25 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import useSpecialField from '../hooks/useSpecialField'
-
-interface PasswordInterface {
-  required: boolean
-  strength: boolean
-  fieldId: string
-  label: string
-  error?: string
-  placeholder: string
-  className: string
-  defaultValue: string
-}
+import { PasswordInterface } from './types'
 
 const Password = ({
-  fieldId,
-  strength = true,
   defaultValue = '',
   placeholder,
-  className,
+  className = '',
   required,
+  fieldId,
+  strength = true,
+  type,
 }: PasswordInterface) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   const strengthValue = calculateScore(fieldState || '')
@@ -48,6 +39,7 @@ const Password = ({
       <input
         className={`fresh-input fresh-input-password ${className}`}
         placeholder={placeholder}
+        type={type}
         required={required}
         value={fieldState || ''}
         id={`fresh-${fieldId}`}

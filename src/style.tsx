@@ -52,7 +52,7 @@ const Global = createGlobalStyle`
       }
     }
   }
-
+  
   /* Label and Tooltip */
   .fresh-label {
     position: relative;

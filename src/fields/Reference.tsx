@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import useSpecialField from '../hooks/useSpecialField'
+import { FieldInterface } from './types'
 
 const Reference = ({
   options,
   fieldId,
   displayProperty,
   defaultValue = {},
-  placeholder,
-  className,
-}) => {
+  placeholder = '',
+  className = '',
+}: FieldInterface) => {
   const { update } = useSpecialField({ fieldId, defaultValue })
   const [inputValue, setInputValue] = useState('')
   const [isFocused, setIsFocused] = useState(false)
@@ -34,7 +35,7 @@ const Reference = ({
             )
             .map(option => (
               <div
-                key={option._id}
+                key={option.id}
                 style={{ padding: '0.75em' }}
                 onMouseDown={() => {
                   update({ id: fieldId, value: option })

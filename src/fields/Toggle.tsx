@@ -1,14 +1,15 @@
 import React from 'react'
+import { FieldInterface } from './types'
 import useSpecialField from '../hooks/useSpecialField'
 import PropTypes from 'prop-types'
 
 const Toggle = ({
-  className = '',
   toggleColor,
   toggleOnColor,
   fieldId,
   defaultValue = false,
-}) => {
+  className = '',
+}: FieldInterface) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   const toggleStyle = {
     '--fresh-toggle-on-color': toggleOnColor,
@@ -17,7 +18,7 @@ const Toggle = ({
   return (
     <div className={`${className} fresh-switch`}>
       <input
-        checked={fieldState || ''}
+        checked={fieldState || false}
         type="checkbox"
         id={`fresh-${fieldId}`}
         className="fresh-input-toggle"
