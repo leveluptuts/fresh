@@ -1,11 +1,54 @@
 import { createGlobalStyle } from 'styled-components'
 
 const Global = createGlobalStyle`
-  :root {
-    --fresh-tooltip-color: #000;
-    --fresh-tooltip-background: #eee;
-    --fresh-toggle-color: #ccc;
-    --fresh-toggle-on-color: #2196f3;
+  .fresh-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin: 0.5em 0px;
+  }
+
+  .fresh-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .fresh-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+
+  .fresh-slider:before {
+    position: absolute;
+    content: '';
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+
+  input:checked + .fresh-slider {
+    background-color: #2196f3;
+  }
+
+  input:focus + .fresh-slider {
+    box-shadow: 0 0 1px #2196f3;
+  }
+
+  input:checked + .fresh-slider:before {
+    transform: translateX(26px);
   }
 
   input,
@@ -63,7 +106,7 @@ const Global = createGlobalStyle`
     align-items: center;
     .fresh-tooltip {
       position: relative;
-      color: var(--fresh-tooltip-color);
+      color: #000;
       &:after {
         position: absolute;
         left: 150%;
@@ -74,7 +117,7 @@ const Global = createGlobalStyle`
         visibility: hidden;
         z-index: 2;
         position: absolute;
-        background-color: var(--fresh-tooltip-background);
+        background-color: #eee;
         padding: 0.75em;
         border-radius: 3px;
         font-size: 0.8em;
@@ -141,22 +184,12 @@ const Global = createGlobalStyle`
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: var(--fresh-toggle-color);
       transition: 0.4s;
       border-width: 1px;
       border-style: solid;
       border-image: initial;
       border-color: inherit;
       border-radius: 34px;
-      &.on {
-        background-color: var(--fresh-toggle-on-color);
-        &:focus {
-          box-shadow: 0 0 1px var(--fresh-toggle-on-color);
-        }
-        &:before {
-          transform: translateX(26px);
-        }
-      }
       &:before {
         position: absolute;
         content: '';

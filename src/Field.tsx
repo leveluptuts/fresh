@@ -38,9 +38,6 @@ const Field = ({
   defaultValue = '',
   displayProperty = '',
   tooltip,
-  tooltipBackground,
-  tooltipColor,
-  tooltipIconColor,
 }: FieldInterface) => {
   const fieldId = name || camelCase(children)
 
@@ -63,14 +60,7 @@ const Field = ({
       <label className="fresh-label" htmlFor={`fresh-${fieldId}`}>
         <span className="fresh-title">
           {required && '*'} {label && children}&nbsp;
-          {tooltip && (
-            <Tooltip
-              tooltip={tooltip}
-              tooltipBackground={tooltipBackground}
-              tooltipColor={tooltipColor}
-              tooltipIconColor={tooltipIconColor}
-            />
-          )}
+          {tooltip && <Tooltip tooltip={tooltip} />}
         </span>
         {(() => {
           switch (type) {
@@ -110,11 +100,6 @@ Field.defaultProps = {
   defaultValue: null,
   options: [],
   tooltip: '',
-  tooltipBackground: '#eee',
-  tooltipColor: '#000',
-  tooltipIconColor: '#000',
-  toggleColor: '#ccc',
-  toggleOnColor: '#2196f3',
 }
 
 export default Field

@@ -104,12 +104,8 @@ The common API is shared among all <Field /> elements. Type specific fields are 
 | required     | boolean             | false   | If a field is required                                                                                                                    |
 | label        | boolean             | true    | If a field has a label                                                                                                                    |
 | defaultValue | string/number/array | null    | The initial value for each field                                                                                                          |
+| tooltip      | string              | ''      | Shows an info icon next to the label with a tooltip message on hover                                                                      |
 | className    | string              | ''      | Custom className can be added to a field.                                                                                                 |
-
-| tooltip | string | '' | Shows an info icon next to the label with a tooltip message on hover |
-| tooltipBackground | string | '#eee' | Background color for tooltip message. |
-| tooltipColor | string | '#000' | Font color for tooltip message. |
-| tooltipIconColor | string | '#000' | Font color for tooltip icon on the label. |
 
 #### type - text & textarea
 
