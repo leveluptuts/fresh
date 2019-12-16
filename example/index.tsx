@@ -21,9 +21,9 @@ const refOptions = [
 ]
 
 const defaultValues = {
-  name: 'John',
+  name: 'Freddie Fresh',
   email: 'scott@test.com',
-  twoWords: 'This thing is fresh',
+  twoWords: 'Too fresh',
 }
 
 const App = () => {
@@ -78,8 +78,8 @@ const App = () => {
         </Form>
 
         <h3>Default Values</h3>
-        <Form onSubmit={onSubmit}>
-          <Field placeholder="Freddie Fresh">Name</Field>
+        <Form onSubmit={onSubmit} defaultValues={defaultValues}>
+          <Field>Name</Field>
           <Field type="email">Email</Field>
           <Field>Two Words</Field>
         </Form>
