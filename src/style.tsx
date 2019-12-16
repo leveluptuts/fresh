@@ -70,12 +70,12 @@ const Global = createGlobalStyle`
     transition: border-color 0.2s ease 0s;
   }
 
+  /* Text Area and Markdown */
   textarea,
   .fresh-input-textarea,
   .fresh-input-markdown {
     min-height: 6rem;
   }
-
   .fresh-markdown-wrapper {
     .fresh-input-markdown {
       border-color: #eee; 
@@ -89,7 +89,6 @@ const Global = createGlobalStyle`
       .fresh-input-textarea {
         width: 50%;  
       }
-      
       .fresh-input-markdown {
         width: calc(50% - 0.5em);  
         margin-left: 0.5em;
@@ -98,17 +97,6 @@ const Global = createGlobalStyle`
   }
   
   /* Label and Tooltip */
-  .fresh-focused {
-    border: 1px solid #eee;
-    max-height: 200px;
-    overflow-y: scroll;
-    position: absolute;
-    background: white;
-    width: 100%;
-    margin-top: -0.5em;
-    border-top: 0;
-  }
-
   .fresh-label {
     position: relative;
   }
