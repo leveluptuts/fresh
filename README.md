@@ -119,13 +119,6 @@ The common API is shared among all <Field /> elements. Type specific fields are 
 | -------- | ------- | ------- | ---------------------------------------------------------- |
 | strength | boolean | true    | Shows or hides the password strength meter below the field |
 
-#### type - toggle
-
-| Prop          | Type   | Default   | Description                                  |
-| ------------- | ------ | --------- | -------------------------------------------- |
-| toggleColor   | string | '#ccc'    | Default color for the toggle slider          |
-| toggleOnColor | string | '#2196f3' | Color for the toggle slider when switched on |
-
 #### type - select
 
 | Prop    | Type             | Default | Description                                                        |
