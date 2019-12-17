@@ -31,6 +31,9 @@ const App = () => {
   const onSubmit = data => {
     console.log(data)
   }
+  const onChange = data => {
+    console.log(data)
+  }
 
   return (
     <div style={{ padding: '40px' }}>
@@ -49,7 +52,7 @@ const App = () => {
         }}
       >
         <h4>Code</h4>
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit} onChange={onChange}>
           <Field placeholder="Freddie Fresh">Name</Field>
           <Field type="email">Email</Field>
         </Form>
