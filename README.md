@@ -4,7 +4,7 @@
 
 ![Bboy Headspinhttps](https://media.giphy.com/media/mKMGLhoD8L4yc/giphy.gif)
 
-[![NPM](https://img.shields.io/npm/v/@leveluptuts/fresh?color=82d8d8&logoColor=524763&style=for-the-badge)](https://www.npmjs.com/package/@leveluptuts/fresh)
+[![NPM](https://img.shields.io/npm/v/@leveluptuts/fresh?color=82d8d8&logoColor=524763&style=for-the-badge)](https://www.npmjs.com/package/@leveluptuts/fresh) [![Greenkeeper badge](https://badges.greenkeeper.io/leveluptuts/fresh.svg)](https://greenkeeper.io/)
 
 ## Demo
 
