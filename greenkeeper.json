@@ -1,0 +1,11 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        ".docz/package.json",
+        "example/package.json",
+        "package.json"
+      ]
+    }
+  }
+}
