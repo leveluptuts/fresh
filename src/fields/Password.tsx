@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import useSpecialField from '../hooks/useSpecialField'
-import { PasswordInterface } from './types'
+import { FieldInterface } from './types'
 
 const Password = ({
   defaultValue = '',
@@ -11,7 +11,7 @@ const Password = ({
   fieldId,
   strength = true,
   type,
-}: PasswordInterface) => {
+}: FieldInterface) => {
   const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
   const strengthValue = calculateScore(fieldState || '')
   let strengthMeter = {
