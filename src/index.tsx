@@ -1,4 +1,4 @@
-import React, { useContext, ReactNode } from 'react'
+import React, { useContext } from 'react'
 import { FormProvider, FormContext, FieldStateInterface } from './state/State'
 import Global from './style'
 import CancelButton from './form/CancelButton'
@@ -16,30 +16,31 @@ const Form = ({ defaultValues = {}, ...rest }: FormProps) => {
   return (
     <FormProvider defaultValues={defaultValues}>
       <Global />
-      <FormWrapper {...(rest as FormWrapperInterface)} />
+      <FormWrapper {...(rest as FormWrapperProps)} />
     </FormProvider>
   )
 }
 
-interface FormWrapperInterface {
+type FormWrapperProps = {
   cancelAction(): void
   cancelButton?: boolean
   cancelText?: string
-  children: ReactNode | ReactNode[]
   className?: string
   onSubmit(formState: object): void
+  onChange?(formState: object): void
   submitText?: string
 }
 
-const FormWrapper = ({
+const FormWrapper: React.FC<FormWrapperProps> = ({
   cancelAction = () => null,
+  onChange = null,
   cancelButton = true,
   cancelText = 'Cancel',
   children,
   className = '',
   onSubmit,
   submitText = 'Submit',
-}: FormWrapperInterface) => {
+}) => {
   const { formState }: FieldStateInterface = useContext(FormContext)
 
   return (
@@ -50,6 +51,13 @@ const FormWrapper = ({
         const data: defaultValuesInterface = { ...formState }
         delete data.defaultValues
         onSubmit(data)
+      }}
+      onChange={() => {
+        if (onChange) {
+          const data: defaultValuesInterface = { ...formState }
+          delete data.defaultValues
+          onChange(data)
+        }
       }}
     >
       {children}
