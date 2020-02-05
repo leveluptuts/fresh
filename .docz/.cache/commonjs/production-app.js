@@ -39,7 +39,6 @@ loader.setApiRunner(_apiRunnerBrowser.apiRunner);
 window.asyncRequires = _asyncRequires.default;
 window.___emitter = _emitter.default;
 window.___loader = _loader.publicLoader;
-window.___webpackCompilationHash = window.webpackCompilationHash;
 (0, _navigation.init)();
 (0, _apiRunnerBrowser.apiRunnerAsync)(`onClientEntry`).then(() => {
   // Let plugins register a service worker. The plugin just needs
@@ -83,7 +82,7 @@ window.___webpackCompilationHash = window.webpackCompilationHash;
         location: location,
         id: "gatsby-focus-wrapper"
       }, _react.default.createElement(RouteHandler, (0, _extends2.default)({
-        path: encodeURI(pageResources.page.path === `/404.html` ? (0, _stripPrefix.default)(location.pathname, __BASE_PATH__) : pageResources.page.matchPath || pageResources.page.path)
+        path: pageResources.page.path === `/404.html` ? (0, _stripPrefix.default)(location.pathname, __BASE_PATH__) : encodeURI(pageResources.page.matchPath || pageResources.page.path)
       }, this.props, {
         location: location,
         pageResources: pageResources
@@ -114,6 +113,8 @@ window.___webpackCompilationHash = window.webpackCompilationHash;
       throw new Error(`page resources for ${browserLoc.pathname} not found. Not rendering React`);
     }
 
+    window.___webpackCompilationHash = page.page.webpackCompilationHash;
+
     const Root = () => _react.default.createElement(_router.Location, null, locationContext => _react.default.createElement(LocationHandler, locationContext));
 
     const WrappedRoot = (0, _apiRunnerBrowser.apiRunner)(`wrapRootElement`, {
@@ -126,7 +127,7 @@ window.___webpackCompilationHash = window.webpackCompilationHash;
       };
     }).pop();
 
-    let NewRoot = () => WrappedRoot;
+    const NewRoot = () => WrappedRoot;
 
     const renderer = (0, _apiRunnerBrowser.apiRunner)(`replaceHydrateFunction`, undefined, _reactDom.default.hydrate)[0];
     (0, _domready.default)(() => {

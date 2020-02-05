@@ -33,7 +33,8 @@ const {
   flatten,
   uniqBy,
   flattenDeep,
-  replace
+  replace,
+  concat
 } = require(`lodash`);
 
 const apiRunner = require(`./api-runner-ssr`);
@@ -285,7 +286,7 @@ var _default = (pagePath, callback) => {
     const childAssets = namedChunkGroups[s].childAssets;
 
     for (const rel in childAssets) {
-      chunks = merge(chunks, childAssets[rel].map(chunk => {
+      chunks = concat(chunks, childAssets[rel].map(chunk => {
         return {
           rel,
           name: chunk
@@ -351,10 +352,9 @@ var _default = (pagePath, callback) => {
         }
       }));
     }
-  });
-  const webpackCompilationHash = pageData.webpackCompilationHash; // Add page metadata for the current page
+  }); // Add page metadata for the current page
 
-  const windowPageData = `/*<![CDATA[*/window.pagePath="${pagePath}";window.webpackCompilationHash="${webpackCompilationHash}";/*]]>*/`;
+  const windowPageData = `/*<![CDATA[*/window.pagePath="${pagePath}";/*]]>*/`;
   postBodyComponents.push(React.createElement("script", {
     key: `script-loader`,
     id: `gatsby-script-loader`,

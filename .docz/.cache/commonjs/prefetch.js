@@ -21,7 +21,7 @@ const support = function (feature) {
   return false;
 };
 
-const linkPrefetchStrategy = function (url) {
+const linkPrefetchStrategy = function (url, options) {
   return new Promise((resolve, reject) => {
     if (typeof document === `undefined`) {
       reject();
@@ -31,6 +31,9 @@ const linkPrefetchStrategy = function (url) {
     const link = document.createElement(`link`);
     link.setAttribute(`rel`, `prefetch`);
     link.setAttribute(`href`, url);
+    Object.keys(options).forEach(key => {
+      link.setAttribute(key, options[key]);
+    });
     link.onload = resolve;
     link.onerror = reject;
     const parentElement = document.getElementsByTagName(`head`)[0] || document.getElementsByName(`script`)[0].parentNode;
@@ -58,14 +61,14 @@ const xhrPrefetchStrategy = function (url) {
 const supportedPrefetchStrategy = support(`prefetch`) ? linkPrefetchStrategy : xhrPrefetchStrategy;
 const preFetched = {};
 
-const prefetch = function (url) {
+const prefetch = function (url, options) {
   return new Promise(resolve => {
     if (preFetched[url]) {
       resolve();
       return;
     }
 
-    supportedPrefetchStrategy(url).then(() => {
+    supportedPrefetchStrategy(url, options).then(() => {
       resolve();
       preFetched[url] = true;
     }).catch(() => {}); // 404s are logged to the console anyway

@@ -15,12 +15,8 @@ class DevLoader extends _loader.BaseLoader {
   }
 
   loadPage(pagePath) {
-    const realPath = (0, _findPath.cleanPath)(pagePath);
-    return super.loadPage(realPath).then(result => {
-      require(`./socketIo`).getPageData(realPath);
-
-      return result;
-    });
+    const realPath = (0, _findPath.findPath)(pagePath);
+    return super.loadPage(realPath).then(result => require(`./socketIo`).getPageData(realPath).then(() => result));
   }
 
   loadPageDataJson(rawPath) {

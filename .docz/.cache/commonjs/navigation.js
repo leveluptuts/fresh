@@ -123,7 +123,7 @@ const navigate = (to, options = {}) => {
         // Purge plugin-offline cache
         if (`serviceWorker` in navigator && navigator.serviceWorker.controller !== null && navigator.serviceWorker.controller.state === `activated`) {
           navigator.serviceWorker.controller.postMessage({
-            gatsbyApi: `resetWhitelist`
+            gatsbyApi: `clearPathResources`
           });
         }
 
@@ -170,7 +170,7 @@ function shouldUpdateScroll(prevRouterProps, {
     if (oldPathname === pathname) {
       // Scroll to element if it exists, if it doesn't, or no hash is provided,
       // scroll to top.
-      return hash ? hash.slice(1) : [0, 0];
+      return hash ? decodeURI(hash.slice(1)) : [0, 0];
     }
   }
 
@@ -193,6 +193,57 @@ function init() {
 
 
   maybeRedirect(window.location.pathname);
+}
+
+class RouteAnnouncer extends _react.default.Component {
+  constructor(props) {
+    super(props);
+    this.announcementRef = _react.default.createRef();
+  }
+
+  componentDidUpdate(prevProps, nextProps) {
+    requestAnimationFrame(() => {
+      let pageName = `new page at ${this.props.location.pathname}`;
+
+      if (document.title) {
+        pageName = document.title;
+      }
+
+      const pageHeadings = document.getElementById(`gatsby-focus-wrapper`).getElementsByTagName(`h1`);
+
+      if (pageHeadings && pageHeadings.length) {
+        pageName = pageHeadings[0].textContent;
+      }
+
+      const newAnnouncement = `Navigated to ${pageName}`;
+      const oldAnnouncement = this.announcementRef.current.innerText;
+
+      if (oldAnnouncement !== newAnnouncement) {
+        this.announcementRef.current.innerText = newAnnouncement;
+      }
+    });
+  }
+
+  render() {
+    return _react.default.createElement("div", {
+      id: "gatsby-announcer",
+      style: {
+        position: `absolute`,
+        width: 1,
+        height: 1,
+        padding: 0,
+        overflow: `hidden`,
+        clip: `rect(0, 0, 0, 0)`,
+        whiteSpace: `nowrap`,
+        border: 0
+      },
+      role: "alert",
+      "aria-live": "assertive",
+      "aria-atomic": "true",
+      ref: this.announcementRef
+    });
+  }
+
 } // Fire on(Pre)RouteUpdate APIs
 
 
@@ -222,7 +273,9 @@ class RouteUpdates extends _react.default.Component {
   }
 
   render() {
-    return this.props.children;
+    return _react.default.createElement(_react.default.Fragment, null, this.props.children, _react.default.createElement(RouteAnnouncer, {
+      location: location
+    }));
   }
 
 }

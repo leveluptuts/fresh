@@ -36,7 +36,9 @@ class EnsureResources extends _react.default.Component {
       };
     }
 
-    return null;
+    return {
+      location: Object.assign({}, location)
+    };
   }
 
   loadResources(rawPath) {
