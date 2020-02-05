@@ -2,6 +2,7 @@ import 'react-app-polyfill/ie11'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { Form, Field } from '../.'
+import Prism from 'react-syntax-highlighter/dist/cjs/prism'
 
 const options = ['prerelease', 'active', 'retired', 'hidden']
 
@@ -52,6 +53,12 @@ const App = () => {
         }}
       >
         <h4>Code</h4>
+        <Prism language="javascript">{`
+	<Form onSubmit={onSubmit} onChange={onChange}>
+		<Field placeholder="Freddie Fresh">Name</Field>
+		<Field type="email">Email</Field>
+	</Form>
+				`}</Prism>
         <Form onSubmit={onSubmit} onChange={onChange}>
           <Field placeholder="Freddie Fresh">Name</Field>
           <Field type="email">Email</Field>
