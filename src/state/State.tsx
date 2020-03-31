@@ -14,10 +14,16 @@ export interface FieldStateInterface {
 
 export const FormContext = createContext<FieldStateInterface | null>(null)
 
-function reducer(state, action) {
+interface FormAction {
+  type: string;
+  id: Pick<ContextArguments, 'id'>;
+  value: Pick<ContextArguments, 'value'>;
+}
+
+function reducer(state: Record<string, any>, action: Readonly<Partial<FormAction>>) {
   switch (action.type) {
     case 'update':
-      const data = {}
+      const data: Record<string, any> = {}
       data[action.id] = action.value
       return { ...state, ...data }
 
