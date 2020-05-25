@@ -8,9 +8,10 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
+      - name: Sets GH Actions
       - uses: actions/checkout@v2
-      - name: Automated Version Bump
-          uses: phips28/gh-action-bump-version@v7.1.0
+      - name: Automated Version
+        uses: phips28/gh-action-bump-version@v7.1.0
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
