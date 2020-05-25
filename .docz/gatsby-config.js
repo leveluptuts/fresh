@@ -59,7 +59,7 @@ const config = {
         title: 'Fresh',
         description: "They're dope, they're fresh.",
         host: 'localhost',
-        port: 3000,
+        port: 3001,
         p: 3000,
         separator: '-',
         paths: {

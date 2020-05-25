@@ -38,6 +38,7 @@ const Field = ({
   defaultValue = '',
   displayProperty = '',
   tooltip,
+  readOnly = false,
 }: FieldInterface) => {
   const fieldId = name || camelCase(children)
 
@@ -53,6 +54,7 @@ const Field = ({
     className,
     defaultValue,
     displayProperty,
+    readOnly,
   }
 
   return (

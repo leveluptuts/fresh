@@ -1,6 +1,6 @@
 {
   "name": "@leveluptuts/fresh",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "They're dope, they're fresh.",
   "author": "leveluptuts",
   "license": "MIT",
@@ -15,7 +15,10 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test --env=jsdom",
-    "lint": "tsdx lint"
+    "lint": "tsdx lint",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "docz:serve": "docz build && docz serve"
   },
   "peerDependencies": {
     "markdown-to-jsx": "^6.10.3",
@@ -35,7 +38,6 @@
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
     "autoprefixer": "^9.7.3",
-    "docz": "^2.2.0",
     "husky": "^3.1.0",
     "react": ">= 0.14.0",
     "react-dom": ">= 16.8.0",
@@ -45,6 +47,7 @@
     "typescript": "^3.7.3"
   },
   "dependencies": {
+    "docz": "^2.2.0",
     "markdown-to-jsx": "^6.11.0",
     "react-is": ">= 16.8.0",
     "react-tagsinput": "^3.19.0",

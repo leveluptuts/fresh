@@ -17,5 +17,6 @@ export interface FieldInterface {
   defaultValue?: string | boolean | number | [] | RefValue | {}
   tooltip?: string
   strength?: boolean
+  readOnly?: boolean
   displayProperty?: string
 }
