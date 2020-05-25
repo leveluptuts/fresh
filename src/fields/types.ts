@@ -19,4 +19,5 @@ export interface FieldInterface {
   strength?: boolean
   readOnly?: boolean
   displayProperty?: string
+  wrapperStyle?: object
 }

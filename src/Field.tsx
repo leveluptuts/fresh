@@ -39,6 +39,7 @@ const Field = ({
   displayProperty = '',
   tooltip,
   readOnly = false,
+  wrapperStyle = {},
 }: FieldInterface) => {
   const fieldId = name || camelCase(children)
 
@@ -58,7 +59,7 @@ const Field = ({
   }
 
   return (
-    <div className={`fresh-field-wrapper ${fieldId}`}>
+    <div className={`fresh-field-wrapper ${fieldId}`} style={wrapperStyle}>
       <label className="fresh-label" htmlFor={`fresh-${fieldId}`}>
         <span className="fresh-title">
           {required && '*'} {label && children}&nbsp;
