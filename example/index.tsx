@@ -114,7 +114,7 @@ const App = () => {
 
         <h3>Default Values</h3>
         <Form onSubmit={onSubmit} defaultValues={defaultValues}>
-          <Field>Name</Field>
+          <Field wrapperStyle={{ width: '100%' }}>Name</Field>
           <Field type="email">Email</Field>
           <Field>Two Words</Field>
         </Form>

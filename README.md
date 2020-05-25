@@ -125,6 +125,13 @@ The common API is shared among all <Field /> elements. Type specific fields are 
 | ------- | ---------------- | ------- | ------------------------------------------------------------------ |
 | options | array of strings | []      | The text and values of a select list. \*Object support coming soon |
 
+#### type - reference
+
+| Prop            | Type             | Default | Description                                         |
+| --------------- | ---------------- | ------- | --------------------------------------------------- |
+| displayProperty | String           | "'      | Object property of what should be displayed in list |
+| options         | Array of Objects | []      | Object property of what should be displayed in list |
+
 ### Errors
 
 Not complete / in use yet, just standard html 5 validation
