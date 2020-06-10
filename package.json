@@ -1,6 +1,6 @@
 {
   "name": "@leveluptuts/fresh",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "description": "They're dope, they're fresh.",
   "author": "leveluptuts",
   "license": "MIT",
@@ -24,7 +24,8 @@
     "markdown-to-jsx": "^6.10.3",
     "react": ">=16",
     "react-tagsinput": "^3.19.0",
-    "styled-components": "^4.4.1"
+    "react-dom": ">= 16.8.0",
+    "styled-components": "^5.0.1"
   },
   "prettier": {
     "printWidth": 80,
@@ -39,18 +40,14 @@
     "@types/react-dom": "^16.9.4",
     "autoprefixer": "^9.7.3",
     "husky": "^3.1.0",
-    "react": ">= 0.14.0",
-    "react-dom": ">= 16.8.0",
     "rollup-plugin-postcss": "^2.0.3",
     "tsdx": "^0.11.0",
     "tslib": "^1.10.0",
     "typescript": "^3.7.3"
   },
   "dependencies": {
-    "docz": "^2.2.0",
     "markdown-to-jsx": "^6.11.0",
     "react-is": ">= 16.8.0",
-    "react-tagsinput": "^3.19.0",
-    "styled-components": "^5.0.1"
+    "react-tagsinput": "^3.19.0"
   }
 }

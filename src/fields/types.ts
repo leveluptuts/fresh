@@ -15,6 +15,7 @@ export interface FieldInterface {
   options: any
   className?: string
   defaultValue?: string | boolean | number | [] | RefValue | {}
+  keyProperty?: string
   tooltip?: string
   strength?: boolean
   readOnly?: boolean

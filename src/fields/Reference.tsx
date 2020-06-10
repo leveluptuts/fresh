@@ -5,14 +5,16 @@ import { FieldInterface } from './types'
 const Reference = ({
   options,
   fieldId,
+  keyProperty = 'id',
   displayProperty,
-  defaultValue = {},
+  defaultValue = '',
   placeholder = '',
   className = '',
 }: FieldInterface) => {
-  const { update } = useSpecialField({ fieldId, defaultValue })
-  const [inputValue, setInputValue] = useState('')
+  const { update, fieldState } = useSpecialField({ fieldId, defaultValue })
+  const [inputValue, setInputValue] = useState('YO')
   const [isFocused, setIsFocused] = useState(false)
+
   return (
     <>
       <input
@@ -35,7 +37,7 @@ const Reference = ({
             )
             .map(option => (
               <div
-                key={option.id}
+                key={option[keyProperty]}
                 style={{ padding: '0.75em' }}
                 onMouseDown={() => {
                   update({ id: fieldId, value: option })

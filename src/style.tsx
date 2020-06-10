@@ -143,7 +143,6 @@ const Global = createGlobalStyle`
     max-height: 200px;
     overflow-y: scroll;
     position: absolute;
-    background: white;
     width: 100%;
     margin-top: -0.5em;
     border-top: 0;
