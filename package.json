@@ -1,6 +1,6 @@
 {
   "name": "@leveluptuts/fresh",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "They're dope, they're fresh.",
   "author": "leveluptuts",
   "license": "MIT",
@@ -21,11 +21,9 @@
     "docz:serve": "docz build && docz serve"
   },
   "peerDependencies": {
-    "markdown-to-jsx": "^6.10.3",
     "react": ">=16",
-    "react-tagsinput": "^3.19.0",
     "react-dom": ">= 16.8.0",
-    "styled-components": "^5.0.1"
+    "styled-components": ">= 5.0.0"
   },
   "prettier": {
     "printWidth": 80,
