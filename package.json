@@ -22,8 +22,7 @@
   },
   "peerDependencies": {
     "react": ">=16",
-    "react-dom": ">= 16.8.0",
-    "styled-components": ">= 5.0.0"
+    "react-dom": ">= 16.8.0"
   },
   "prettier": {
     "printWidth": 80,
@@ -32,20 +31,24 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.5",
-    "@types/jest": "^24.0.23",
-    "@types/react": "^16.9.16",
-    "@types/react-dom": "^16.9.4",
-    "autoprefixer": "^9.7.3",
-    "husky": "^3.1.0",
-    "rollup-plugin-postcss": "^2.0.3",
-    "tsdx": "^0.11.0",
-    "tslib": "^1.10.0",
-    "typescript": "^3.7.3"
+    "@babel/core": "^7.10.4",
+    "@types/jest": "^26.0.4",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "autoprefixer": "^9.8.5",
+    "husky": "^4.2.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rollup-plugin-postcss": "^3.1.2",
+    "styled-components": ">= 5.0.0",
+    "tsdx": "^0.13.2",
+    "tslib": "^2.0.0",
+    "typescript": "^3.9.6"
   },
   "dependencies": {
-    "markdown-to-jsx": "^6.11.0",
-    "react-is": ">= 16.8.0",
+    "markdown-to-jsx": "^6.11.4",
+    "react": "^16.13.1",
+    "react-is": "^16.13.1",
     "react-tagsinput": "^3.19.0"
   }
 }

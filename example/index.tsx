@@ -1,8 +1,6 @@
-import 'react-app-polyfill/ie11'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { Form, Field } from '../.'
-import Prism from 'react-syntax-highlighter/dist/cjs/prism'
 
 const options = ['prerelease', 'active', 'retired', 'hidden']
 
@@ -67,29 +65,7 @@ const App = () => {
         ></iframe>
 
         <h3>Bigger Form</h3>
-        <Prism language="javascript">{`
-        <Form onSubmit={onSubmit}>
-          <Field placeholder="Freddie Fresh">Name</Field>
-          <Field type="email">Email</Field>
-          <Field type="password">Password</Field>
-          <Field
-            type="tags"
-            tooltip="Press 'return' after creating a tag to add"
-          >
-            Tags
-          </Field>
-          <Field type="number">Number</Field>
-          <Field required type="select" options={options}>
-            Type
-          </Field>
-          <Field type="textarea">Text Area</Field>
-          <Field type="markdown">Markdown</Field>
-          <Field type="toggle">Toggle</Field>
-          <Field type="reference" options={refOptions} displayProperty="text">
-            Reference
-          </Field>
-        </Form>
-				`}</Prism>
+        <a href=""></a>
         <Form onSubmit={onSubmit}>
           <Field placeholder="Freddie Fresh">Name</Field>
           <Field type="email">Email</Field>
