@@ -12,12 +12,6 @@ https://fresh.leveluptutorials.com/
 
 ## Install
 
-# construction.gif
-
-## Use at your own risk, rapidly changing / not working.
-
-# construction.gif
-
 ```bash
 yarn add @leveluptuts/fresh
 ```
@@ -28,34 +22,43 @@ yarn add @leveluptuts/fresh
 
 ```jsx
 import { Form, Field } from '@leveluptuts/fresh'
-;<Form
-  onSubmit={data => {
-    console.log(data)
-  }}
->
-  <Field>Name</Field>
-  <Field type="number">Number</Field>
-  <Field type="select" options={options} />
-</Form>
+const CoolApp = () => {
+  return (
+    <Form
+      onSubmit={data => {
+        console.log(data)
+      }}
+    >
+      <Field>Name</Field>
+      <Field type="number">Number</Field>
+      <Field type="select" options={options} />
+    </Form>
+  )
+}
 ```
 
 ### A slightly less basic form
 
 ```jsx
 import { Form, Field } from '@leveluptuts/fresh'
-;<Form onSubmit={onSubmit}>
-  <Field>Name</Field>
-  <Field type="email">Email</Field>
-  <Field type="password">Password</Field>
-  <Field type="tags">Tags</Field>
-  <Field type="number">Number</Field>
-  <Field required type="select" options={options}>
-    Type
-  </Field>
-  <Field type="textarea">Text Area</Field>
-  <Field type="markdown">Markdown</Field>
-  <Field type="toggle">Markdown</Field>
-</Form>
+
+const CoolApp = () => {
+  return (
+    <Form onSubmit={onSubmit}>
+      <Field>Name</Field>
+      <Field type="email">Email</Field>
+      <Field type="password">Password</Field>
+      <Field type="tags">Tags</Field>
+      <Field type="number">Number</Field>
+      <Field required type="select" options={options}>
+        Type
+      </Field>
+      <Field type="textarea">Text Area</Field>
+      <Field type="markdown">Markdown</Field>
+      <Field type="toggle">Markdown</Field>
+    </Form>
+  )
+}
 ```
 
 ### How about one with default values?
@@ -68,11 +71,15 @@ const defaultValues = {
   email: 'scott@test.com',
 }
 
-<Form onSubmit={onSubmit} defaultValues={defaultValues}>
-  <Field>Name</Field>
-  <Field type="email">Email</Field>
-  <Field>Two Words</Field>
-</Form>
+const CoolApp = () => {
+  return (
+    <Form onSubmit={onSubmit} defaultValues={defaultValues}>
+      <Field>Name</Field>
+      <Field type="email">Email</Field>
+      <Field>Two Words</Field>
+    </Form>
+  )
+}
 ```
 
 ## API
