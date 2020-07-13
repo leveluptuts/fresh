@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { FormProvider, FormContext, FieldStateInterface } from './state/State'
-import Global from './style'
 import CancelButton from './form/CancelButton'
 export { default as Field } from './Field'
+import './fields/global.css'
 
 interface defaultValuesInterface {
   defaultValues?: object
@@ -15,7 +15,6 @@ interface FormProps {
 const Form = ({ defaultValues = {}, ...rest }: FormProps) => {
   return (
     <FormProvider defaultValues={defaultValues}>
-      <Global />
       <FormWrapper {...(rest as FormWrapperProps)} />
     </FormProvider>
   )

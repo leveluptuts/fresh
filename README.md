@@ -143,6 +143,10 @@ The common API is shared among all <Field /> elements. Type specific fields are 
 
 Not complete / in use yet, just standard html 5 validation
 
+### Styles
+
+Add css from global.css in this repo to get the library styles if you would like them.
+
 ## FAQ
 
 ### Can I customize this component in my own way?
