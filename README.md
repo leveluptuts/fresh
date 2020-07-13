@@ -147,6 +147,8 @@ Not complete / in use yet, just standard html 5 validation
 
 Add css from global.css in this repo to get the library styles if you would like them.
 
+https://github.com/leveluptuts/fresh/blob/main/src/fields/global.css
+
 ## FAQ
 
 ### Can I customize this component in my own way?
