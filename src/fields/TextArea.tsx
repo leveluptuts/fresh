@@ -1,5 +1,5 @@
 import React from 'react'
-import useSpecialField from '../hooks/useSpecialField'
+import { useForm } from '../state/formState'
 
 interface RefValue {
   id: string
@@ -21,22 +21,26 @@ type Props = {
   tooltip?: string
   strength?: boolean
   displayProperty?: string
+  formId: string
 }
 
 export const TextArea: React.FC<Props> = ({
-  defaultValue = '',
-  fieldId,
-  placeholder,
   className,
+  fieldId,
+  formId,
+  placeholder,
+  defaultValue = '',
 }) => {
-  const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
+  const { data, setField, isReady } = useForm()
+
+  if (!isReady) return null
   return (
     <textarea
-      id={`fresh-${fieldId}`}
+      id={`fresh-${fieldId}-${formId}`}
       placeholder={placeholder}
-      value={fieldState || ''}
+      value={data[formId][fieldId]}
       className={`fresh-input fresh-input-textarea ${className}`}
-      onChange={e => update({ id: fieldId, value: e.target.value })}
+      onChange={e => setField(fieldId, e.target.value, formId)}
     />
   )
 }

@@ -1,21 +1,24 @@
 import React from 'react'
-import useSpecialField from '../hooks/useSpecialField'
 import TagsInput from 'react-tagsinput'
 import { FieldInterface } from './types'
+import { useForm } from '../state/formState'
 
 const Tags = ({
   defaultValue = [],
   fieldId,
   className = '',
+  formId,
 }: FieldInterface) => {
-  const { update, fieldState } = useSpecialField({ fieldId, defaultValue })
+  const { data, setField, isReady } = useForm()
+  // If the form is not registered or there is not data object
+  if (!isReady) return null
 
   return (
     <TagsInput
-      value={fieldState || []}
-      onChange={value => update({ id: fieldId, value })}
+      value={data[formId][fieldId] || []}
+      onChange={value => setField(fieldId, value, formId)}
       className={`fresh-input-tags ${className}`}
-      id={`fresh-${fieldId}`}
+      id={`fresh-${fieldId}-${formId}`}
       style={{
         marginTop: '1rem',
       }}

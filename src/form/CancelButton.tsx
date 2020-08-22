@@ -1,17 +1,19 @@
-import React, { useContext } from 'react'
-import PropTypes from 'prop-types'
-import { FormContext } from '../state/State'
+import React from 'react'
+import { useForm } from '../state/formState'
 
-const CancelButton = ({ cancelAction, cancelText }) => {
-  const { resetForm } = useContext(FormContext)
-
+const CancelButton = ({
+  cancelAction,
+  cancelText = 'Cancel',
+  formId,
+}: Props) => {
+  const { data, setField, isReady, resetForm } = useForm()
   return (
     <button
       id="fresh-cancel"
       className="fresh-button fresh-cancel"
       onClick={() => {
-        cancelAction()
-        resetForm()
+        cancelAction(formId)
+        resetForm(formId)
       }}
       type="reset"
     >
@@ -20,12 +22,9 @@ const CancelButton = ({ cancelAction, cancelText }) => {
   )
 }
 
-CancelButton.propTypes = {
-  cancelAction: PropTypes.func.isRequired,
-  cancelText: PropTypes.string,
-}
-
-CancelButton.defaultProps = {
-  cancelText: 'Cancel',
+type Props = {
+  cancelAction: (resetForm) => void
+  cancelText: string
+  formId: string
 }
 export default CancelButton

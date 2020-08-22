@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { FormProvider, FormContext, FieldStateInterface } from './state/State'
+import React, { useEffect } from 'react'
+import { useForm } from './state/formState'
 import CancelButton from './form/CancelButton'
 export { default as Field } from './Field'
 import './fields/global.css'
@@ -8,58 +8,56 @@ interface defaultValuesInterface {
   defaultValues?: object
 }
 
-interface FormProps {
-  defaultValues?: defaultValuesInterface
-}
-
-const Form = ({ defaultValues = {}, ...rest }: FormProps) => {
-  return (
-    <FormProvider defaultValues={defaultValues}>
-      <FormWrapper {...(rest as FormWrapperProps)} />
-    </FormProvider>
-  )
-}
-
-type FormWrapperProps = {
+type FormProps = {
   cancelAction(): void
   cancelButton?: boolean
   cancelText?: string
+  formId: string
   className?: string
+  defaultValues?: defaultValuesInterface
   onSubmit(formState: object): void
   onChange?(formState: object): void
   submitText?: string
 }
 
-const FormWrapper: React.FC<FormWrapperProps> = ({
+const Form: React.FC<FormProps> = ({
   cancelAction = () => null,
   onChange = null,
   cancelButton = true,
   cancelText = 'Cancel',
   children,
-  className = '',
+  formId,
   onSubmit,
   submitText = 'Submit',
+  className = '',
+  defaultValues = {},
 }) => {
-  const { formState }: FieldStateInterface = useContext(FormContext)
+  const { data, setDefaults, setForm, register } = useForm()
+
+  useEffect(() => {
+    register(formId)
+    setDefaults(defaultValues, formId)
+    setForm(defaultValues, formId)
+  }, [])
+
+  // Temp any to get compiling
+  let elements: any = React.Children.toArray(children)
+  const newElements = elements.map(element =>
+    React.cloneElement(element, { formId })
+  )
 
   return (
     <form
       className={`${className} fresh-form`}
       onSubmit={e => {
         e.preventDefault()
-        const data: defaultValuesInterface = { ...formState }
-        delete data.defaultValues
-        onSubmit(data)
+        onSubmit(data[formId])
       }}
       onChange={() => {
-        if (onChange) {
-          const data: defaultValuesInterface = { ...formState }
-          delete data.defaultValues
-          onChange(data)
-        }
+        if (onChange) onChange(data[formId])
       }}
     >
-      {children}
+      {newElements}
       <div>
         <button
           id="fresh-submit"
@@ -69,7 +67,11 @@ const FormWrapper: React.FC<FormWrapperProps> = ({
           {submitText}
         </button>
         {cancelButton && (
-          <CancelButton cancelAction={cancelAction} cancelText={cancelText} />
+          <CancelButton
+            formId={formId}
+            cancelAction={cancelAction}
+            cancelText={cancelText}
+          />
         )}
       </div>
     </form>

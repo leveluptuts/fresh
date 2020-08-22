@@ -11,14 +11,8 @@ import Markdown from './fields/Markdown'
 import Text from './fields/Text'
 import Toggle from './fields/Toggle'
 
-const kebabCase = str =>
-  str
-    .replace(/([a-z])([A-Z])/g, '$1-$2')
-    .replace(/[\s_]+/g, '-')
-    .toLowerCase()
-
-const camelCase = str => {
-  return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
+const camelCase = (str) => {
+  return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match, index) {
     if (+match === 0) return ''
     return index == 0 ? match.toLowerCase() : match.toUpperCase()
   })
@@ -41,6 +35,7 @@ const Field = ({
   tooltip,
   readOnly = false,
   wrapperStyle = {},
+  formId = '',
 }: FieldInterface) => {
   const fieldId = name || camelCase(children)
 
@@ -57,6 +52,7 @@ const Field = ({
     defaultValue,
     displayProperty,
     readOnly,
+    formId,
   }
 
   return (

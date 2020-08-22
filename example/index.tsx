@@ -49,7 +49,7 @@ const App = () => {
           borderRadius: '10px',
         }}
       >
-        <h3>Basic Form</h3>
+        {/* <h3>Basic Form</h3>
         <iframe
           src="https://codesandbox.io/embed/hungry-galileo-s2kl0?fontsize=14&hidenavigation=1&theme=dark"
           style={{
@@ -62,11 +62,10 @@ const App = () => {
           title="hungry-galileo-s2kl0"
           allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-        ></iframe>
+        ></iframe> */}
 
         <h3>Bigger Form</h3>
-        <a href=""></a>
-        <Form onSubmit={onSubmit}>
+        <Form formId="bigger-form" onSubmit={onSubmit}>
           <Field placeholder="Freddie Fresh">Name</Field>
           <Field type="email">Email</Field>
           <Field type="password">Password</Field>
@@ -89,7 +88,7 @@ const App = () => {
         </Form>
 
         <h3>Default Values</h3>
-        <Form onSubmit={onSubmit} defaultValues={defaultValues}>
+        <Form formId="tester" onSubmit={onSubmit} defaultValues={defaultValues}>
           <Field wrapperStyle={{ width: '100%' }}>Name</Field>
           <Field type="email">Email</Field>
           <Field>Two Words</Field>

@@ -1,6 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import useSpecialField from '../hooks/useSpecialField'
+import { useForm } from '../state/formState'
 import { FieldInterface } from './types'
 
 const Password = ({
@@ -11,24 +10,30 @@ const Password = ({
   fieldId,
   strength = true,
   type,
+  formId,
 }: FieldInterface) => {
-  const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
-  const strengthValue = calculateScore(fieldState || '')
+  const { data, setField, isReady } = useForm()
+  // If the form is not registered or there is not data object
+
+  if (!isReady) return null
+
+  const strengthValue = calculateScore(data[formId][fieldId] || '')
+
   let strengthMeter = {
     background: '#ccc',
     width: 'calc(193px * 0.25)',
   }
-  if (strengthValue === 2) {
+  if (strengthValue >= 2 && strengthValue < 3) {
     strengthMeter = {
       width: 'calc(193px * 0.5)',
       background: 'red',
     }
-  } else if (strengthValue === 3) {
+  } else if (strengthValue >= 3 && strengthValue < 4) {
     strengthMeter = {
       width: 'calc(193px * 0.75)',
       background: 'red',
     }
-  } else if (strengthValue === 4) {
+  } else if (strengthValue >= 4) {
     strengthMeter = {
       width: 'calc(193px * 1)',
       background: 'green',
@@ -41,9 +46,9 @@ const Password = ({
         placeholder={placeholder}
         type={type}
         required={required}
-        value={fieldState || ''}
-        id={`fresh-${fieldId}`}
-        onChange={e => update({ value: e.target.value, id: fieldId })}
+        id={`fresh-${fieldId}-${formId}`}
+        value={data[formId][fieldId]}
+        onChange={e => setField(fieldId, e.target.value, formId)}
       />
       {strength && (
         <div
@@ -58,17 +63,6 @@ const Password = ({
     </>
   )
 }
-
-Password.propTypes = {
-  strength: PropTypes.bool,
-  placeholder: PropTypes.string,
-}
-
-Password.defaultProps = {
-  placeholder: '',
-}
-
-export default Password
 
 const options = {
   showText: true,
@@ -139,3 +133,5 @@ function calculateScore(password: string) {
 
   return score * 0.04
 }
+
+export default Password

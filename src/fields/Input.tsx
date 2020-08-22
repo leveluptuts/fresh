@@ -1,3 +1,5 @@
+import React from 'react'
+
 type InputProps = {
   name: string
   disabled?: boolean

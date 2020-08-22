@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import useSpecialField from '../hooks/useSpecialField'
+import { useForm } from '../state/formState'
 import { FieldInterface } from './types'
 
 const Reference = ({
@@ -10,15 +10,18 @@ const Reference = ({
   defaultValue = '',
   placeholder = '',
   className = '',
+  formId,
 }: FieldInterface) => {
-  const { update, fieldState } = useSpecialField({ fieldId, defaultValue })
-  const [inputValue, setInputValue] = useState('YO')
+  const { data, setField, isReady } = useForm()
+  const [inputValue, setInputValue] = useState('')
   const [isFocused, setIsFocused] = useState(false)
 
+  // If the form is not registered or there is not data object
+  if (!isReady) return null
   return (
     <>
       <input
-        id={`fresh-${fieldId}`}
+        id={`fresh-${fieldId}-${formId}`}
         onChange={e => setInputValue(e.target.value)}
         value={inputValue}
         onFocus={() => setIsFocused(true)}
@@ -40,7 +43,7 @@ const Reference = ({
                 key={option[keyProperty]}
                 style={{ padding: '0.75em' }}
                 onMouseDown={() => {
-                  update({ id: fieldId, value: option })
+                  setField(fieldId, option, formId)
                   setInputValue(option[displayProperty])
                 }}
               >

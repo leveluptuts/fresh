@@ -1,20 +1,24 @@
 import React from 'react'
-import useSpecialField from '../hooks/useSpecialField'
 import { FieldInterface } from './types'
+import { useForm } from '../state/formState'
 
 const Select = ({
   options,
   fieldId,
+  formId,
   defaultValue = 0,
   className = '',
 }: FieldInterface) => {
-  const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
+  const { data, setField, isReady } = useForm()
+  // If the form is not registered or there is not data object
+  if (!isReady) return null
+
   return (
     <select
-      id={`fresh-${fieldId}`}
+      id={`fresh-${fieldId}-${formId}`}
       className={`fresh-input fresh-input-select ${className}`}
-      onChange={e => update({ id: fieldId, value: e.target.value })}
-      value={fieldState}
+      onChange={e => setField(fieldId, e.target.value, formId)}
+      value={data[formId][fieldId]}
     >
       {options.map(option => (
         <option value={option} key={option} className="fresh-option">
@@ -26,3 +30,5 @@ const Select = ({
 }
 
 export default Select
+
+// TODO have default option as initial value

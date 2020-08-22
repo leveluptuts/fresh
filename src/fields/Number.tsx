@@ -1,5 +1,5 @@
 import React from 'react'
-import useSpecialField from '../hooks/useSpecialField'
+import { useForm } from '../state/formState'
 import { FieldInterface } from './types'
 
 const NumberField = ({
@@ -7,27 +7,24 @@ const NumberField = ({
   defaultValue = null,
   placeholder,
   required,
+  formId,
   className,
 }: FieldInterface) => {
-  const { fieldState, update } = useSpecialField({
-    fieldId,
-    defaultValue,
-  })
+  const { data, setField, isReady } = useForm()
+  if (!isReady) return null
   return (
-    <>
-      <input
-        required={required}
-        className={`fresh-input fresh-input-number ${className}`}
-        placeholder={placeholder}
-        id={`fresh-${fieldId}`}
-        type="number"
-        value={fieldState === undefined ? null : fieldState}
-        onChange={e => {
-          const value = e.target.value ? parseInt(e.target.value) : null
-          update({ id: fieldId, value })
-        }}
-      />
-    </>
+    <input
+      required={required}
+      className={`fresh-input fresh-input-number ${className}`}
+      placeholder={placeholder}
+      id={`fresh-${fieldId}-${formId}`}
+      type="number"
+      value={data[formId][fieldId]}
+      onChange={e => {
+        const value = e.target.value ? parseInt(e.target.value) : null
+        setField(fieldId, value, formId)
+      }}
+    />
   )
 }
 

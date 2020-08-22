@@ -1,25 +1,28 @@
 import React from 'react'
 import Markdown from 'markdown-to-jsx'
-import useSpecialField from '../hooks/useSpecialField'
+import { useForm } from '../state/formState'
+
 import { FieldInterface } from './types'
 
 export const TextArea = ({
   defaultValue = '',
   fieldId,
   placeholder,
+  formId,
 }: FieldInterface) => {
-  const { fieldState, update } = useSpecialField({ fieldId, defaultValue })
+  const { data, setField, isReady } = useForm()
+  if (!isReady) return null
   return (
     <div className="fresh-markdown-wrapper">
       <textarea
         id={`fresh-${fieldId}`}
         placeholder={placeholder}
-        value={fieldState || ''}
+        value={data[formId][fieldId]}
         className="fresh-input fresh-input-textarea"
-        onChange={e => update({ id: fieldId, value: e.target.value })}
+        onChange={e => setField(fieldId, e.target.value, formId)}
       />
       <div className="fresh-input fresh-input-markdown">
-        <Markdown children={fieldState || ''} />
+        <Markdown children={data[formId][fieldId] || ''} />
       </div>
     </div>
   )

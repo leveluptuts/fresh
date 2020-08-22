@@ -7,6 +7,7 @@ export interface FieldInterface {
   required?: boolean
   children: string
   type?: string
+  formId?: string
   fieldId?: string
   name?: string
   label?: boolean
