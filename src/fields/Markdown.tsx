@@ -1,17 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Markdown from 'markdown-to-jsx'
 import { useForm } from '../state/formState'
 
 import { FieldInterface } from './types'
 
-export const TextArea = ({
-  defaultValue = '',
+export const MarkdownTextArea = ({
   fieldId,
   placeholder,
   formId,
 }: FieldInterface) => {
-  const { data, setField, isReady } = useForm()
-  if (!isReady) return null
+  const { data, setField, defaultValues, registerField } = useForm()
+  useEffect(() => {
+    const defaultValue = defaultValues?.[formId]?.[fieldId] ?? ''
+    registerField(fieldId, defaultValue, formId)
+  }, [])
+  if (!(fieldId in data[formId])) return null
+
   return (
     <div className="fresh-markdown-wrapper">
       <textarea
@@ -28,4 +32,4 @@ export const TextArea = ({
   )
 }
 
-export default TextArea
+export default MarkdownTextArea

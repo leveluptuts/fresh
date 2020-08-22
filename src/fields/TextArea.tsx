@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from '../state/formState'
 
 interface RefValue {
@@ -17,7 +17,6 @@ type Props = {
   placeholder?: string
   options: any
   className?: string
-  defaultValue?: string | boolean | number | [] | RefValue | {}
   tooltip?: string
   strength?: boolean
   displayProperty?: string
@@ -29,11 +28,15 @@ export const TextArea: React.FC<Props> = ({
   fieldId,
   formId,
   placeholder,
-  defaultValue = '',
 }) => {
-  const { data, setField, isReady } = useForm()
+  const { data, setField, registerField, defaultValues } = useForm()
 
-  if (!isReady) return null
+  useEffect(() => {
+    const defaultValue = defaultValues?.[formId]?.[fieldId] ?? ''
+    registerField(fieldId, defaultValue, formId)
+  }, [])
+  if (!(fieldId in data[formId])) return null
+
   return (
     <textarea
       id={`fresh-${fieldId}-${formId}`}

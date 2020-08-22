@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FieldInterface } from './types'
 import { useForm } from '../state/formState'
 
@@ -10,9 +10,13 @@ const Text = ({
   type,
   formId,
 }: FieldInterface) => {
-  const { data, setField, isReady } = useForm()
-  // If the form is not registered or there is not data object
-  if (!isReady) return null
+  const { data, setField, registerField, defaultValues } = useForm()
+  useEffect(() => {
+    const defaultValue = defaultValues?.[formId]?.[fieldId] ?? ''
+    registerField(fieldId, defaultValue, formId)
+  }, [])
+  if (!(fieldId in data[formId])) return null
+
   return (
     <input
       required={required}

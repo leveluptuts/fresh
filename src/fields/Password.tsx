@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from '../state/formState'
 import { FieldInterface } from './types'
 
 const Password = ({
-  defaultValue = '',
   placeholder,
   className = '',
   required,
@@ -12,12 +11,15 @@ const Password = ({
   type,
   formId,
 }: FieldInterface) => {
-  const { data, setField, isReady } = useForm()
+  const { data, setField, defaultValues, registerField } = useForm()
   // If the form is not registered or there is not data object
+  useEffect(() => {
+    const defaultValue = defaultValues?.[formId]?.[fieldId] ?? ''
+    registerField(fieldId, defaultValue, formId)
+  }, [])
+  if (!(fieldId in data[formId])) return null
 
-  if (!isReady) return null
-
-  const strengthValue = calculateScore(data[formId][fieldId] || '')
+  const strengthValue = calculateScore(data[formId][fieldId] ?? '')
 
   let strengthMeter = {
     background: '#ccc',

@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FieldInterface } from './types'
 import { useForm } from '../state/formState'
 
 const Toggle = ({ fieldId, className = '', formId }: FieldInterface) => {
-  const { data, setField, isReady } = useForm()
-  if (!isReady) return null
+  const { data, setField, defaultValues, registerField } = useForm()
+  useEffect(() => {
+    const defaultValue = defaultValues?.[formId]?.[fieldId] ?? false
+    registerField(fieldId, defaultValue, formId)
+  }, [])
+  if (!(fieldId in data[formId])) return null
+
   return (
     <div className={`${className} fresh-switch`}>
       <input
@@ -12,11 +17,11 @@ const Toggle = ({ fieldId, className = '', formId }: FieldInterface) => {
         type="checkbox"
         id={`fresh-${fieldId}`}
         className="fresh-input-toggle"
-        onChange={e => setField(fieldId, !data[formId][fieldId], formId)}
+        onChange={_ => setField(fieldId, !data[formId][fieldId], formId)}
       />
       <span
         className={`fresh-slider ${data[formId][fieldId] ? `on` : ''}`}
-        onChange={e => setField(fieldId, !data[formId][fieldId], formId)}
+        onChange={_ => setField(fieldId, !data[formId][fieldId], formId)}
       />
     </div>
   )

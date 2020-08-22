@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useForm } from '../state/formState'
 import { FieldInterface } from './types'
 
@@ -7,14 +7,19 @@ const Reference = ({
   fieldId,
   keyProperty = 'id',
   displayProperty,
-  defaultValue = '',
   placeholder = '',
   className = '',
   formId,
 }: FieldInterface) => {
-  const { data, setField, isReady } = useForm()
+  const { data, setField, isReady, defaultValues, registerField } = useForm()
   const [inputValue, setInputValue] = useState('')
   const [isFocused, setIsFocused] = useState(false)
+
+  useEffect(() => {
+    const defaultValue = defaultValues?.[formId]?.[fieldId] ?? ''
+    registerField(fieldId, defaultValue, formId)
+  }, [])
+  if (!(fieldId in data[formId])) return null
 
   // If the form is not registered or there is not data object
   if (!isReady) return null

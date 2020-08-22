@@ -6,23 +6,23 @@ import { immer } from './immer'
 const store = (set: (val: any) => any) => ({
   data: {},
   isReady: false,
-  default: {},
+  defaultValues: {},
   setForm: (formData: any, formId: string) =>
     set((state: any) => {
       state.data[formId] = { ...formData }
     }),
   setField: (id: string, value: any, formId: string) =>
     set((state: any) => {
-      console.log(state.data?.[formId]?.[id], formId, id)
       state.data[formId][id] = value
     }),
   setDefaults: (formData: any, formId: string) =>
     set((state: any) => {
-      state.default[formId] = { ...formData }
+      state.defaultValues[formId] = { ...formData }
     }),
-  register: (formId: string) =>
+  register: (formData: any, formId: string) =>
     set((state: any) => {
-      state.data[formId] = {}
+      state.data[formId] = { ...formData }
+      state.defaultValues[formId] = { ...formData }
       state.isReady = true
     }),
   registerField: (fieldId: string, defaultValue: any, formId: string) =>
@@ -31,7 +31,7 @@ const store = (set: (val: any) => any) => ({
     }),
   resetForm: (formId: string) =>
     set((state: any) => {
-      state.data[formId] = {}
+      state.data[formId] = state.defaultValues[formId]
     }),
 })
 

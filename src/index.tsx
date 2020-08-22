@@ -32,13 +32,13 @@ const Form: React.FC<FormProps> = ({
   className = '',
   defaultValues = {},
 }) => {
-  const { data, setDefaults, setForm, register } = useForm()
+  const { data, setDefaults, setForm, register, isReady } = useForm()
 
   useEffect(() => {
-    register(formId)
-    setDefaults(defaultValues, formId)
-    setForm(defaultValues, formId)
+    register(defaultValues, formId)
   }, [])
+
+  if (!isReady) return null
 
   // Temp any to get compiling
   let elements: any = React.Children.toArray(children)

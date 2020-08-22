@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FieldInterface } from './types'
 import { useForm } from '../state/formState'
 
@@ -6,12 +6,14 @@ const Select = ({
   options,
   fieldId,
   formId,
-  defaultValue = 0,
   className = '',
 }: FieldInterface) => {
-  const { data, setField, isReady } = useForm()
-  // If the form is not registered or there is not data object
-  if (!isReady) return null
+  const { data, setField, registerField, defaultValues } = useForm()
+  useEffect(() => {
+    const defaultValue = defaultValues?.[formId]?.[fieldId] ?? options[0]
+    registerField(fieldId, defaultValue, formId)
+  }, [])
+  if (!(fieldId in data[formId])) return null
 
   return (
     <select
@@ -30,5 +32,3 @@ const Select = ({
 }
 
 export default Select
-
-// TODO have default option as initial value

@@ -1,17 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from '../state/formState'
 import { FieldInterface } from './types'
 
 const NumberField = ({
   fieldId,
-  defaultValue = null,
   placeholder,
   required,
   formId,
   className,
 }: FieldInterface) => {
-  const { data, setField, isReady } = useForm()
-  if (!isReady) return null
+  const { data, setField, defaultValues, registerField } = useForm()
+  useEffect(() => {
+    const defaultValue = defaultValues?.[formId]?.[fieldId] ?? ''
+    registerField(fieldId, defaultValue, formId)
+  }, [])
+  if (!(fieldId in data[formId])) return null
+
   return (
     <input
       required={required}
