@@ -25,6 +25,7 @@ import { Form, Field } from '@leveluptuts/fresh'
 const CoolApp = () => {
   return (
     <Form
+      formId="simple"
       onSubmit={data => {
         console.log(data)
       }}
@@ -44,7 +45,7 @@ import { Form, Field } from '@leveluptuts/fresh'
 
 const CoolApp = () => {
   return (
-    <Form onSubmit={onSubmit}>
+    <Form formId="less-simple" onSubmit={onSubmit}>
       <Field>Name</Field>
       <Field type="email">Email</Field>
       <Field type="password">Password</Field>
@@ -73,7 +74,7 @@ const defaultValues = {
 
 const CoolApp = () => {
   return (
-    <Form onSubmit={onSubmit} defaultValues={defaultValues}>
+    <Form formId="defaults" onSubmit={onSubmit} defaultValues={defaultValues}>
       <Field>Name</Field>
       <Field type="email">Email</Field>
       <Field>Two Words</Field>
@@ -90,6 +91,7 @@ The wrapper around your fields.
 
 | Prop          | Type    | Default        | Description                                                                                                           |
 | ------------- | ------- | -------------- | --------------------------------------------------------------------------------------------------------------------- |
+| formId        | string  | \*required     | used to keep track of individual form instances.                                                                      |
 | onSubmit      | func    | (data) => data | Can be any of the following types. text (default), email, number, select, password, textarea, tags. (See types below) |
 | cancelButton  | boolean | true           | if cancel is shown                                                                                                    |
 | disabled      | boolean | false          | if the form is disabled                                                                                               |
