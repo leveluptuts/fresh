@@ -21,5 +21,6 @@ export interface FieldInterface {
   strength?: boolean
   readOnly?: boolean
   displayProperty?: string
+  valueProperty?: string
   wrapperStyle?: object
 }

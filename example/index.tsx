@@ -3,6 +3,12 @@ import * as ReactDOM from 'react-dom'
 import { Form, Field, useForm } from '../.'
 
 const options = ['prerelease', 'active', 'retired', 'hidden']
+const optionsTwo = [
+  { value: 'prerelease', display: 'Pre Release' },
+  { value: 'active', display: 'Active' },
+  { value: 'retired', display: 'Pre Release' },
+  { value: 'hidden', display: 'Pre Release' },
+]
 
 const refOptions = [
   {
@@ -78,6 +84,14 @@ const App = () => {
           <Field type="number">Number</Field>
           <Field required type="select" options={options}>
             Type
+          </Field>
+          <Field
+            displayProperty="display"
+            valueProperty="value"
+            type="select"
+            options={optionsTwo}
+          >
+            Type With Object
           </Field>
           <Field type="textarea">Text Area</Field>
           <Field type="markdown">Markdown</Field>

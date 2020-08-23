@@ -6,6 +6,8 @@ const Select = ({
   options,
   fieldId,
   formId,
+  displayProperty = '',
+  valueProperty = '',
   className = '',
 }: FieldInterface) => {
   const { data, setField, registerField, defaultValues } = useForm()
@@ -22,9 +24,13 @@ const Select = ({
       onChange={e => setField(fieldId, e.target.value, formId)}
       value={data[formId][fieldId]}
     >
-      {options.map(option => (
-        <option value={option} key={option} className="fresh-option">
-          {option}
+      {options.map((option, i) => (
+        <option
+          value={option?.[valueProperty] || option}
+          key={`fresh-${fieldId}-${formId}-${i}`}
+          className="fresh-option"
+        >
+          {option?.[displayProperty] || option}
         </option>
       ))}
     </select>
