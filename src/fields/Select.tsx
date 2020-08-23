@@ -12,7 +12,10 @@ const Select = ({
 }: FieldInterface) => {
   const { data, setField, registerField, defaultValues } = useForm()
   useEffect(() => {
-    const defaultValue = defaultValues?.[formId]?.[fieldId] ?? options[0]
+    const defaultValue = defaultValues?.[formId]?.[fieldId]
+      ? defaultValues?.[formId]?.[fieldId]?.[valueProperty] ||
+        defaultValues?.[formId]?.[fieldId]
+      : options[0]
     registerField(fieldId, defaultValue, formId)
   }, [])
   if (!(fieldId in data[formId])) return null

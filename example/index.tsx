@@ -6,7 +6,7 @@ const options = ['prerelease', 'active', 'retired', 'hidden']
 const optionsTwo = [
   { value: 'prerelease', display: 'Pre Release' },
   { value: 'active', display: 'Active' },
-  { value: 'retired', display: 'Pre Release' },
+  { value: 'retired', display: 'Retired' },
   { value: 'hidden', display: 'Pre Release' },
 ]
 
@@ -29,6 +29,7 @@ const defaultValues = {
   name: 'Freddie Fresh',
   email: 'scott@test.com',
   twoWords: 'Too fresh',
+  typeWithObject: { value: 'retired', display: 'Retired' },
 }
 
 const App = () => {
@@ -107,6 +108,14 @@ const App = () => {
           <Field type="email">Email</Field>
           <Field type="email">Email Two</Field>
           <Field>Two Words</Field>
+          <Field
+            displayProperty="display"
+            valueProperty="value"
+            type="select"
+            options={optionsTwo}
+          >
+            Type With Object
+          </Field>
         </Form>
       </div>
     </div>

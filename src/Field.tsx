@@ -32,6 +32,7 @@ const Field = ({
   className = '',
   defaultValue = '',
   displayProperty = '',
+  valueProperty = '',
   keyProperty = 'id',
   tooltip,
   readOnly = false,
@@ -66,7 +67,13 @@ const Field = ({
         {(() => {
           switch (type) {
             case 'select':
-              return <Select fieldId={fieldId} {...standardProps} />
+              return (
+                <Select
+                  fieldId={fieldId}
+                  valueProperty={valueProperty}
+                  {...standardProps}
+                />
+              )
             case 'reference':
               return (
                 <Reference
