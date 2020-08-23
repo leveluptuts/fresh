@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { FormContext } from './state/formState'
 import { FieldInterface } from './fields/types'
 import Tooltip from './form/Tooltip'
 import Select from './fields/Select'
@@ -35,9 +36,9 @@ const Field = ({
   tooltip,
   readOnly = false,
   wrapperStyle = {},
-  formId = '',
 }: FieldInterface) => {
   const fieldId = name || camelCase(children)
+  const { formId } = useContext(FormContext)
 
   const standardProps = {
     children,

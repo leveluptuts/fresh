@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { Form, Field } from '../.'
+import { Form, Field, useForm } from '../.'
 
 const options = ['prerelease', 'active', 'retired', 'hidden']
 
@@ -91,6 +91,7 @@ const App = () => {
         <Form formId="tester" onSubmit={onSubmit} defaultValues={defaultValues}>
           <Field wrapperStyle={{ width: '100%' }}>Name</Field>
           <Field type="email">Email</Field>
+          <Field type="email">Email Two</Field>
           <Field>Two Words</Field>
         </Form>
       </div>

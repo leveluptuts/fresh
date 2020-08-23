@@ -1,3 +1,4 @@
+import React from 'react'
 import create from 'zustand'
 import { immer } from './immer'
 
@@ -36,3 +37,5 @@ const store = (set: (val: any) => any) => ({
 })
 
 export const useForm = create(immer(store))
+
+export const FormContext = React.createContext(null)

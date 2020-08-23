@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useForm } from './state/formState'
+import { useForm, FormContext } from './state/formState'
 import CancelButton from './form/CancelButton'
 export { default as Field } from './Field'
 import './fields/global.css'
@@ -32,7 +32,7 @@ const Form: React.FC<FormProps> = ({
   className = '',
   defaultValues = {},
 }) => {
-  const { data, setDefaults, setForm, register, isReady } = useForm()
+  const { data, register, isReady } = useForm()
 
   useEffect(() => {
     register(defaultValues, formId)
@@ -40,41 +40,37 @@ const Form: React.FC<FormProps> = ({
 
   if (!isReady) return null
 
-  // Temp any to get compiling
-  let elements: any = React.Children.toArray(children)
-  const newElements = elements.map(element =>
-    React.cloneElement(element, { formId })
-  )
-
   return (
-    <form
-      className={`${className} fresh-form`}
-      onSubmit={e => {
-        e.preventDefault()
-        onSubmit(data[formId])
-      }}
-      onChange={() => {
-        if (onChange) onChange(data[formId])
-      }}
-    >
-      {newElements}
-      <div>
-        <button
-          id="fresh-submit"
-          className="fresh-button fresh-submit"
-          type="submit"
-        >
-          {submitText}
-        </button>
-        {cancelButton && (
-          <CancelButton
-            formId={formId}
-            cancelAction={cancelAction}
-            cancelText={cancelText}
-          />
-        )}
-      </div>
-    </form>
+    <FormContext.Provider value={{ formId }}>
+      <form
+        className={`${className} fresh-form`}
+        onSubmit={e => {
+          e.preventDefault()
+          onSubmit(data[formId])
+        }}
+        onChange={() => {
+          if (onChange) onChange(data[formId])
+        }}
+      >
+        {children}
+        <div>
+          <button
+            id="fresh-submit"
+            className="fresh-button fresh-submit"
+            type="submit"
+          >
+            {submitText}
+          </button>
+          {cancelButton && (
+            <CancelButton
+              formId={formId}
+              cancelAction={cancelAction}
+              cancelText={cancelText}
+            />
+          )}
+        </div>
+      </form>
+    </FormContext.Provider>
   )
 }
 
@@ -84,4 +80,4 @@ const Form: React.FC<FormProps> = ({
 // Future api idea <Form mutation={GRAPHQL_MUTATION} /> one liner
 
 // Reset on submit option
-export { Form }
+export { Form, useForm }
