@@ -29,7 +29,7 @@ const defaultValues = {
   name: 'Freddie Fresh',
   email: 'scott@test.com',
   twoWords: 'Too fresh',
-  typeWithObject: { value: 'retired', display: 'Retired' },
+  typeWith: 'retired',
 }
 
 const App = () => {
@@ -108,11 +108,16 @@ const App = () => {
           <Field type="email">Email</Field>
           <Field type="email">Email Two</Field>
           <Field>Two Words</Field>
+          <h3>Tester</h3>
+          <Form formId="inside">
+            <Field>Some thing</Field>
+          </Form>
           <Field
             displayProperty="display"
             valueProperty="value"
             type="select"
             options={optionsTwo}
+            name="typeWith"
           >
             Type With Object
           </Field>

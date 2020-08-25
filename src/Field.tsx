@@ -12,8 +12,8 @@ import Markdown from './fields/Markdown'
 import Text from './fields/Text'
 import Toggle from './fields/Toggle'
 
-const camelCase = (str) => {
-  return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match, index) {
+const camelCase = str => {
+  return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
     if (+match === 0) return ''
     return index == 0 ? match.toLowerCase() : match.toUpperCase()
   })
@@ -56,6 +56,7 @@ const Field = ({
     readOnly,
     formId,
   }
+  console.log('type', type, formId)
 
   return (
     <div className={`fresh-field-wrapper ${fieldId}`} style={wrapperStyle}>

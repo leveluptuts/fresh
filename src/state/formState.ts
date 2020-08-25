@@ -6,7 +6,7 @@ import { immer } from './immer'
 // TODO fix these types
 const store = (set: (val: any) => any) => ({
   data: {},
-  isReady: false,
+  isReady: {},
   defaultValues: {},
   setForm: (formData: any, formId: string) =>
     set((state: any) => {
@@ -24,7 +24,7 @@ const store = (set: (val: any) => any) => ({
     set((state: any) => {
       state.data[formId] = { ...formData }
       state.defaultValues[formId] = { ...formData }
-      state.isReady = true
+      state.isReady[formId] = true
     }),
   registerField: (fieldId: string, defaultValue: any, formId: string) =>
     set((state: any) => {

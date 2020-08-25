@@ -11,6 +11,7 @@ const Select = ({
   className = '',
 }: FieldInterface) => {
   const { data, setField, registerField, defaultValues } = useForm()
+
   useEffect(() => {
     const defaultValue = defaultValues?.[formId]?.[fieldId]
       ? defaultValues?.[formId]?.[fieldId]?.[valueProperty] ||
