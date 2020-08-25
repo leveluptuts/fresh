@@ -56,8 +56,6 @@ const Field = ({
     readOnly,
     formId,
   }
-  console.log('type', type, formId)
-
   return (
     <div className={`fresh-field-wrapper ${fieldId}`} style={wrapperStyle}>
       <label className="fresh-label" htmlFor={`fresh-${fieldId}`}>
