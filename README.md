@@ -83,6 +83,68 @@ const CoolApp = () => {
 }
 ```
 
+### Nested Forms?
+
+```jsx
+import { Form, Field } from '@leveluptuts/fresh'
+
+const defaultValues = {
+  name: 'Brooklyn Boo',
+  email: 'scott@test.com',
+}
+
+const CoolApp = () => {
+  return (
+    <Form formId="defaults" onSubmit={onSubmit} defaultValues={defaultValues}>
+      <Field>Name</Field>
+      <Form
+        formId="nestedForm"
+        onSubmit={onSubmit}
+        defaultValues={defaultValues}
+      >
+        <Field>Name</Field>
+      </Form>
+    </Form>
+  )
+}
+```
+
+### Access any form data, anytime.
+
+```jsx
+import { Form, Field, useForm } from '@leveluptuts/fresh'
+
+const defaultValues = {
+  name: 'Brooklyn Boo',
+  email: 'scott@test.com',
+}
+
+const CoolApp = () => {
+  const { data } = useForm()
+  console.log(data) // data: {  defaults: { name: "" }, secondForm: { name: "" } }
+  return (
+    <>
+      <Form formId="defaults" onSubmit={onSubmit} defaultValues={defaultValues}>
+        <Field>Name</Field>
+      </Form>
+      <Form
+        formId="secondForm"
+        onSubmit={onSubmit}
+        defaultValues={defaultValues}
+      >
+        <Field>Name</Field>
+      </Form>
+    </>
+  )
+}
+```
+
+## Demos
+
+Basic Form - https://codesandbox.io/s/basic-form-s2kl0
+Less Basic Form - https://codesandbox.io/s/less-basic-form-jn1rn
+Conditional Items with useForm hook - https://codesandbox.io/s/with-hook-ch1bg?file=/src/App.js
+
 ## API
 
 ### Form
@@ -140,6 +202,16 @@ The common API is shared among all <Field /> elements. Type specific fields are 
 | --------------- | ---------------- | ------- | --------------------------------------------------- |
 | displayProperty | String           | "'      | Object property of what should be displayed in list |
 | options         | Array of Objects | []      | Object property of what should be displayed in list |
+
+## Hooks
+
+### useForm
+
+`const { data, isReady, defaultValues, setForm, setField, setDefaults, resetForm } = useForm()`
+
+### data
+
+Can access any loaded form on the page via the `data[formId]`. Same with isReady and defaultValues. This allows you to extend the form in all kinds of external fields without having to bundle those elements into the library
 
 ### Errors
 
