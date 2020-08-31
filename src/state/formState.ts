@@ -26,6 +26,10 @@ const store = (set: (val: any) => any) => ({
       state.defaultValues[formId] = { ...formData }
       state.isReady[formId] = true
     }),
+  unregister: (formId: string) =>
+    set((state: any) => {
+      state.isReady[formId] = false
+    }),
   registerField: (fieldId: string, defaultValue: any, formId: string) =>
     set((state: any) => {
       state.data[formId][fieldId] = defaultValue

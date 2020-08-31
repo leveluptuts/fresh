@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useState } from 'react'
 import * as ReactDOM from 'react-dom'
 import { Form, Field, useForm } from '../.'
 
@@ -33,6 +34,7 @@ const defaultValues = {
 }
 
 const App = () => {
+  const [toggled, setToggle] = useState(false)
   // The on submit function is passed a data object with form data
   const onSubmit = data => {
     console.log(data)
@@ -102,7 +104,10 @@ const App = () => {
           </Field>
         </Form>
 
+
         <h3>Default Values</h3>
+        <button onClick={() => setToggle(prev => !prev)}>setToggle</button>
+        {toggled &&
         <Form formId="tester" onSubmit={onSubmit} defaultValues={defaultValues}>
           <Field wrapperStyle={{ width: '100%' }}>Name</Field>
           <Field type="email">Email</Field>
@@ -118,10 +123,11 @@ const App = () => {
             type="select"
             options={optionsTwo}
             name="typeWith"
-          >
+            >
             Type With Object
           </Field>
         </Form>
+          }
       </div>
     </div>
   )

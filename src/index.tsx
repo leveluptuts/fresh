@@ -32,10 +32,13 @@ const Form: React.FC<FormProps> = ({
   className = '',
   defaultValues = {},
 }) => {
-  const { data, register, isReady } = useForm()
+  const { data, register, isReady, unregister } = useForm()
 
   useEffect(() => {
     register(defaultValues, formId)
+    return () => {
+      unregister(formId)
+    }
   }, [])
 
   if (!isReady[formId]) return null
