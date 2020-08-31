@@ -8,7 +8,7 @@ const optionsTwo = [
   { value: 'prerelease', display: 'Pre Release' },
   { value: 'active', display: 'Active' },
   { value: 'retired', display: 'Retired' },
-  { value: 'hidden', display: 'Pre Release' },
+  { value: 'hidden', display: 'Hidden' },
 ]
 
 const refOptions = [
@@ -31,10 +31,10 @@ const defaultValues = {
   email: 'scott@test.com',
   twoWords: 'Too fresh',
   typeWith: 'retired',
+  reference:  { value: 'active', display: 'Active' }
 }
 
 const App = () => {
-  const [toggled, setToggle] = useState(false)
   // The on submit function is passed a data object with form data
   const onSubmit = data => {
     console.log(data)
@@ -106,8 +106,6 @@ const App = () => {
 
 
         <h3>Default Values</h3>
-        <button onClick={() => setToggle(prev => !prev)}>setToggle</button>
-        {toggled &&
         <Form formId="tester" onSubmit={onSubmit} defaultValues={defaultValues}>
           <Field wrapperStyle={{ width: '100%' }}>Name</Field>
           <Field type="email">Email</Field>
@@ -126,8 +124,15 @@ const App = () => {
             >
             Type With Object
           </Field>
+          <Field
+            displayProperty="display"
+            valueProperty="value"
+            type="reference"
+            options={optionsTwo}
+            >
+            Reference
+          </Field>
         </Form>
-          }
       </div>
     </div>
   )

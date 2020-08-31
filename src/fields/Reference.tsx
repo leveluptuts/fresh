@@ -12,7 +12,7 @@ const Reference = ({
   formId,
 }: FieldInterface) => {
   const { data, setField, isReady, defaultValues, registerField } = useForm()
-  const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState(defaultValues?.[formId]?.[fieldId]?.[displayProperty] || '')
   const [isFocused, setIsFocused] = useState(false)
 
   useEffect(() => {
