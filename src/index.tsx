@@ -9,7 +9,7 @@ interface defaultValuesInterface {
 }
 
 type FormProps = {
-  cancelAction(): void
+  cancelAction?: (_:any) => void
   cancelButton?: boolean
   cancelText?: string
   formId: string
