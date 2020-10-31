@@ -4,17 +4,13 @@ import CancelButton from './form/CancelButton'
 export { default as Field } from './Field'
 import './fields/global.css'
 
-interface defaultValuesInterface {
-  defaultValues?: object
-}
-
 type FormProps = {
-  cancelAction?: (_:any) => void
+  cancelAction?: (_: any) => void
   cancelButton?: boolean
   cancelText?: string
   formId: string
   className?: string
-  defaultValues?: defaultValuesInterface
+  defaultValues?: any // sorry. not sure how to type this properly PR wanted
   onSubmit(formState: object): void
   onChange?(formState: object): void
   submitText?: string
