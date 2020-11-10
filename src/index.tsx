@@ -11,7 +11,7 @@ type FormProps = {
   formId: string
   className?: string
   defaultValues?: any // sorry. not sure how to type this properly PR wanted
-  onSubmit(formState: object): void
+  onSubmit(formState: { [key: string]: any }): void
   onChange?(formState: object): void
   submitText?: string
 }
