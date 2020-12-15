@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import Markdown from 'markdown-to-jsx'
+import Markdown from './MarkdownInput'
 import { useForm } from '../state/formState'
 
 import { FieldInterface } from './types'
