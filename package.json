@@ -45,7 +45,7 @@
     "typescript": "^3.9.6"
   },
   "dependencies": {
-    "immer": "^7.0.7",
+    "immer": "^9.0.6",
     "react-is": "^16.13.1",
     "react-tagsinput": "^3.19.0",
     "state": "^0.2.0",
